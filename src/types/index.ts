@@ -42,7 +42,8 @@ export interface Speaker {
   title: string;
   org: string;
   category: 'Chief Guest' | 'Academia' | 'Industry' | 'PSU' | 'Government';
-  photo: string;
+  photo?: string;
+  linkedin?: string;
   bio: string;
   sessionTitle: string;
 }

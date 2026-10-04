@@ -19,7 +19,7 @@ export const CENTENARY_MILESTONES = [
   {
     year: '2026',
     title: 'Centenary Conclave',
-    desc: 'Celebrating 100 years of knowledge and launching "Shatabdi Se Samriddhi" for national impact.',
+    desc: 'Celebrating 100 years of knowledge and launching "Shatabdi Samriddhi" for national impact.',
   },
 ];
 
@@ -61,7 +61,7 @@ export const AGENDA_DATA: AgendaItem[] = [
   {
     id: 'a2',
     time: '10:00 AM - 10:35 AM',
-    title: 'Inaugural Session: Shatabdi Se Samriddhi Opening',
+    title: 'Inaugural Session: Shatabdi Samriddhi Opening',
     session: 'Session I: Shatabdi',
     type: 'ceremony',
     speakers: [
@@ -125,10 +125,8 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Director',
     org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo:
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400',
     bio: 'Prof. Sukumar Mishra is the Director of IIT (ISM) Dhanbad. He is a renowned academician and researcher in electrical engineering and power systems.',
-    sessionTitle: 'Inaugural Address: Shatabdi Se Samriddhi',
+    sessionTitle: 'Inaugural Address: Shatabdi Samriddhi',
   },
   {
     id: 'sp2',
@@ -136,8 +134,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Senior Faculty & Patentee',
     org: 'Dept. of Mining Engineering, IIT (ISM)',
     category: 'Academia',
-    photo:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
     bio: 'Lead inventor for patented self-indexing mechanisms in heavy mining machinery with extensive expertise in mine mechanization and safety.',
     sessionTitle: 'Faculty Research Showcase',
   },
@@ -147,8 +143,6 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Professor & Lead Researcher',
     org: 'Dept. of Mechanical Engineering, IIT (ISM)',
     category: 'Academia',
-    photo:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400',
     bio: 'Pioneer in continuous excavator component lifecycle optimization and sustainable mechanical design for heavy mining equipment.',
     sessionTitle: 'Faculty Research Showcase',
   },
@@ -158,10 +152,26 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Director (Technical / CSR)',
     org: 'Major Public Sector Undertaking (PSU)',
     category: 'PSU',
-    photo:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
     bio: 'Experienced PSU executive overseeing multi-crore regional CSR interventions in mining belts across Jharkhand and Odisha.',
     sessionTitle: 'Session II: PSU Summit',
+  },
+  {
+    id: 'sp5',
+    name: 'Chief Guest [TBC]',
+    title: 'Ministry of Coal / Ministry of Mines',
+    org: 'Government of India',
+    category: 'Chief Guest',
+    bio: 'The Chief Guest for the centenary CSR Conclave will be announced shortly.',
+    sessionTitle: 'Inaugural Session',
+  },
+  {
+    id: 'sp6',
+    name: 'CSR Head [TBC]',
+    title: 'Head – Corporate Social Responsibility',
+    org: 'Leading Industry Partner',
+    category: 'Industry',
+    bio: 'An industry CSR leader joining the Samriddhi panel on community development in mining regions.',
+    sessionTitle: 'Session II: PSU & CSR Leadership Summit',
   },
 ];
 
@@ -219,6 +229,14 @@ export const PROJECTS_DATA: CSRProject[] = [
 
 export const FAQS = [
   {
+    q: 'Is there a dress code?',
+    a: 'Business formals or Indian formals. Please carry a government photo ID along with your QR delegate pass.',
+  },
+  {
+    q: 'Is parking available on campus?',
+    a: 'Yes, delegate parking is available near the Golden Jubilee Hall. Volunteers will guide you from the main gate.',
+  },
+  {
     q: 'Who should attend the CSR Conclave 2026?',
     a: 'CSR Heads, Foundation Leads, PSU Executives, Government Officials, Industry Leaders, and IIT (ISM) Faculty / Researchers.',
   },
@@ -234,4 +252,137 @@ export const FAQS = [
     q: 'Where is the venue and how do I reach IIT (ISM) Dhanbad?',
     a: 'The conclave takes place at the Golden Jubilee Hall, IIT (ISM) Campus, Dhanbad. Dhanbad Junction is 3 km away; nearest airports are Ranchi (140 km), Gaya (140 km), and Kolkata (260 km).',
   },
+];
+/* ------------------------------------------------------------------ */
+/* Event constants                                                    */
+/* ------------------------------------------------------------------ */
+
+export const EVENT = {
+  name: 'Shatabdi Samriddhi 2026',
+  subtitle: 'CSR Conclave',
+  tagline:
+    'Celebrating a Century of IIT (ISM) Dhanbad by Building Partnerships for Education, Innovation and Societal Impact.',
+  dateLabel: 'Friday, 4 December 2026',
+  shortDate: '04 · 12 · 2026',
+  start: '2026-12-04T09:00:00+05:30',
+  end: '2026-12-04T15:30:00+05:30',
+  venue: 'Golden Jubilee Hall, IIT (ISM) Dhanbad',
+  city: 'Dhanbad, Jharkhand',
+  presenter: 'Office of Corporate Relations, IIT (ISM) Dhanbad',
+  email: 'csrconclave@iitism.ac.in',
+  phone: '+91 326 223 5000',
+};
+
+export const STATS = [
+  { value: 100, suffix: '', label: 'Years of IIT (ISM)' },
+  { value: 300, suffix: '+', label: 'Delegates expected' },
+  { value: 15, suffix: '+', label: 'CSR-ready projects' },
+  { value: 2, suffix: '', label: 'Flagship sessions' },
+];
+
+export const WHY_ATTEND = [
+  {
+    icon: 'flask',
+    title: 'Research & Innovation',
+    desc: 'See a century of mining, energy and earth-science expertise turned into deployable technology.',
+  },
+  {
+    icon: 'hand',
+    title: 'CSR Opportunities',
+    desc: 'Discover vetted, Schedule VII-aligned projects with clear budgets, beneficiaries and PIs.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Strategic Partnerships',
+    desc: 'Meet PSU leaders, CSR heads and faculty in one room — and leave with LoIs and MoUs.',
+  },
+  {
+    icon: 'sprout',
+    title: 'Measurable Impact',
+    desc: 'Fund outcomes in mining regions: clean water, safety, skilling, energy and land reclamation.',
+  },
+];
+
+export const SESSIONS = [
+  {
+    numeral: 'I',
+    name: 'Shatabdi',
+    title: 'A Century of Knowledge',
+    focus: 'IIT (ISM) research, technology and legacy',
+    points: [
+      'Centenary journey of the institute',
+      'Faculty research showcase — mining, energy, critical minerals, clean tech',
+      'Alumni leadership addresses',
+    ],
+  },
+  {
+    numeral: 'II',
+    name: 'Samriddhi',
+    title: 'A Future of Shared Prosperity',
+    focus: 'PSU and CSR summit',
+    points: [
+      'PSU leadership session and CSR-ready project pitches',
+      'Community development in mining regions & skilling',
+      'LoI / MoU exchanges and partnership booklet launch',
+    ],
+  },
+];
+
+export const SPONSOR_TIERS = [
+  {
+    name: 'Bronze',
+    price: '₹ [TBC] + GST',
+    blurb: 'A visible presence among CSR leaders and PSU delegates.',
+    highlights: ['Logo on website & backdrop', '2 delegate passes', 'Mention in partnership booklet'],
+    featured: false,
+  },
+  {
+    name: 'Silver',
+    price: '₹ [TBC] + GST',
+    blurb: 'Showcase your CSR work with a booth and on-ground branding.',
+    highlights: ['Exhibition booth', 'Standee & flyers in delegate kit', '4 delegate passes'],
+    featured: true,
+  },
+  {
+    name: 'Gold',
+    price: '₹ [TBC] + GST',
+    blurb: 'Title-level association with the centenary CSR Conclave.',
+    highlights: ['Title branding', 'Speaking slot in Samriddhi session', 'Press mentions & 8 passes'],
+    featured: false,
+  },
+];
+
+// Comparison table: feature → [Bronze, Silver, Gold]
+export const TIER_FEATURES: { feature: string; values: (boolean | string)[] }[] = [
+  { feature: 'Logo on website & event backdrop', values: [true, true, true] },
+  { feature: 'Delegate passes', values: ['2', '4', '8'] },
+  { feature: 'Partnership booklet listing', values: ['Listing', 'Half page', 'Full page'] },
+  { feature: 'Exhibition booth', values: [false, true, true] },
+  { feature: 'Standee & flyers in delegate kit', values: [false, true, true] },
+  { feature: 'Speaking slot (Samriddhi session)', values: [false, false, true] },
+  { feature: 'Title branding & press mentions', values: [false, false, true] },
+];
+
+export const PARTNER_GROUPS = [
+  { tier: 'Gold Partners', slots: 2 },
+  { tier: 'Silver Partners', slots: 3 },
+  { tier: 'Bronze & Knowledge Partners', slots: 5 },
+];
+
+export const TRAVEL = [
+  { icon: 'train', title: 'By Rail', desc: 'Dhanbad Junction (DHN) — ~3 km from campus; well connected to Delhi, Kolkata and Mumbai.' },
+  { icon: 'plane', title: 'By Air', desc: 'Ranchi (≈140 km) · Gaya (≈140 km) · Kolkata (≈260 km). Road transfer to Dhanbad.' },
+  { icon: 'car', title: 'Local Transport', desc: 'Pre-paid taxis and app cabs from the station; campus shuttle for delegates on the day.' },
+];
+
+export const HOTELS = [
+  { name: 'IIT (ISM) Guest House', note: 'On campus · limited rooms for invited delegates' },
+  { name: 'Hotel options in Bank More / Hirapur', note: '3–5 partner hotels [TBC]' },
+  { name: 'Dhanbad city centre', note: '10–15 min drive to venue' },
+];
+
+export const DOWNLOADS = [
+  { label: 'Conclave Brochure', note: 'PDF · coming soon' },
+  { label: 'Partnership Booklet', note: 'PDF · coming soon' },
+  { label: 'Press Kit & Logos', note: 'ZIP · coming soon' },
 ];

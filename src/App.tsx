@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import WhyAttend from './components/WhyAttend';
 import Timeline from './components/Timeline';
 import Agenda from './components/Agenda';
 import Speakers from './components/Speakers';
@@ -22,80 +23,39 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [regModalOpen, setRegModalOpen] = useState(false);
   const [sponsorModalOpen, setSponsorModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<CSRProject | null>(null);
+  const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
-  const [selectedProject, setSelectedProject] =
-    useState<CSRProject | null>(null);
-
-  const [selectedSpeaker, setSelectedSpeaker] =
-    useState<Speaker | null>(null);
+  const openRegister = () => setRegModalOpen(true);
+  const openSponsor = () => setSponsorModalOpen(true);
 
   return (
-    <div className="min-h-screen bg-[#FAF6F0] font-sans text-gray-900">
-
+    <div className="min-h-screen overflow-x-clip">
       <Navbar
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
-        onOpenRegister={() => setRegModalOpen(true)}
-        onOpenSponsor={() => setSponsorModalOpen(true)}
+        onOpenRegister={openRegister}
+        onOpenSponsor={openSponsor}
       />
 
-      <Hero
-        onOpenRegister={() => setRegModalOpen(true)}
-        onOpenSponsor={() => setSponsorModalOpen(true)}
-      />
+      <main>
+        <Hero onOpenRegister={openRegister} onOpenSponsor={openSponsor} />
+        <About />
+        <WhyAttend />
+        <Timeline />
+        <Agenda />
+        <Speakers onSelectSpeaker={setSelectedSpeaker} />
+        <Projects onSelectProject={setSelectedProject} />
+        <Sponsorship onOpenSponsor={openSponsor} />
+        <Venue />
+      </main>
 
-      <About />
+      <Footer onOpenRegister={openRegister} />
 
-      <Timeline />
-
-      <Agenda />
-
-      <Speakers
-        onSelectSpeaker={(speaker) => setSelectedSpeaker(speaker)}
-      />
-
-      <Projects
-        onSelectProject={(project) => setSelectedProject(project)}
-      />
-
-      <Sponsorship
-        onOpenSponsor={() => setSponsorModalOpen(true)}
-      />
-
-      <Venue />
-
-      <Footer />
-
-      {/* Registration Modal */}
-      {regModalOpen && (
-        <RegistrationModal
-          onClose={() => setRegModalOpen(false)}
-        />
-      )}
-
-      {/* Project Interest Modal */}
-      {selectedProject && (
-        <ProjectInterestModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
-
-      {/* Sponsorship Modal */}
-      {sponsorModalOpen && (
-        <SponsorModal
-          onClose={() => setSponsorModalOpen(false)}
-        />
-      )}
-
-      {/* Speaker Bio Modal */}
-      {selectedSpeaker && (
-        <SpeakerBioModal
-          speaker={selectedSpeaker}
-          onClose={() => setSelectedSpeaker(null)}
-        />
-      )}
-
+      {regModalOpen && <RegistrationModal onClose={() => setRegModalOpen(false)} />}
+      {selectedProject && <ProjectInterestModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
+      {sponsorModalOpen && <SponsorModal onClose={() => setSponsorModalOpen(false)} />}
+      {selectedSpeaker && <SpeakerBioModal speaker={selectedSpeaker} onClose={() => setSelectedSpeaker(null)} />}
     </div>
   );
 }
