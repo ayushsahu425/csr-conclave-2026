@@ -12,7 +12,7 @@ export default function Venue() {
   return (
     <section id="venue" className="section">
       <div className="container-x">
-        <SectionHeading eyebrow="Venue, Travel & Stay" title="Golden Jubilee Hall, IIT (ISM) Dhanbad" description={`${EVENT.dateLabel} · ${EVENT.city}`} />
+        <SectionHeading eyebrow="Venue, Travel & Stay" title="Penman Auditorium, IIT (ISM) Dhanbad" description={`${EVENT.dateLabel} · ${EVENT.city}`} />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
           {/* Map */}
@@ -41,7 +41,7 @@ export default function Venue() {
                     <MapPin className="h-5 w-5" />
                   </span>
                   <span className="text-sm leading-tight">
-                    <span className="block font-semibold text-maroon-900">Golden Jubilee Hall</span>
+                    <span className="block font-semibold text-maroon-900">Penman Auditorium</span>
                     <span className="text-ink-muted">IIT (ISM) Campus, Dhanbad 826004</span>
                   </span>
                 </span>

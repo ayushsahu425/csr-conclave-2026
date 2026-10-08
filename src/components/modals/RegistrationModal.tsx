@@ -8,7 +8,7 @@ import Modal from '../ui/Modal';
 import Field from '../ui/Field';
 
 const CATEGORIES = ['CSR Head / Foundation', 'PSU', 'Government', 'Industry', 'Academia / Faculty', 'Student', 'Media', 'Other'];
-const DIETARY = ['Vegetarian', 'Non-Vegetarian', 'Vegan', 'Jain', 'Other'];
+const DIETARY = ['Vegetarian', 'Non-Vegetarian'];
 
 // In-memory duplicate check (replace with API call once the backend is wired up).
 const registeredEmails = new Set<string>();
