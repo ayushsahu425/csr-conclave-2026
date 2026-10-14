@@ -1,7 +1,7 @@
 # Shatabdi Samriddhi 2026 – CSR Conclave · IIT (ISM) Dhanbad
 
 > Celebrating a Century of IIT (ISM) Dhanbad by Building Partnerships for Education, Innovation and Societal Impact.
-> Friday, 4 December 2026 · Golden Jubilee Hall, IIT (ISM) Dhanbad
+> Friday, 4 December 2026 · Penman Auditorium, IIT (ISM) Dhanbad
 
 React 19 + Vite + Tailwind CSS 3 + TypeScript.
 
@@ -48,8 +48,14 @@ Hero (countdown, CTAs, stats) → About + two sessions → Why Attend → Centen
 
 Registration modal: validation, duplicate-email check, QR pass, Add to calendar, Share.
 
+## Form submissions
+
+Registration, sponsorship and project-interest forms save to a Google Sheet via Google Apps Script and send
+confirmation emails (QR pass + calendar invite for delegates). **Setup: [docs/FORMS_SETUP.md](docs/FORMS_SETUP.md).**
+Until the web-app URL is set in `src/config.ts` (or `VITE_FORMS_ENDPOINT`), production builds show
+"Online submissions are not open yet".
+
 ## Placeholders still to replace
 
 - Speaker photos (monogram avatars render until a `photo` URL is set in `src/data/mockData.ts`)
 - Sponsor prices `₹ [TBC]`, partner logos, hotel list, contact email/phone in `EVENT`
-- Form submissions are client-side only — wire `RegistrationModal`, `SponsorModal`, `ProjectInterestModal` to the backend/email service

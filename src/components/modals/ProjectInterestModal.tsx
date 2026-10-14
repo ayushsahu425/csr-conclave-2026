@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { CircleCheck } from 'lucide-react';
 import type { CSRProject, ProjectLeadData } from '../../types';
+import { submitForm } from '../../lib/api';
 import Modal from '../ui/Modal';
 import Field from '../ui/Field';
+import FormError from '../ui/FormError';
+import Honeypot from '../ui/Honeypot';
+import SubmitButton from '../ui/SubmitButton';
 
 export default function ProjectInterestModal({ project, onClose }: { project: CSRProject; onClose: () => void }) {
   const [form, setForm] = useState<ProjectLeadData>({
@@ -17,6 +21,10 @@ export default function ProjectInterestModal({ project, onClose }: { project: CS
     message: '',
   });
   const [done, setDone] = useState(false);
+  const [ref, setRef] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [hp, setHp] = useState('');
   const set = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
@@ -29,6 +37,7 @@ export default function ProjectInterestModal({ project, onClose }: { project: CS
             Your interest has been routed to <strong className="text-ink">{project.piName}</strong> ({project.dept}) and the Corporate Relations
             office. Expect a response within three working days.
           </p>
+          {ref && <p className="mt-3 text-sm text-ink-muted">Reference: <span className="font-mono font-semibold text-maroon-700">{ref}</span></p>}
           <button onClick={onClose} className="btn-primary mt-8">
             Done
           </button>
@@ -48,8 +57,14 @@ export default function ProjectInterestModal({ project, onClose }: { project: CS
             ))}
           </div>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
+              setLoading(true);
+              setError('');
+              const res = await submitForm('project', form, hp);
+              setLoading(false);
+              if (!res.ok) return setError(res.error ?? 'Could not submit. Please try again.');
+              setRef(res.ref ?? '');
               setDone(true);
             }}
             className="grid gap-4 sm:grid-cols-2"
@@ -81,9 +96,11 @@ export default function ProjectInterestModal({ project, onClose }: { project: CS
             <Field label="Message (optional)" className="sm:col-span-2">
               <textarea name="message" rows={3} value={form.message} onChange={set} className="input resize-none" />
             </Field>
-            <button type="submit" className="btn-primary !py-3.5 sm:col-span-2">
+            <Honeypot value={hp} onChange={setHp} />
+            <FormError message={error} className="sm:col-span-2" />
+            <SubmitButton loading={loading} className="sm:col-span-2">
               Submit interest
-            </button>
+            </SubmitButton>
           </form>
         </>
       )}

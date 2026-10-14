@@ -51,10 +51,11 @@ export interface Speaker {
 export interface CSRProject {
   id: string;
   title: string;
+  code: string;
   focusArea:
     | 'Mine Safety'
     | 'Clean Energy'
-    | 'Water & Health'
+    | 'Water and Health'
     | 'Skilling'
     | 'Land Reclamation';
   problemStatement: string;
@@ -69,9 +70,12 @@ export interface AgendaItem {
   id: string;
   time: string;
   title: string;
-  session: 'Session I: Shatabdi' | 'Session II: Samriddhi' | 'Ceremony / Break';
-  type: 'ceremony' | 'talk' | 'panel' | 'showcase' | 'break';
+  /** Label shown on the row, e.g. "Session I | Shatabdi", "Break", "Closing". */
+  session: string;
+  /** Which session tab the row belongs to (null = shown only under "Full Day"). */
+  track: 'I' | 'II' | null;
+  type: 'welcome' | 'ceremony' | 'talk' | 'panel' | 'showcase' | 'break' | 'closing';
   speakers: string[];
   description: string;
-  venue: string;
+  venue?: string;
 }

@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { ArrowRight, IndianRupee, Users } from 'lucide-react';
-import { PROJECTS_DATA } from '../data/mockData';
+import { ArrowRight, IndianRupee, Mail, Users } from 'lucide-react';
+import { EVENT, PROJECTS_DATA } from '../data/mockData';
 import type { CSRProject } from '../types';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
-const AREAS = ['All', 'Mine Safety', 'Clean Energy', 'Water & Health', 'Skilling', 'Land Reclamation'] as const;
+const AREAS = ['All', 'Mine Safety', 'Clean Energy', 'Water and Health', 'Skilling', 'Land Reclamation'] as const;
 
 export default function Projects({ onSelectProject }: { onSelectProject: (p: CSRProject) => void }) {
   const [area, setArea] = useState<(typeof AREAS)[number]>('All');
@@ -18,10 +18,10 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
           eyebrow="CSR Project Showcase"
           title={
             <>
-              Research, ready to <em className="font-light text-maroon-600">fund.</em>
+              Research, Ready to <em className="font-light text-maroon-600">Be Funded</em>
             </>
           }
-          description="Every project is scoped with a problem, budget, beneficiaries and Schedule VII alignment — and led by an IIT (ISM) principal investigator."
+          description="Each project has a defined problem, budget, identified beneficiaries and alignment with Schedule VII. Each is led by a Principal Investigator from IIT (ISM)."
         />
 
         <Reveal delay={100} className="no-scrollbar -mx-5 mt-10 flex gap-2 overflow-x-auto px-5 md:mx-0 md:justify-center md:px-0">
@@ -44,7 +44,7 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
                 <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-maroon-600 to-maroon-400 transition-transform duration-700 group-hover:scale-x-100" />
                 <div className="flex items-center justify-between gap-3">
                   <span className="chip">{p.focusArea}</span>
-                  <span className="font-display text-sm text-sand-600">{p.id.toUpperCase()}</span>
+                  <span className="font-display text-sm text-sand-600">{p.code}</span>
                 </div>
                 <h3 className="mt-5 text-2xl font-semibold leading-snug">{p.title}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{p.problemStatement}</p>
@@ -70,6 +70,7 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
 
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-1">
                   <p className="text-sm leading-tight">
+                    <span className="block text-[11px] font-semibold uppercase tracking-wider text-ink-muted">Principal Investigator</span>
                     <span className="block font-semibold text-ink">{p.piName}</span>
                     <span className="text-ink-muted">{p.dept}</span>
                   </p>
@@ -82,6 +83,29 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
             </Reveal>
           ))}
         </div>
+
+        {/* Closing line */}
+        <Reveal delay={100} className="mt-12 flex flex-col items-center justify-between gap-5 rounded-3xl bg-sand-100 p-7 text-center ring-1 ring-sand-300/70 md:flex-row md:text-left">
+          <p className="flex items-center gap-3 text-[15px] text-ink-soft">
+            <Mail className="hidden h-5 w-5 shrink-0 text-maroon-600 md:block" />
+            <span>
+              Interested in a project? Write to{' '}
+              <a href={`mailto:${EVENT.email}?subject=CSR%20Project%20Proposal%20Request`} className="font-semibold text-maroon-700 underline-offset-4 hover:underline">
+                {EVENT.email}
+              </a>{' '}
+              to request the full proposal.
+            </span>
+          </p>
+          <button
+            onClick={() => {
+              setArea('All');
+              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="btn-outline shrink-0"
+          >
+            View All Projects
+          </button>
+        </Reveal>
       </div>
     </section>
   );

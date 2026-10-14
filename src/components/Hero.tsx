@@ -28,35 +28,18 @@ function CountUp({
   useEffect(() => {
     if (!run) return;
 
-    const reduce = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
-    if (reduce) {
-      setN(to);
-      return;
-    }
-
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let raf = 0;
     const t0 = performance.now();
-    const dur = 1600;
+    const dur = reduce ? 0 : 1600;
 
     const step = (t: number) => {
-      const p = Math.min(1, (t - t0) / dur);
-
-      setN(
-        Math.round(
-          to * (1 - Math.pow(1 - p, 3))
-        )
-      );
-
-      if (p < 1) {
-        raf = requestAnimationFrame(step);
-      }
+      const p = dur === 0 ? 1 : Math.min(1, (t - t0) / dur);
+      setN(Math.round(to * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) raf = requestAnimationFrame(step);
     };
 
     raf = requestAnimationFrame(step);
-
     return () => cancelAnimationFrame(raf);
   }, [run, to]);
 
@@ -81,8 +64,7 @@ function Countdown() {
   if (c.done) {
     return (
       <p className="font-display text-2xl text-maroon-700">
-        The Conclave is <em>live</em> — welcome to Shatabdi
-        Samriddhi.
+        The Conclave is <em>live</em> — welcome to Shatabdi Samriddhi.
       </p>
     );
   }
@@ -90,10 +72,7 @@ function Countdown() {
   return (
     <div className="grid grid-cols-4 gap-2 sm:gap-3">
       {units.map((u) => (
-        <div
-          key={u.l}
-          className="rounded-xl bg-sand-100 px-2 py-3 text-center ring-1 ring-sand-300/70"
-        >
+        <div key={u.l} className="rounded-xl bg-sand-100 px-2 py-3 text-center ring-1 ring-sand-300/70">
           <div className="overflow-hidden">
             <span
               key={u.v}
@@ -102,7 +81,6 @@ function Countdown() {
               {String(u.v).padStart(2, '0')}
             </span>
           </div>
-
           <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted">
             {u.l}
           </span>
@@ -112,136 +90,82 @@ function Countdown() {
   );
 }
 
-export default function Hero({
-  onOpenRegister,
-  onOpenSponsor,
-}: HeroProps) {
-  const [statsRef, statsInView] =
-    useInView<HTMLDivElement>();
+export default function Hero({ onOpenRegister, onOpenSponsor }: HeroProps) {
+  const [statsRef, statsInView] = useInView<HTMLDivElement>();
 
   return (
     <section id="top" className="relative">
-
       {/* ---------- Maroon stage ---------- */}
       <div className="relative overflow-hidden bg-maroon-600 pb-56 pt-28 text-sand-50 md:pb-48 md:pt-40">
-
         {/* Background depth */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_80%_20%,#9E2F46_0%,transparent_55%),radial-gradient(90%_70%_at_0%_100%,#3D0B16_0%,transparent_60%)]" />
-
         {/* Grain */}
         <div className="grain pointer-events-none absolute inset-0 opacity-60" />
-
         {/* Hatch stripes */}
         <div className="hatch pointer-events-none absolute left-0 top-28 h-56 w-10 text-maroon-400/30 md:w-16" />
-
         <div className="hatch pointer-events-none absolute bottom-40 right-0 h-56 w-10 text-maroon-400/30 md:w-16" />
-
         {/* Concentric arcs */}
         <div className="pointer-events-none absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full border border-sand-200/10" />
-
         <div className="pointer-events-none absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full border border-sand-200/10" />
 
         <div className="container-x relative grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
-
           {/* ================= LEFT CONTENT ================= */}
           <div>
-
-            <p
-              className="eyebrow eyebrow-light animate-fade-up"
-              style={stagger(0)}
-            >
-              Office of Corporate Relations presents
+            <p className="eyebrow eyebrow-light animate-fade-up" style={stagger(0)}>
+              {EVENT.eyebrow}
             </p>
 
-            <h1
-              className="mt-6 animate-fade-up font-display !text-sand-50"
-              style={stagger(1)}
-            >
+            <h1 className="mt-6 animate-fade-up font-display !text-sand-50" style={stagger(1)}>
               <span className="block text-[2.75rem] font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">
                 Shatabdi Samriddhi
               </span>
-
               <span className="mt-1 block text-[2.75rem] font-light italic leading-[1.02] text-sand-300 sm:text-6xl lg:text-7xl">
                 2026
               </span>
             </h1>
 
             {/* Divider + CSR Conclave */}
-            <div
-              className="mt-6 flex animate-fade-up items-center gap-4"
-              style={stagger(2)}
-            >
+            <div className="mt-6 flex animate-fade-up items-center gap-4" style={stagger(2)}>
               <span className="h-px w-12 bg-sand-300/60" />
-
               <span className="text-sm font-semibold uppercase tracking-[0.42em] text-sand-100">
-                CSR Conclave
+                {EVENT.subtitle}
               </span>
             </div>
 
-            {/* Tagline */}
-            <p
-              className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-sand-100/85"
-              style={stagger(3)}
-            >
+            {/* Intro line */}
+            <p className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-sand-100/85" style={stagger(3)}>
               {EVENT.tagline}
             </p>
 
-            {/* Date + Location */}
-            <div
-              className="mt-8 flex animate-fade-up flex-wrap gap-3 text-sm"
-              style={stagger(4)}
-            >
+            {/* Date + Venue */}
+            <div className="mt-8 flex animate-fade-up flex-wrap gap-3 text-sm" style={stagger(4)}>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
                 <CalendarDays className="h-4 w-4 text-sand-300" />
-
-                {EVENT.dateLabel}
+                {EVENT.dateLabel} · {EVENT.timeLabel}
               </span>
-
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
                 <MapPin className="h-4 w-4 text-sand-300" />
-
-                IIT (ISM) Campus, Dhanbad
+                {EVENT.venue}
               </span>
             </div>
 
             {/* Buttons */}
-            <div
-              className="mt-10 flex animate-fade-up flex-col gap-3 sm:flex-row"
-              style={stagger(5)}
-            >
-              <button
-                onClick={onOpenRegister}
-                className="btn-sand group !px-7 !py-3.5"
-              >
+            <div className="mt-10 flex animate-fade-up flex-col gap-3 sm:flex-row" style={stagger(5)}>
+              <button onClick={onOpenRegister} className="btn-sand group !px-7 !py-3.5">
                 Register as Delegate
-
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
-
-              <button
-                onClick={onOpenSponsor}
-                className="btn-outline-light !px-7 !py-3.5"
-              >
+              <button onClick={onOpenSponsor} className="btn-outline-light !px-7 !py-3.5">
                 Become a Sponsor
               </button>
             </div>
-
           </div>
 
           {/* ================= RIGHT VISUAL ================= */}
-          <div
-            className="relative mx-auto w-full max-w-[340px] animate-fade-up sm:max-w-[460px]"
-            style={stagger(3)}
-          >
-
+          <div className="relative mx-auto w-full max-w-[340px] animate-fade-up sm:max-w-[460px]" style={stagger(3)}>
             <div className="relative aspect-square">
-
               {/* Rotating dashed ring */}
-              <svg
-                className="absolute inset-0 h-full w-full animate-spin-slow"
-                viewBox="0 0 200 200"
-                aria-hidden
-              >
+              <svg className="absolute inset-0 h-full w-full animate-spin-slow" viewBox="0 0 200 200" aria-hidden>
                 <circle
                   cx="100"
                   cy="100"
@@ -252,10 +176,8 @@ export default function Hero({
                   strokeDasharray="2 5"
                 />
               </svg>
-
               {/* Inner glow */}
               <div className="absolute inset-[6%] rounded-full bg-gradient-to-br from-sand-100/15 to-transparent ring-1 ring-sand-100/15" />
-
               {/* Main Emblem */}
               <div className="absolute inset-[11%] animate-float">
                 <img
@@ -264,11 +186,8 @@ export default function Hero({
                   className="h-full w-full rounded-full shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]"
                 />
               </div>
-
             </div>
-
           </div>
-
         </div>
 
         {/* Curved beige base */}
@@ -278,29 +197,19 @@ export default function Hero({
           preserveAspectRatio="none"
           aria-hidden
         >
-          <path
-            fill="currentColor"
-            d="M0,80 C360,140 1080,0 1440,70 L1440,120 L0,120 Z"
-          />
+          <path fill="currentColor" d="M0,80 C360,140 1080,0 1440,70 L1440,120 L0,120 Z" />
         </svg>
-
       </div>
 
       {/* ---------- Countdown + Stats Card ---------- */}
       <div className="container-x relative z-10 -mt-28 md:-mt-32">
-
         <div className="card grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
-
           {/* Countdown */}
           <div>
-            <p className="eyebrow">
-              Countdown to the Conclave
-            </p>
-
+            <p className="eyebrow">The Conclave opens in</p>
             <p className="mt-2 font-display text-xl text-maroon-900">
-              {EVENT.dateLabel} · 9:00 AM IST
+              {EVENT.dateLabel} · {EVENT.timeLabel}
             </p>
-
             <div className="mt-5">
               <Countdown />
             </div>
@@ -312,29 +221,16 @@ export default function Hero({
             className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-sand-300/60 sm:grid-cols-4 lg:grid-cols-2"
           >
             {STATS.map((s) => (
-              <div
-                key={s.label}
-                className="bg-white p-5"
-              >
+              <div key={s.label} className="bg-white p-5">
                 <div className="font-display text-4xl font-semibold text-maroon-600">
-                  <CountUp
-                    to={s.value}
-                    suffix={s.suffix}
-                    run={statsInView}
-                  />
+                  <CountUp to={s.value} suffix={s.suffix} run={statsInView} />
                 </div>
-
-                <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">
-                  {s.label}
-                </div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">{s.label}</div>
               </div>
             ))}
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

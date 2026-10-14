@@ -8,31 +8,13 @@ import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
 interface SponsorshipProps {
-  onOpenSponsor: () => void;
+  onOpenSponsor: (tier?: string) => void;
 }
-
-/*
- * Platinum is added here because the current SPONSOR_TIERS
- * data contains the existing Bronze, Silver and Gold tiers.
- */
-const PLATINUM_TIER = {
-  name: 'Platinum',
-  price: '₹ [TBC] + GST',
-  blurb:
-    'Premier association with the centenary CSR Conclave and high-visibility partnership opportunities.',
-  highlights: [
-    'Premium logo placement across event assets',
-    'Dedicated brand visibility at the conclave',
-    'Speaking / engagement opportunity',
-    '8 delegate passes',
-  ],
-  featured: false,
-};
 
 export default function Sponsorship({
   onOpenSponsor,
 }: SponsorshipProps) {
-  const allTiers = [...SPONSOR_TIERS, PLATINUM_TIER];
+  const allTiers = SPONSOR_TIERS;
 
   return (
     <>
@@ -58,11 +40,11 @@ export default function Sponsorship({
               <>
                 Partner with a{' '}
                 <em className="font-light text-sand-300">
-                  centenary.
+                  Centenary
                 </em>
               </>
             }
-            description="Associate your organisation with 100 years of IIT (ISM) Dhanbad — in front of CSR heads, PSU leadership and policymakers."
+            description="Associate your organisation with IIT (ISM) Dhanbad’s hundred-year legacy and connect with CSR leaders, PSU executives and policymakers."
           />
 
           {/* =====================================================
@@ -124,7 +106,7 @@ export default function Sponsorship({
                   </p>
 
                   {/* Benefits */}
-                  <ul className="mt-6 space-y-3">
+                  <ul className="mb-8 mt-6 space-y-3">
                     {t.highlights.map((h) => (
                       <li
                         key={h}
@@ -158,8 +140,8 @@ export default function Sponsorship({
 
                   {/* CTA */}
                   <button
-                    onClick={onOpenSponsor}
-                    className={`mt-auto w-full !mt-8 ${
+                    onClick={() => onOpenSponsor(t.name)}
+                    className={`mt-auto w-full ${
                       t.featured
                         ? 'btn-primary'
                         : 'btn-outline-light'
@@ -227,7 +209,7 @@ export default function Sponsorship({
                           <td
                             key={tier.name}
                             className={`px-6 py-4 text-center ${
-                              i === 1
+                              tier.featured
                                 ? 'bg-maroon-50/40'
                                 : ''
                             }`}
@@ -262,9 +244,9 @@ export default function Sponsorship({
             </div>
 
             <p className="mt-4 text-center text-xs text-sand-200/70">
-              Prices to be confirmed. Bank details and invoice are
-              shared by the Corporate Relations team in reply to
-              your enquiry.
+              Sponsorship prices will be announced once confirmed. For
+              bank details and invoices, contact the Office of
+              Corporate Relations.
             </p>
 
           </Reveal>
@@ -283,8 +265,8 @@ export default function Sponsorship({
 
           <SectionHeading
             eyebrow="Sponsors & Partners"
-            title="In good company"
-            description="Partner logos will appear here as organisations confirm. Yours could be one of them."
+            title="In Good Company"
+            description="Partner logos will be displayed as organisations confirm their participation."
           />
 
           <div className="mt-12 space-y-10">
@@ -306,7 +288,7 @@ export default function Sponsorship({
                   }).map((_, i) => (
                     <button
                       key={i}
-                      onClick={onOpenSponsor}
+                      onClick={() => onOpenSponsor()}
                       className={`group flex items-center justify-center rounded-2xl border border-dashed border-sand-400 bg-white/60 text-sm text-ink-muted transition-all duration-300 hover:border-maroon-400 hover:bg-white hover:text-maroon-700 ${
                         gi === 0
                           ? 'h-28 w-64'
@@ -335,6 +317,13 @@ export default function Sponsorship({
             ))}
 
           </div>
+
+          <Reveal delay={150} className="mt-12 text-center">
+            <button onClick={() => onOpenSponsor()} className="btn-primary group !px-8">
+              Become a Sponsor
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+          </Reveal>
 
         </div>
       </section>

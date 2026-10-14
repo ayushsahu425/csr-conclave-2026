@@ -1,6 +1,6 @@
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
 import emblem from '../assets/centenary-emblem.webp';
-import { EVENT } from '../data/mockData';
+import { EVENT, FOOTER_ABOUT } from '../data/mockData';
 import Reveal from './ui/Reveal';
 
 const QUICK = [
@@ -10,7 +10,8 @@ const QUICK = [
   ['Speakers', '#speakers'],
   ['CSR Projects', '#projects'],
   ['Sponsorship', '#sponsorship'],
-  ['Venue & FAQ', '#venue'],
+  ['Venue and FAQ', '#venue'],
+  ['Contact', '#contact'],
 ];
 
 const SOCIAL = [
@@ -29,13 +30,15 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
           <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border-[28px] border-sand-100/5" />
           <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
             <div>
-              <p className="eyebrow eyebrow-light">{EVENT.dateLabel}</p>
+              <p className="eyebrow eyebrow-light">
+                {EVENT.dateLabel} | {EVENT.venue}
+              </p>
               <h2 className="mt-3 max-w-xl text-3xl font-semibold !text-sand-50 md:text-4xl">
-                Be part of the centenary. <em className="font-light text-sand-300">Reserve your seat.</em>
+                Be Part of the Centenary. <em className="font-light text-sand-300">Reserve Your Seat.</em>
               </h2>
             </div>
             <button onClick={onOpenRegister} className="btn-sand group shrink-0 !px-8 !py-4">
-              Register now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              Register Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
         </Reveal>
@@ -50,7 +53,7 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sand-300">Shatabdi Samriddhi 2026</p>
             </div>
           </div>
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand-200/60">{EVENT.tagline}</p>
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand-200/60">{FOOTER_ABOUT}</p>
         </div>
 
         <div>
@@ -67,7 +70,7 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
           </ul>
         </div>
 
-        <div>
+        <div id="contact" className="scroll-mt-28">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sand-300">Contact</p>
           <ul className="mt-5 space-y-4 text-sm text-sand-200/70">
             <li className="flex gap-3">
@@ -106,7 +109,7 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
       <div className="border-t border-sand-100/10">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-sand-200/50 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Indian Institute of Technology (Indian School of Mines), Dhanbad. All rights reserved.</p>
-          <p>Education · Innovation · Societal Impact</p>
+          <p>Education | Innovation | Societal Impact</p>
         </div>
       </div>
     </footer>
