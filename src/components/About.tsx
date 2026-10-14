@@ -1,5 +1,5 @@
 import campus from '../assets/campus.webp';
-import { SESSIONS } from '../data/mockData';
+import { ABOUT, SESSIONS } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -14,24 +14,17 @@ export default function About() {
               eyebrow="About the Conclave"
               title={
                 <>
-                  A hundred years of knowledge, <em className="font-light text-maroon-600">shared for prosperity.</em>
+                  A Hundred Years of Knowledge, <em className="font-light text-maroon-600">Shared for Prosperity</em>
                 </>
               }
             />
             <Reveal delay={120} className="mt-6 space-y-4 text-[17px] leading-relaxed text-ink-soft">
-              <p>
-                Founded as the Indian School of Mines in 1926, IIT (ISM) Dhanbad enters its centenary year with a
-                simple invitation to India's CSR leaders: turn a century of expertise in mining, earth sciences and
-                energy into outcomes for industry, communities and the nation.
-              </p>
-              <p>
-                <strong className="font-semibold text-maroon-800">Shatabdi Samriddhi 2026</strong> brings together CSR
-                heads, PSU leadership, government officials and faculty for one focused day — from dialogue to
-                collaboration, and from research to funded, measurable impact.
-              </p>
+              {ABOUT.paragraphs.map((para) => (
+                <p key={para.slice(0, 24)}>{para}</p>
+              ))}
             </Reveal>
             <Reveal delay={200} className="mt-8 flex flex-wrap gap-2">
-              {['Education', 'Innovation', 'Societal Impact'].map((t) => (
+              {ABOUT.pillars.map((t) => (
                 <span key={t} className="chip">
                   {t}
                 </span>
@@ -45,15 +38,18 @@ export default function About() {
               <img src={campus} alt="IIT (ISM) Dhanbad heritage building and gardens" className="aspect-[16/11] w-full object-cover transition-transform duration-[2s] hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 text-sand-50">
-                <p className="font-display text-3xl font-semibold !text-sand-50">1926 — 2026</p>
-                <p className="text-sm text-sand-200">A century of nation-building from Dhanbad</p>
+                <p className="font-display text-3xl font-semibold !text-sand-50">{ABOUT.captionYears}</p>
+                <p className="text-sm text-sand-200">{ABOUT.caption}</p>
               </div>
             </div>
           </Reveal>
         </div>
 
         {/* Two sessions mirror the two halves of the theme */}
-        <div className="mt-20 grid gap-6 md:grid-cols-2">
+        <div className="mt-24">
+          <SectionHeading eyebrow="The Programme" title="Two Flagship Sessions. One Shared Vision." />
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {SESSIONS.map((s, i) => (
             <Reveal key={s.name} delay={i * 140}>
               <article

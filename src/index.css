@@ -145,6 +145,12 @@
 }
 .accordion-body > div {
   overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s linear 0.45s;
+}
+.accordion-body[data-open='true'] > div {
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 /* Hide scrollbar for horizontal scrollers */

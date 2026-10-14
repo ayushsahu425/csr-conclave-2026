@@ -1,6 +1,29 @@
-/** Monogram avatar used until official speaker photographs are supplied. */
+import { useState } from 'react';
+
+/**
+ * Speaker portrait. Uses the official photo when available and falls back to a
+ * maroon monogram if no photo is set or the image fails to load.
+ */
 export default function Avatar({ name, photo, className = '' }: { name: string; photo?: string; className?: string }) {
-  if (photo) return <img src={photo} alt={name} className={`h-full w-full object-cover ${className}`} />;
+  const [failed, setFailed] = useState(false);
+
+  if (photo && !failed) {
+    return (
+      <div className={`relative h-full w-full bg-sand-200 ${className}`}>
+        <img
+          src={photo}
+          alt={`Portrait of ${name}`}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={() => setFailed(true)}
+          className="h-full w-full object-cover object-[50%_20%]"
+        />
+        {/* subtle brand tint so mixed photo sources sit together */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-maroon-900/25 via-transparent to-transparent" />
+      </div>
+    );
+  }
+
   const initials = name
     .replace(/\[.*?\]|Prof\.|Dr\.|Shri|Smt\./g, '')
     .trim()

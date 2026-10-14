@@ -8,11 +8,13 @@ import SectionHeading from './ui/SectionHeading';
 
 const TABS = [
   { key: 'all', label: 'Full Day' },
-  { key: 'Session I: Shatabdi', label: 'Session I · Shatabdi' },
-  { key: 'Session II: Samriddhi', label: 'Session II · Samriddhi' },
+  { key: 'I', label: 'Session I · Shatabdi' },
+  { key: 'II', label: 'Session II · Samriddhi' },
 ] as const;
 
 const TYPE_STYLE: Record<AgendaItem['type'], string> = {
+  welcome: 'bg-sand-200 text-maroon-800',
+  closing: 'bg-sand-200 text-maroon-800',
   ceremony: 'bg-maroon-600 text-sand-50',
   talk: 'bg-maroon-100 text-maroon-800',
   panel: 'bg-maroon-100 text-maroon-800',
@@ -24,15 +26,15 @@ export default function Agenda() {
   const [tab, setTab] = useState<(typeof TABS)[number]['key']>('all');
   const [open, setOpen] = useState<string | null>('a2');
 
-  const items = tab === 'all' ? AGENDA_DATA : AGENDA_DATA.filter((a) => a.session === tab);
+  const items = tab === 'all' ? AGENDA_DATA : AGENDA_DATA.filter((a) => a.track === tab);
 
   return (
     <section id="agenda" className="section">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Programme · 4 December 2026 (IST)"
-          title="The Conclave Agenda"
-          description="Two sessions that mirror the theme — the legacy of Shatabdi in the morning, the partnerships of Samriddhi through the afternoon."
+          eyebrow="Agenda"
+          title="Programme | Friday, 4 December 2026"
+          description="The morning honours the Shatabdi legacy. The afternoon focuses on Samriddhi and the partnerships that will carry it forward. All times are in Indian Standard Time (IST)."
         />
 
         <Reveal delay={100} className="mx-auto mt-12 flex max-w-5xl flex-col items-center justify-between gap-4 md:flex-row">
@@ -66,14 +68,16 @@ export default function Agenda() {
           <ol className="space-y-4">
             {items.map((item, i) => {
               const isOpen = open === item.id;
-              const [from] = item.time.split('-');
+              const [from, to] = item.time.split(' - ');
+              const until = to ?? (item.time.includes('onwards') ? 'onwards' : '');
+              const fromLabel = from.replace(' onwards', '');
               return (
                 <Reveal as="li" key={`${tab}-${item.id}`} delay={i * 70} className="relative">
                   <div className="flex gap-5 md:gap-8">
                     {/* time */}
                     <div className="hidden w-[132px] shrink-0 pt-6 text-right md:block">
-                      <p className="font-display text-xl font-semibold text-maroon-700">{from.trim()}</p>
-                      <p className="text-xs text-ink-muted">{item.time.split('-')[1]?.trim()}</p>
+                      <p className="font-display text-xl font-semibold text-maroon-700">{fromLabel.trim()}</p>
+                      <p className="text-xs text-ink-muted">{until}</p>
                     </div>
                     {/* node */}
                     <div className="relative z-10 mt-6 flex h-10 w-10 shrink-0 items-center justify-center">
@@ -92,7 +96,9 @@ export default function Agenda() {
                             <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${TYPE_STYLE[item.type]}`}>
                               {item.type}
                             </span>
-                            <span className="text-xs font-medium text-ink-muted">{item.session}</span>
+                            {item.session.toLowerCase() !== item.type && (
+                              <span className="text-xs font-medium text-ink-muted">{item.session}</span>
+                            )}
                           </div>
                           <h3 className="mt-2 text-lg font-semibold leading-snug md:text-xl">{item.title}</h3>
                         </div>
@@ -113,9 +119,13 @@ export default function Agenda() {
                               </div>
                             )}
                             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm text-ink-muted">
-                              <span className="inline-flex items-center gap-1.5">
-                                <MapPin className="h-4 w-4 text-maroon-500" /> {item.venue}
-                              </span>
+                              {item.venue ? (
+                                <span className="inline-flex items-center gap-1.5">
+                                  <MapPin className="h-4 w-4 text-maroon-500" /> {item.venue}
+                                </span>
+                              ) : (
+                                <span />
+                              )}
                               <button
                                 onClick={() => downloadICS({ title: item.title, description: item.description, ...slotToISO(item.time) })}
                                 className="no-print inline-flex items-center gap-1.5 font-semibold text-maroon-600 hover:text-maroon-800"

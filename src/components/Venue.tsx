@@ -12,7 +12,7 @@ export default function Venue() {
   return (
     <section id="venue" className="section">
       <div className="container-x">
-        <SectionHeading eyebrow="Venue, Travel & Stay" title="Penman Auditorium, IIT (ISM) Dhanbad" description={`${EVENT.dateLabel} · ${EVENT.city}`} />
+        <SectionHeading eyebrow="Venue, Travel and Stay" title={EVENT.venue} description={`${EVENT.dateLabel} | ${EVENT.city}`} />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
           {/* Map */}
@@ -30,7 +30,7 @@ export default function Venue() {
               </div>
               <iframe
                 title="Map – IIT (ISM) Dhanbad"
-                src="https://maps.google.com/maps?q=IIT%20(ISM)%20Dhanbad&z=15&output=embed"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(EVENT.mapsQuery)}&z=16&output=embed`}
                 className="absolute inset-0 h-full w-full grayscale-[35%] sepia-[20%]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -41,11 +41,11 @@ export default function Venue() {
                     <MapPin className="h-5 w-5" />
                   </span>
                   <span className="text-sm leading-tight">
-                    <span className="block font-semibold text-maroon-900">Penman Auditorium</span>
-                    <span className="text-ink-muted">IIT (ISM) Campus, Dhanbad 826004</span>
+                    <span className="block font-semibold text-maroon-900">{EVENT.venueName}</span>
+                    <span className="text-ink-muted">IIT (ISM) Dhanbad, Jharkhand 826004</span>
                   </span>
                 </span>
-                <a href="https://www.google.com/maps/search/?api=1&query=IIT+ISM+Dhanbad" target="_blank" rel="noopener noreferrer" className="btn-primary !px-4 !py-2">
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(EVENT.mapsQuery)}`} target="_blank" rel="noopener noreferrer" className="btn-primary !px-4 !py-2">
                   Directions
                 </a>
               </div>
@@ -55,7 +55,7 @@ export default function Venue() {
           {/* Travel + stay */}
           <div className="space-y-6">
             <Reveal delay={100} className="card p-7">
-              <h3 className="text-xl font-semibold">Getting here</h3>
+              <h3 className="text-xl font-semibold">Getting Here</h3>
               <div className="mt-5 space-y-5">
                 {TRAVEL.map((t) => {
                   const Icon = ICONS[t.icon as keyof typeof ICONS];
@@ -75,13 +75,13 @@ export default function Venue() {
             </Reveal>
             <Reveal delay={180} className="card p-7">
               <h3 className="flex items-center gap-2 text-xl font-semibold">
-                <BedDouble className="h-5 w-5 text-maroon-600" /> Where to stay
+                <BedDouble className="h-5 w-5 text-maroon-600" /> Where to Stay
               </h3>
               <ul className="mt-4 divide-y divide-sand-200">
                 {HOTELS.map((h) => (
-                  <li key={h.name} className="flex flex-wrap items-baseline justify-between gap-2 py-3 text-sm">
-                    <span className="font-semibold text-ink">{h.name}</span>
-                    <span className="text-ink-muted">{h.note}</span>
+                  <li key={h.name} className="py-3 text-sm">
+                    <span className="block font-semibold text-ink">{h.name}</span>
+                    <span className="mt-0.5 block text-ink-soft">{h.note}</span>
                   </li>
                 ))}
               </ul>
@@ -92,7 +92,7 @@ export default function Venue() {
         {/* FAQ + downloads */}
         <div id="faq" className="mt-20 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <SectionHeading align="left" eyebrow="FAQ" title="Before you arrive" />
+            <SectionHeading align="left" eyebrow="FAQ" title="Before You Arrive" />
             <div className="mt-8 divide-y divide-sand-300 border-y border-sand-300">
               {FAQS.map((f, i) => {
                 const open = openFaq === i;
@@ -117,7 +117,7 @@ export default function Venue() {
 
           <Reveal delay={150} className="h-fit rounded-3xl bg-maroon-900 p-8 text-sand-50">
             <p className="eyebrow eyebrow-light">Downloads</p>
-            <h3 className="mt-3 text-2xl font-semibold !text-sand-50">Brochure & press kit</h3>
+            <h3 className="mt-3 text-2xl font-semibold !text-sand-50">Brochure and Press Kit</h3>
             <ul className="mt-6 space-y-3">
               {DOWNLOADS.map((d) => (
                 <li key={d.label} className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-sand-100/10">

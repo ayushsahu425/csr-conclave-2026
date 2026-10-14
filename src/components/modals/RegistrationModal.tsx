@@ -4,14 +4,15 @@ import { CalendarPlus, CircleCheck, Share2 } from 'lucide-react';
 import { EVENT } from '../../data/mockData';
 import { downloadICS } from '../../lib/calendar';
 import type { IssuedPass, RegistrationData } from '../../types';
+import { submitForm } from '../../lib/api';
 import Modal from '../ui/Modal';
 import Field from '../ui/Field';
+import FormError from '../ui/FormError';
+import Honeypot from '../ui/Honeypot';
+import SubmitButton from '../ui/SubmitButton';
 
 const CATEGORIES = ['CSR Head / Foundation', 'PSU', 'Government', 'Industry', 'Academia / Faculty', 'Student', 'Media', 'Other'];
 const DIETARY = ['Vegetarian', 'Non-Vegetarian'];
-
-// In-memory duplicate check (replace with API call once the backend is wired up).
-const registeredEmails = new Set<string>();
 
 const EMPTY: RegistrationData = {
   fullName: '',
@@ -29,6 +30,8 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
   const [error, setError] = useState('');
   const [pass, setPass] = useState<IssuedPass | null>(null);
   const [qr, setQr] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [hp, setHp] = useState('');
 
   useEffect(() => {
     if (!pass) return;
@@ -45,18 +48,18 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
     setError('');
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const email = form.email.trim().toLowerCase();
-    if (!/^[6-9]\d{9}$|^\+?\d[\d\s-]{8,14}$/.test(form.phone.trim())) return setError('Please enter a valid phone number.');
-    if (registeredEmails.has(email)) return setError('This email is already registered. Check your inbox for your pass.');
+    if (!/^\+?[\d\s-]{10,15}$/.test(form.phone.trim())) return setError('Please enter a valid phone number.');
     if (!form.consent) return setError('Please accept the consent to continue.');
-    registeredEmails.add(email);
-    setPass({
-      ...form,
-      passId: `SS26-${Math.random().toString(36).slice(2, 7).toUpperCase()}`,
-      timestamp: new Date().toISOString(),
-    });
+
+    setLoading(true);
+    setError('');
+    const res = await submitForm('register', { ...form, email: form.email.trim().toLowerCase() }, hp);
+    setLoading(false);
+
+    if (!res.ok || !res.passId) return setError(res.error ?? 'Registration failed. Please try again.');
+    setPass({ ...form, passId: res.passId, timestamp: new Date().toISOString() });
   };
 
   const share = async () => {
@@ -129,7 +132,7 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
   return (
     <Modal onClose={onClose} eyebrow={`${EVENT.subtitle} · ${EVENT.dateLabel}`} title="Delegate Registration">
       <div className="mb-6 flex flex-wrap gap-2 text-xs">
-        <span className="chip">Complimentary for invited delegates</span>
+        <span className="chip">{EVENT.venue}</span>
         <span className="chip">QR pass by email</span>
       </div>
       <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
@@ -170,11 +173,12 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
           I agree to be contacted by the Office of Corporate Relations, IIT (ISM) Dhanbad about the Conclave and consent to my details being used for event logistics.
         </label>
 
-        {error && <p className="rounded-xl bg-maroon-50 px-4 py-3 text-sm font-medium text-maroon-700 sm:col-span-2">{error}</p>}
+        <Honeypot value={hp} onChange={setHp} />
+        <FormError message={error} className="sm:col-span-2" />
 
-        <button type="submit" className="btn-primary !py-3.5 sm:col-span-2">
+        <SubmitButton loading={loading} className="sm:col-span-2">
           Complete registration
-        </button>
+        </SubmitButton>
       </form>
     </Modal>
   );

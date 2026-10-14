@@ -23,11 +23,15 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [regModalOpen, setRegModalOpen] = useState(false);
   const [sponsorModalOpen, setSponsorModalOpen] = useState(false);
+  const [sponsorTier, setSponsorTier] = useState('');
   const [selectedProject, setSelectedProject] = useState<CSRProject | null>(null);
   const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
   const openRegister = () => setRegModalOpen(true);
-  const openSponsor = () => setSponsorModalOpen(true);
+  const openSponsor = (tier?: string) => {
+    setSponsorTier(tier ?? '');
+    setSponsorModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen overflow-x-clip">
@@ -35,11 +39,11 @@ export default function App() {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         onOpenRegister={openRegister}
-        onOpenSponsor={openSponsor}
+        onOpenSponsor={() => openSponsor()}
       />
 
       <main>
-        <Hero onOpenRegister={openRegister} onOpenSponsor={openSponsor} />
+        <Hero onOpenRegister={openRegister} onOpenSponsor={() => openSponsor()} />
         <About />
         <WhyAttend />
         <Timeline />
@@ -54,7 +58,7 @@ export default function App() {
 
       {regModalOpen && <RegistrationModal onClose={() => setRegModalOpen(false)} />}
       {selectedProject && <ProjectInterestModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
-      {sponsorModalOpen && <SponsorModal onClose={() => setSponsorModalOpen(false)} />}
+      {sponsorModalOpen && <SponsorModal initialTier={sponsorTier} onClose={() => setSponsorModalOpen(false)} />}
       {selectedSpeaker && <SpeakerBioModal speaker={selectedSpeaker} onClose={() => setSelectedSpeaker(null)} />}
     </div>
   );

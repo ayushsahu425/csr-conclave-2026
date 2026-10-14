@@ -1,5 +1,5 @@
-import { FlaskConical, HandHeart, Handshake, Sprout } from 'lucide-react';
-import { WHY_ATTEND } from '../data/mockData';
+import { Check, FlaskConical, HandHeart, Handshake, Sprout } from 'lucide-react';
+import { WHO_SHOULD_ATTEND, WHY_ATTEND } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -10,9 +10,9 @@ export default function WhyAttend() {
     <section id="why-attend" className="section bg-sand-100">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Why Attend"
-          title="One day. Every stakeholder in CSR."
-          description="Built for CSR heads, foundation leads, PSU officials and industry leaders who want to fund work that lasts."
+          eyebrow="Why Attend?"
+          title="One Day. Every Stakeholder in CSR."
+          description="For CSR heads, foundation leaders, PSU officials and business leaders who want their investments to create lasting value."
         />
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {WHY_ATTEND.map((w, i) => {
@@ -31,6 +31,26 @@ export default function WhyAttend() {
             );
           })}
         </div>
+
+        {/* Who should attend */}
+        <Reveal delay={150} className="mt-16">
+          <div className="grid gap-8 rounded-3xl bg-white p-8 ring-1 ring-sand-300/70 md:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <p className="eyebrow">Audience</p>
+              <h3 className="mt-3 text-3xl font-semibold">Who Should Attend</h3>
+            </div>
+            <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
+              {WHO_SHOULD_ATTEND.map((w) => (
+                <li key={w} className="flex items-start gap-3 text-[15px] text-ink-soft">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-maroon-600 text-sand-50">
+                    <Check className="h-3 w-3" strokeWidth={3} />
+                  </span>
+                  {w}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
