@@ -1,112 +1,201 @@
 import { useState } from 'react';
-import { BedDouble, Car, ChevronDown, Download, MapPin, Plane, TrainFront } from 'lucide-react';
-import { DOWNLOADS, EVENT, FAQS, HOTELS, TRAVEL } from '../data/mockData';
+import {
+  Car,
+  ChevronDown,
+  Download,
+  MapPin,
+  Plane,
+  TrainFront,
+} from 'lucide-react';
+import { EVENT, TRAVEL } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
-const ICONS = { train: TrainFront, plane: Plane, car: Car } as const;
+const ICONS = {
+  train: TrainFront,
+  plane: Plane,
+  car: Car,
+} as const;
+
+const FAQS = [
+  {
+    q: 'Who is the Conclave for?',
+    a: 'CSR leaders, foundation heads, PSU officials, government representatives, industry leaders, and IIT (ISM) faculty and researchers.',
+  },
+  {
+    q: 'Is there a registration fee?',
+    a: '[TBC]',
+  },
+  {
+    q: 'Can CSR funds support IIT (ISM) projects?',
+    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Corporate Relations to discuss a proposed partnership and confirm its compliance requirements.',
+  },
+  {
+    q: 'How can my organisation fund a project or sponsor the event?',
+    a: 'Write to csrconclave@iitism.ac.in. The Office of Corporate Relations will share project details and sponsorship options.',
+  },
+  {
+    q: 'What is the dress code?',
+    a: 'Business formals or Indian formals are recommended. Please carry a government-issued photo ID and your QR delegate pass.',
+  },
+  {
+    q: 'Is parking available on campus?',
+    a: '[TBC]',
+  },
+  {
+    q: 'Where is the venue?',
+    a: 'The Conclave is planned for Penman Auditorium, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',
+  },
+];
+
+const DOWNLOADS = [
+  { label: 'Conclave Brochure', note: 'PDF | Coming soon' },
+  { label: 'Partnership Booklet', note: 'PDF | Coming soon' },
+  { label: 'Press Kit and Logos', note: 'ZIP | Coming soon' },
+];
 
 export default function Venue() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  const mapQuery = 'Penman Auditorium, IIT (ISM) Dhanbad';
+
   return (
     <section id="venue" className="section">
       <div className="container-x">
-        <SectionHeading eyebrow="Venue, Travel and Stay" title={EVENT.venue} description={`${EVENT.dateLabel} | ${EVENT.city}`} />
+        <SectionHeading
+          eyebrow="Venue, Travel and Stay"
+          title={EVENT.venue}
+          description={`${EVENT.dateLabel} | ${EVENT.city}`}
+        />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
+        {/* Map and Getting Here */}
+        <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-2">
           {/* Map */}
-          <Reveal className="card overflow-hidden">
-            <div className="relative aspect-[4/3] bg-sand-200 lg:aspect-auto lg:h-full lg:min-h-[460px]">
-              {/* stylised fallback shown until / unless the map embed loads */}
-              <div className="absolute inset-0 overflow-hidden" aria-hidden>
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(122,23,43,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(122,23,43,0.06)_1px,transparent_1px)] bg-[size:36px_36px]" />
-                <div className="absolute left-[-10%] top-[38%] h-3 w-[120%] -rotate-12 bg-sand-50/80" />
-                <div className="absolute left-[55%] top-[-10%] h-[120%] w-3 rotate-[8deg] bg-sand-50/80" />
-                <span className="absolute left-1/2 top-[40%] flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-maroon-600 text-sand-50 shadow-lift">
-                  <span className="absolute inset-0 animate-ping rounded-full bg-maroon-500/40" />
-                  <MapPin className="relative h-5 w-5" />
-                </span>
-              </div>
+          <Reveal className="card h-full overflow-hidden">
+            <div className="relative h-full min-h-[460px] overflow-hidden bg-sand-200">
               <iframe
-                title="Map – IIT (ISM) Dhanbad"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(EVENT.mapsQuery)}&z=16&output=embed`}
-                className="absolute inset-0 h-full w-full grayscale-[35%] sepia-[20%]"
+                title="Map – Penman Auditorium, IIT (ISM) Dhanbad"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                  mapQuery
+                )}&z=16&output=embed`}
+                className="absolute inset-0 h-full w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
+
               <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-sand-50/95 p-4 shadow-card backdrop-blur">
                 <span className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-maroon-600 text-sand-50">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-maroon-600 text-sand-50">
                     <MapPin className="h-5 w-5" />
                   </span>
+
                   <span className="text-sm leading-tight">
-                    <span className="block font-semibold text-maroon-900">{EVENT.venueName}</span>
-                    <span className="text-ink-muted">IIT (ISM) Dhanbad, Jharkhand 826004</span>
+                    <span className="block font-semibold text-maroon-900">
+                      Penman Auditorium
+                    </span>
+                    <span className="text-ink-muted">
+                      IIT (ISM) Dhanbad, Jharkhand 826004
+                    </span>
                   </span>
                 </span>
-                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(EVENT.mapsQuery)}`} target="_blank" rel="noopener noreferrer" className="btn-primary !px-4 !py-2">
+
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    mapQuery
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary !px-4 !py-2"
+                >
                   Directions
                 </a>
               </div>
             </div>
           </Reveal>
 
-          {/* Travel + stay */}
-          <div className="space-y-6">
-            <Reveal delay={100} className="card p-7">
-              <h3 className="text-xl font-semibold">Getting Here</h3>
-              <div className="mt-5 space-y-5">
-                {TRAVEL.map((t) => {
-                  const Icon = ICONS[t.icon as keyof typeof ICONS];
-                  return (
-                    <div key={t.title} className="flex gap-4">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-maroon-50 text-maroon-600">
-                        <Icon className="h-5 w-5" strokeWidth={1.75} />
-                      </span>
-                      <div>
-                        <p className="font-semibold text-ink">{t.title}</p>
-                        <p className="mt-0.5 text-sm leading-relaxed text-ink-soft">{t.desc}</p>
-                      </div>
+          {/* Getting Here */}
+          <Reveal delay={100} className="card h-full p-7">
+            <h3 className="text-xl font-semibold">Getting Here</h3>
+
+            <div className="mt-5 space-y-5">
+              {TRAVEL.map((t) => {
+                const Icon =
+                  ICONS[t.icon as keyof typeof ICONS] ?? MapPin;
+
+                return (
+                  <div key={t.title} className="flex gap-4">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-maroon-50 text-maroon-600">
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
+
+                    <div>
+                      <p className="font-semibold text-ink">{t.title}</p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-ink-soft">
+                        {t.desc}
+                      </p>
                     </div>
-                  );
-                })}
-              </div>
-            </Reveal>
-            <Reveal delay={180} className="card p-7">
-              <h3 className="flex items-center gap-2 text-xl font-semibold">
-                <BedDouble className="h-5 w-5 text-maroon-600" /> Where to Stay
-              </h3>
-              <ul className="mt-4 divide-y divide-sand-200">
-                {HOTELS.map((h) => (
-                  <li key={h.name} className="py-3 text-sm">
-                    <span className="block font-semibold text-ink">{h.name}</span>
-                    <span className="mt-0.5 block text-ink-soft">{h.note}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Reveal>
         </div>
 
-        {/* FAQ + downloads */}
-        <div id="faq" className="mt-20 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+        {/* FAQ and Downloads */}
+        <div
+          id="faq"
+          className="mt-20 grid gap-10 lg:grid-cols-[1.4fr_1fr]"
+        >
+          {/* FAQ */}
           <div>
-            <SectionHeading align="left" eyebrow="FAQ" title="Before You Arrive" />
+            <SectionHeading
+              align="left"
+              eyebrow="FAQ"
+              title="Before You Arrive"
+            />
+
             <div className="mt-8 divide-y divide-sand-300 border-y border-sand-300">
               {FAQS.map((f, i) => {
-                const open = openFaq === i;
+                const isOpen = openFaq === i;
+
                 return (
                   <Reveal key={f.q} delay={i * 60}>
-                    <button className="flex w-full items-center justify-between gap-6 py-5 text-left" onClick={() => setOpenFaq(open ? null : i)} aria-expanded={open}>
-                      <span className={`font-display text-lg transition-colors ${open ? 'text-maroon-700' : 'text-maroon-900'}`}>{f.q}</span>
-                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-500 ${open ? 'rotate-180 border-maroon-600 bg-maroon-600 text-sand-50' : 'border-sand-400 text-maroon-600'}`}>
+                    <button
+                      className="flex w-full items-center justify-between gap-6 py-5 text-left"
+                      onClick={() =>
+                        setOpenFaq(isOpen ? null : i)
+                      }
+                      aria-expanded={isOpen}
+                    >
+                      <span
+                        className={`font-display text-lg transition-colors ${
+                          isOpen
+                            ? 'text-maroon-700'
+                            : 'text-maroon-900'
+                        }`}
+                      >
+                        {f.q}
+                      </span>
+
+                      <span
+                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-500 ${
+                          isOpen
+                            ? 'rotate-180 border-maroon-600 bg-maroon-600 text-sand-50'
+                            : 'border-sand-400 text-maroon-600'
+                        }`}
+                      >
                         <ChevronDown className="h-4 w-4" />
                       </span>
                     </button>
-                    <div className="accordion-body" data-open={open}>
+
+                    <div
+                      className="accordion-body"
+                      data-open={isOpen}
+                    >
                       <div>
-                        <p className="pb-5 pr-12 text-[15px] leading-relaxed text-ink-soft">{f.a}</p>
+                        <p className="whitespace-pre-line pb-5 pr-12 text-[15px] leading-relaxed text-ink-soft">
+                          {f.a}
+                        </p>
                       </div>
                     </div>
                   </Reveal>
@@ -115,17 +204,37 @@ export default function Venue() {
             </div>
           </div>
 
-          <Reveal delay={150} className="h-fit rounded-3xl bg-maroon-900 p-8 text-sand-50">
+          {/* Downloads */}
+          <Reveal
+            delay={150}
+            className="h-fit rounded-3xl bg-maroon-900 p-8 text-sand-50"
+          >
             <p className="eyebrow eyebrow-light">Downloads</p>
-            <h3 className="mt-3 text-2xl font-semibold !text-sand-50">Brochure and Press Kit</h3>
+
+            <h3 className="mt-3 text-2xl font-semibold !text-sand-50">
+              Brochure and Press Kit
+            </h3>
+
             <ul className="mt-6 space-y-3">
               {DOWNLOADS.map((d) => (
-                <li key={d.label} className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-sand-100/10">
+                <li
+                  key={d.label}
+                  className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-sand-100/10"
+                >
                   <span>
-                    <span className="block text-sm font-semibold">{d.label}</span>
-                    <span className="text-xs text-sand-200/60">{d.note}</span>
+                    <span className="block text-sm font-semibold">
+                      {d.label}
+                    </span>
+                    <span className="text-xs text-sand-200/60">
+                      {d.note}
+                    </span>
                   </span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sand-100/10 text-sand-300">
+
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sand-100/10 text-sand-300"
+                    aria-label="Coming soon"
+                    title="Coming soon"
+                  >
                     <Download className="h-4 w-4" />
                   </span>
                 </li>
