@@ -10,8 +10,8 @@ const QUICK = [
   ['Speakers', '#speakers'],
   ['CSR Projects', '#projects'],
   ['Sponsorship', '#sponsorship'],
-  ['Venue and FAQ', '#venue'],
-  ['Contact', '#contact'],
+  ['Venue', '#venue'],
+  ['FAQs', '#faq'],
 ];
 
 const SOCIAL = [

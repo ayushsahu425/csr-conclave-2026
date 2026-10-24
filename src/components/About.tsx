@@ -35,7 +35,21 @@ export default function About() {
           <Reveal delay={150} className="relative">
             <div className="hatch absolute -right-3 -top-3 h-28 w-28 rounded-tr-3xl text-maroon-600/20" />
             <div className="relative overflow-hidden rounded-3xl shadow-lift">
-              <img src={campus} alt="IIT (ISM) Dhanbad heritage building and gardens" className="aspect-[16/11] w-full object-cover transition-transform duration-[2s] hover:scale-105" />
+              {ABOUT.video ? (
+                <video
+                  src={ABOUT.video}
+                  poster={campus}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Drone view of the IIT (ISM) Dhanbad campus"
+                  className="aspect-[16/11] w-full object-cover"
+                />
+              ) : (
+                <img src={campus} alt="IIT (ISM) Dhanbad heritage building and gardens" className="aspect-[16/11] w-full object-cover transition-transform duration-[2s] hover:scale-105" />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 text-sand-50">
                 <p className="font-display text-3xl font-semibold !text-sand-50">{ABOUT.captionYears}</p>
@@ -53,7 +67,7 @@ export default function About() {
           {SESSIONS.map((s, i) => (
             <Reveal key={s.name} delay={i * 140}>
               <article
-                className={`group relative h-full overflow-hidden rounded-3xl p-8 md:p-10 ${
+                className={`group relative flex h-full flex-col overflow-hidden rounded-3xl p-8 md:p-10 ${
                   i === 0 ? 'bg-white ring-1 ring-sand-300/70' : 'bg-maroon-600 text-sand-50'
                 }`}
               >
@@ -71,7 +85,7 @@ export default function About() {
                   {s.name}: <span className="font-light italic">{s.title}</span>
                 </h3>
                 <p className={`relative mt-2 text-sm font-medium ${i === 0 ? 'text-ink-muted' : 'text-sand-200/80'}`}>{s.focus}</p>
-                <ul className="relative mt-6 space-y-3">
+                <ul className="relative mt-6 flex flex-1 flex-col justify-around gap-3">
                   {s.points.map((p) => (
                     <li key={p} className="flex gap-3 text-[15px] leading-relaxed">
                       <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${i === 0 ? 'bg-maroon-600' : 'bg-sand-300'}`} />

@@ -7,7 +7,7 @@ import {
   Plane,
   TrainFront,
 } from 'lucide-react';
-import { EVENT, TRAVEL } from '../data/mockData';
+import { DOWNLOADS, EVENT, FAQS, TRAVEL } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -16,43 +16,6 @@ const ICONS = {
   plane: Plane,
   car: Car,
 } as const;
-
-const FAQS = [
-  {
-    q: 'Who is the Conclave for?',
-    a: 'CSR leaders, foundation heads, PSU officials, government representatives, industry leaders, and IIT (ISM) faculty and researchers.',
-  },
-  {
-    q: 'Is there a registration fee?',
-    a: '[TBC]',
-  },
-  {
-    q: 'Can CSR funds support IIT (ISM) projects?',
-    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Alumni Affairs to discuss a proposed partnership and confirm its compliance requirements.',
-  },
-  {
-    q: 'How can my organisation fund a project or sponsor the event?',
-    a: 'Write to csrconclave@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
-  },
-  {
-    q: 'What is the dress code?',
-    a: 'Business formals or Indian formals are recommended. Please carry a government-issued photo ID and your QR delegate pass.',
-  },
-  {
-    q: 'Is parking available on campus?',
-    a: '[TBC]',
-  },
-  {
-    q: 'Where is the venue?',
-    a: 'The Conclave is planned for Penman Auditorium, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',
-  },
-];
-
-const DOWNLOADS = [
-  { label: 'Conclave Brochure', note: 'PDF | Coming soon' },
-  { label: 'Partnership Booklet', note: 'PDF | Coming soon' },
-  { label: 'Press Kit and Logos', note: 'ZIP | Coming soon' },
-];
 
 export default function Venue() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -114,10 +77,10 @@ export default function Venue() {
           </Reveal>
 
           {/* Getting Here */}
-          <Reveal delay={100} className="card h-full p-7">
+          <Reveal delay={100} className="card flex h-full flex-col p-7">
             <h3 className="text-xl font-semibold">Getting Here</h3>
 
-            <div className="mt-5 space-y-5">
+            <div className="mt-5 flex flex-1 flex-col justify-around gap-5">
               {TRAVEL.map((t) => {
                 const Icon =
                   ICONS[t.icon as keyof typeof ICONS] ?? MapPin;
