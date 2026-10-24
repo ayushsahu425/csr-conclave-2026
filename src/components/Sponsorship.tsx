@@ -246,7 +246,7 @@ export default function Sponsorship({
             <p className="mt-4 text-center text-xs text-sand-200/70">
               Sponsorship prices will be announced once confirmed. For
               bank details and invoices, contact the Office of
-              Corporate Relations.
+              Alumni Affairs.
             </p>
 
           </Reveal>

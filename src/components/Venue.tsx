@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { BedDouble, Car, ChevronDown, Download, MapPin, Plane, TrainFront } from 'lucide-react';
-import { DOWNLOADS, EVENT, FAQS, HOTELS, TRAVEL } from '../data/mockData';
+import {Car, ChevronDown, Download, MapPin, Plane, TrainFront } from 'lucide-react';
+import { DOWNLOADS, EVENT, FAQS, TRAVEL } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -12,7 +12,7 @@ export default function Venue() {
   return (
     <section id="venue" className="section">
       <div className="container-x">
-        <SectionHeading eyebrow="Venue, Travel and Stay" title={EVENT.venue} description={`${EVENT.dateLabel} | ${EVENT.city}`} />
+        <SectionHeading eyebrow="Venue And Travel" title={EVENT.venue} description={`${EVENT.dateLabel} | ${EVENT.city}`} />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
           {/* Map */}
@@ -73,7 +73,7 @@ export default function Venue() {
                 })}
               </div>
             </Reveal>
-            <Reveal delay={180} className="card p-7">
+            {/* <Reveal delay={180} className="card p-7">
               <h3 className="flex items-center gap-2 text-xl font-semibold">
                 <BedDouble className="h-5 w-5 text-maroon-600" /> Where to Stay
               </h3>
@@ -85,7 +85,7 @@ export default function Venue() {
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </Reveal> */}
           </div>
         </div>
 

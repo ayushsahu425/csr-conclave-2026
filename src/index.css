@@ -37,7 +37,8 @@
   .eyebrow {
     @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-maroon-600;
   }
-  .eyebrow::before {
+  .eyebrow::before,
+  .eyebrow::after {
     content: '';
     @apply h-px w-8 bg-current opacity-60;
   }
@@ -106,6 +107,12 @@
   }
   .text-balance {
     text-wrap: balance;
+  }
+  .text-justified {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 }
 

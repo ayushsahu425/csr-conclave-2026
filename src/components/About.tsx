@@ -18,7 +18,7 @@ export default function About() {
                 </>
               }
             />
-            <Reveal delay={120} className="mt-6 space-y-4 text-[17px] leading-relaxed text-ink-soft">
+            <Reveal delay={120} className="mt-6 space-y-4 text-[17px] text-justify leading-relaxed text-ink-soft">
               {ABOUT.paragraphs.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}
