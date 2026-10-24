@@ -19,13 +19,13 @@ export default function WhyAttend() {
             const Icon = ICONS[w.icon as keyof typeof ICONS];
             return (
               <Reveal key={w.title} delay={i * 100}>
-                <div className="card card-hover group h-full p-7">
+                <div className="card card-hover group flex h-full flex-col p-6 xl:p-7">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-maroon-50 text-maroon-600 transition-all duration-500 group-hover:rotate-[-6deg] group-hover:bg-maroon-600 group-hover:text-sand-50">
                     <Icon className="h-6 w-6" strokeWidth={1.75} />
                   </div>
                   <p className="mt-6 font-display text-sm text-sand-600">0{i + 1}</p>
-                  <h3 className="mt-1 text-xl font-semibold">{w.title}</h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{w.desc}</p>
+                  <h3 className="mt-1 text-xl font-semibold leading-snug lg:min-h-[2.75em]">{w.title}</h3>
+                  <p className="text-justified mt-3 text-[14.5px] leading-relaxed tracking-[-0.005em] text-ink-soft">{w.desc}</p>
                 </div>
               </Reveal>
             );

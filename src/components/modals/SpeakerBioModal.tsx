@@ -12,7 +12,7 @@ export default function SpeakerBioModal({ speaker, onClose }: { speaker: Speaker
         <div>
           <p className="font-semibold text-maroon-700">{speaker.title}</p>
           <p className="text-sm text-ink-muted">{speaker.org}</p>
-          <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">{speaker.bio}</p>
+          <p className="text-justified mt-4 text-[15px] leading-relaxed text-ink-soft">{speaker.bio}</p>
         </div>
       </div>
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-sand-100 p-4">

@@ -18,7 +18,7 @@ export default function About() {
                 </>
               }
             />
-            <Reveal delay={120} className="mt-6 space-y-4 text-[17px] text-justify leading-relaxed text-ink-soft">
+            <Reveal delay={120} className="mt-6 space-y-4 text-justified text-[17px] leading-relaxed text-ink-soft">
               {ABOUT.paragraphs.map((para) => (
                 <p key={para.slice(0, 24)}>{para}</p>
               ))}
@@ -75,7 +75,7 @@ export default function About() {
                   {s.points.map((p) => (
                     <li key={p} className="flex gap-3 text-[15px] leading-relaxed">
                       <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${i === 0 ? 'bg-maroon-600' : 'bg-sand-300'}`} />
-                      <span className={i === 0 ? 'text-ink-soft' : 'text-sand-100/90'}>{p}</span>
+                      <span className={`text-justified ${i === 0 ? 'text-ink-soft' : 'text-sand-100/90'}`}>{p}</span>
                     </li>
                   ))}
                 </ul>

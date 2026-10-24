@@ -28,11 +28,11 @@ const FAQS = [
   },
   {
     q: 'Can CSR funds support IIT (ISM) projects?',
-    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Corporate Relations to discuss a proposed partnership and confirm its compliance requirements.',
+    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Alumni Affairs to discuss a proposed partnership and confirm its compliance requirements.',
   },
   {
     q: 'How can my organisation fund a project or sponsor the event?',
-    a: 'Write to csrconclave@iitism.ac.in. The Office of Corporate Relations will share project details and sponsorship options.',
+    a: 'Write to csrconclave@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
   },
   {
     q: 'What is the dress code?',
@@ -130,7 +130,7 @@ export default function Venue() {
 
                     <div>
                       <p className="font-semibold text-ink">{t.title}</p>
-                      <p className="mt-0.5 text-sm leading-relaxed text-ink-soft">
+                      <p className="text-justified mt-0.5 text-sm leading-relaxed text-ink-soft">
                         {t.desc}
                       </p>
                     </div>
@@ -193,7 +193,7 @@ export default function Venue() {
                       data-open={isOpen}
                     >
                       <div>
-                        <p className="whitespace-pre-line pb-5 pr-12 text-[15px] leading-relaxed text-ink-soft">
+                        <p className="text-justified whitespace-pre-line pb-5 pr-12 text-[15px] leading-relaxed text-ink-soft">
                           {f.a}
                         </p>
                       </div>

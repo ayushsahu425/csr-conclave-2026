@@ -44,7 +44,7 @@ export default function Timeline() {
                   </div>
                   <p className="mt-6 font-display text-5xl font-semibold text-sand-200">{m.year}</p>
                   <h3 className="mt-3 text-lg font-semibold !text-sand-50">{m.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-sand-200/70 text-justify">{m.desc}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-sand-200/70 text-justified">{m.desc}</p>
                 </div>
               </Reveal>
             ))}

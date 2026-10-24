@@ -23,7 +23,7 @@ export const EVENT = {
   venueName: 'Penman Auditorium',
   venue: 'Penman Auditorium, IIT (ISM) Dhanbad',
   city: 'Dhanbad, Jharkhand 826004',
-  presenter: 'Office of Corporate Relations, IIT (ISM) Dhanbad',
+  presenter: 'Office of Alumni Affairs, IIT (ISM) Dhanbad',
   email: 'csrconclave@iitism.ac.in',
   phone: '+91 326 223 5000',
   mapsQuery: 'Penman Auditorium, IIT (ISM) Dhanbad',
@@ -466,11 +466,11 @@ export const FAQS = [
   { q: 'Is there a registration fee?', a: '[TBC]' },
   {
     q: 'Can CSR funds support IIT (ISM) projects?',
-    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Corporate Relations to discuss a proposed partnership and confirm its compliance requirements.',
+    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Alumni Affairs to discuss a proposed partnership and confirm its compliance requirements.',
   },
   {
     q: 'How can my organisation fund a project or sponsor the event?',
-    a: 'Write to csrconclave@iitism.ac.in. The Office of Corporate Relations will share project details and sponsorship options.',
+    a: 'Write to csrconclave@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
   },
   {
     q: 'What is the dress code?',

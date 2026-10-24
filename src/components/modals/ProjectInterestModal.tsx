@@ -34,7 +34,7 @@ export default function ProjectInterestModal({ project, onClose }: { project: CS
         <div className="py-4 text-center">
           <CircleCheck className="mx-auto h-14 w-14 text-maroon-600" strokeWidth={1.5} />
           <p className="mt-4 text-ink-soft">
-            Your interest has been routed to <strong className="text-ink">{project.piName}</strong> ({project.dept}) and the Corporate Relations
+            Your interest has been routed to <strong className="text-ink">{project.piName}</strong> ({project.dept}) and the Alumni Affairs
             office. Expect a response within three working days.
           </p>
           {ref && <p className="mt-3 text-sm text-ink-muted">Reference: <span className="font-mono font-semibold text-maroon-700">{ref}</span></p>}
