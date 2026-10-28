@@ -246,7 +246,7 @@ export default function Sponsorship({
             <p className="mt-4 text-center text-xs text-sand-200/70">
               Sponsorship prices will be announced once confirmed. For
               bank details and invoices, contact the Office of
-              Corporate Relations.
+              Alumni Affairs.
             </p>
 
           </Reveal>
@@ -289,13 +289,7 @@ export default function Sponsorship({
                     <button
                       key={i}
                       onClick={() => onOpenSponsor()}
-                      className={`group flex items-center justify-center rounded-2xl border border-dashed border-sand-400 bg-white/60 text-sm text-ink-muted transition-all duration-300 hover:border-maroon-400 hover:bg-white hover:text-maroon-700 ${
-                        gi === 0
-                          ? 'h-28 w-64'
-                          : gi === 1
-                            ? 'h-24 w-52'
-                            : 'h-20 w-40'
-                      }`}
+                      className={`group flex items-center justify-center rounded-2xl border border-dashed border-sand-400 bg-white/60 text-sm text-ink-muted transition-all duration-300 hover:border-maroon-400 hover:bg-white hover:text-maroon-700 ${g.size}`}
                     >
 
                       <span className="inline-flex items-center gap-1.5">

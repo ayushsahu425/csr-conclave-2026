@@ -1,11 +1,11 @@
-import { ALUMNI_LEADERS, CENTENARY_MILESTONES } from '../data/mockData';
+import {CENTENARY_MILESTONES } from '../data/mockData';
 import { useInView } from '../hooks/useInView';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
 export default function Timeline() {
   const [lineRef, lineIn] = useInView<HTMLDivElement>();
-  const alumni = [...ALUMNI_LEADERS, ...ALUMNI_LEADERS];
+  // const alumni = [...ALUMNI_LEADERS, ...ALUMNI_LEADERS];
 
   return (
     <section id="centenary" className="section overflow-hidden bg-maroon-900 text-sand-50">
@@ -44,7 +44,7 @@ export default function Timeline() {
                   </div>
                   <p className="mt-6 font-display text-5xl font-semibold text-sand-200">{m.year}</p>
                   <h3 className="mt-3 text-lg font-semibold !text-sand-50">{m.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-sand-200/70">{m.desc}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-sand-200/70 text-justified">{m.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -52,7 +52,8 @@ export default function Timeline() {
         </div>
       </div>
 
-      {/* Alumni strip */}
+      {/* 
+      Alumni strip
       <div className="relative mt-20 border-y border-sand-200/10 py-6">
         <p className="container-x mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-sand-300">
           Alumni Standing with the Conclave
@@ -62,7 +63,7 @@ export default function Timeline() {
             {alumni.map((a, i) => (
               <div key={i} className="flex items-center gap-4 rounded-full border border-sand-200/15 bg-white/5 py-2 pl-2 pr-6">
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-sand-100 font-display text-sm font-semibold text-maroon-700">
-                  {a.name.replace(/^(Dr\.|Smt\.|Shri)\s*/, '').split(' ').map((w) => w[0]).slice(0, 2).join('')}
+                  {a.name.replace(/^(Dr\.|Smt\.|Shri)\s, '').split(' ').map((w) => w[0]).slice(0, 2).join('')}
                 </span>
                 <span className="leading-tight">
                   <span className="block text-sm font-semibold text-sand-50">{a.name}</span>
@@ -75,6 +76,7 @@ export default function Timeline() {
           </div>
         </div>
       </div>
+      */}
     </section>
   );
 }

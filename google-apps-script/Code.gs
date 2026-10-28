@@ -153,7 +153,7 @@ function handleSponsor_(d) {
     'Thank you for your interest',
     '<p>Dear ' + esc_(d.contactPerson) + ',</p>' +
       '<p>Thank you for enquiring about the <b>' + esc_(d.tier) + ' Partner</b> tier for ' + esc_(CONFIG.EVENT_NAME) + '. ' +
-      'Our Corporate Relations team will contact you within two working days with the partnership brochure, invoice and bank details.</p>' +
+      'Our Alumni Affairs team will contact you within two working days with the partnership brochure, invoice and bank details.</p>' +
       '<p>Your reference number is <b>' + ref + '</b>.</p>'
   ));
   notifyTeam_('Sponsor enquiry (' + clean_(d.tier) + '): ' + clean_(d.companyName), [
@@ -178,7 +178,7 @@ function handleProject_(d) {
   sendMail_(clean_(d.email), 'Your interest in "' + clean_(d.projectTitle) + '"', emailShell_(
     'Interest received',
     '<p>Dear ' + esc_(d.applicantName) + ',</p>' +
-      '<p>Thank you for expressing interest in <b>' + esc_(d.projectTitle) + '</b>. Your details have been shared with the principal investigator and the Corporate Relations office, who will respond within three working days.</p>' +
+      '<p>Thank you for expressing interest in <b>' + esc_(d.projectTitle) + '</b>. Your details have been shared with the principal investigator and the Alumni Affairs office, who will respond within three working days.</p>' +
       '<p>Your reference number is <b>' + ref + '</b>.</p>'
   ));
   const piEmail = CONFIG.PROJECT_PI_EMAILS[clean_(d.projectId)];
@@ -261,7 +261,7 @@ function emailShell_(title, inner) {
     '<div style="font-family:Georgia,serif;font-size:24px;margin-top:6px">' + esc_(title) + '</div></div>' +
     '<div style="background:#ffffff;padding:24px 28px;border:1px solid #F1E5D3;border-top:0;border-radius:0 0 16px 16px;font-size:15px;line-height:1.6;color:#2B1A1D">' +
     inner +
-    '<p style="margin-top:24px">Warm regards,<br><b>Office of Corporate Relations</b><br>IIT (ISM) Dhanbad</p></div>' +
+    '<p style="margin-top:24px">Warm regards,<br><b>Office of Alumni Affairs</b><br>IIT (ISM) Dhanbad</p></div>' +
     '<p style="text-align:center;font-size:12px;color:#8A7A7C;margin-top:16px">Education · Innovation · Societal Impact</p>' +
     '</div></div>';
 }

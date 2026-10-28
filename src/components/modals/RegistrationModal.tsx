@@ -170,7 +170,7 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
 
         <label className="flex items-start gap-3 rounded-xl bg-sand-100 p-4 text-sm text-ink-soft sm:col-span-2">
           <input type="checkbox" name="consent" checked={form.consent} onChange={set} className="mt-0.5 h-4 w-4 accent-maroon-600" />
-          I agree to be contacted by the Office of Corporate Relations, IIT (ISM) Dhanbad about the Conclave and consent to my details being used for event logistics.
+          I agree to be contacted by the Office of Alumni Affairs, IIT (ISM) Dhanbad about the Conclave and consent to my details being used for event logistics.
         </label>
 
         <Honeypot value={hp} onChange={setHp} />

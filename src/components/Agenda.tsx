@@ -267,7 +267,7 @@ export default function Agenda() {
                       <div className="accordion-body" data-open={isOpen}>
                         <div>
                           <div className="border-t border-sand-200 px-5 pb-6 pt-4 md:px-6">
-                            <p className="text-[15px] leading-relaxed text-ink-soft">
+                            <p className="text-justified text-[15px] leading-relaxed text-ink-soft">
                               {item.description}
                             </p>
 

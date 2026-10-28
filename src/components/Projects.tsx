@@ -47,7 +47,7 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
                   <span className="font-display text-sm text-sand-600">{p.code}</span>
                 </div>
                 <h3 className="mt-5 text-2xl font-semibold leading-snug">{p.title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{p.problemStatement}</p>
+                <p className="text-justified mt-3 text-[15px] leading-relaxed text-ink-soft">{p.problemStatement}</p>
 
                 <dl className="mt-6 grid grid-cols-2 gap-4 rounded-2xl bg-sand-100 p-5">
                   <div>

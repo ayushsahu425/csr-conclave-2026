@@ -23,7 +23,7 @@ export const EVENT = {
   venueName: 'Penman Auditorium',
   venue: 'Penman Auditorium, IIT (ISM) Dhanbad',
   city: 'Dhanbad, Jharkhand 826004',
-  presenter: 'Office of Corporate Relations, IIT (ISM) Dhanbad',
+  presenter: 'Office of Alumni Affairs, IIT (ISM) Dhanbad',
   email: 'csrconclave@iitism.ac.in',
   phone: '+91 326 223 5000',
   mapsQuery: 'Penman Auditorium, IIT (ISM) Dhanbad',
@@ -53,6 +53,9 @@ export const ABOUT = {
   pillars: ['Education', 'Innovation', 'Societal Impact'],
   captionYears: '1926–2026',
   caption: 'A century of nation-building from Dhanbad',
+  // Campus drone video: put the file in the public folder (e.g. public/campus-drone.mp4)
+  // and set video: '/campus-drone.mp4'. While empty, the campus photo is shown.
+  video: '',
 };
 
 export const SESSIONS = [
@@ -142,13 +145,6 @@ export const CENTENARY_MILESTONES = [
     title: 'The Centenary Conclave',
     desc: 'A hundred years on, Shatabdi Samriddhi brings partners together to help shape the Institute’s next century of impact.',
   },
-];
-
-export const ALUMNI_LEADERS = [
-  { name: 'Dr. A. K. Singh', title: 'Former CMD, Coal India Ltd.', batch: 'Class of 1982' },
-  { name: 'Smt. R. Mukherjee', title: 'Director (HR), ONGC', batch: 'Class of 1991' },
-  { name: 'Shri Rajesh Verma', title: 'Vice President, Tata Steel CSR Foundation', batch: 'Class of 1998' },
-  { name: 'Dr. S. K. Roy', title: 'Advisor, Ministry of Mines', batch: 'Class of 1988' },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -386,14 +382,14 @@ export const SPONSOR_TIERS = [
     price: '₹[TBC] + GST',
     blurb: 'A strong on-ground presence with a dedicated exhibition booth.',
     highlights: ['Exhibition booth at the Conclave', 'Standee and flyers in the delegate kit', '4 delegate passes'],
-    featured: true,
+    featured: false,
   },
   {
     name: 'Gold',
     price: '₹[TBC] + GST',
     blurb: 'Title-level association with the Centenary CSR Conclave.',
     highlights: ['Title branding', 'Speaking slot in the Samriddhi session', 'Press mentions and 8 delegate passes'],
-    featured: false,
+    featured: true,
   },
   {
     name: 'Platinum',
@@ -420,14 +416,16 @@ export const TIER_FEATURES: { feature: string; values: (boolean | string)[] }[] 
   { feature: 'Title branding and press mentions', values: [false, false, true, '[TBC]'] },
 ];
 
+// size = Tailwind classes for each logo box in that row
 export const PARTNER_GROUPS = [
-  { tier: 'Gold Partners', slots: 2 },
-  { tier: 'Silver Partners', slots: 3 },
-  { tier: 'Bronze and Knowledge Partners', slots: 5 },
+  { tier: 'Platinum Partners', slots: 1, size: 'h-32 w-72' },
+  { tier: 'Gold Partners', slots: 2, size: 'h-28 w-64' },
+  { tier: 'Silver Partners', slots: 3, size: 'h-24 w-52' },
+  { tier: 'Bronze and Knowledge Partners', slots: 5, size: 'h-20 w-40' },
 ];
 
 /* ------------------------------------------------------------------ */
-/* Venue, travel and stay                                              */
+/* Venue, travel                                             */
 /* ------------------------------------------------------------------ */
 
 export const TRAVEL = [
@@ -448,12 +446,6 @@ export const TRAVEL = [
   },
 ];
 
-export const HOTELS = [
-  { name: 'IIT (ISM) Guest House', note: 'On campus, with limited rooms for invited delegates.' },
-  { name: 'Bank More and Hirapur', note: 'Partner hotels [TBC], a short drive from the venue.' },
-  { name: 'Dhanbad city centre', note: 'About 10 to 15 minutes from campus by road.' },
-];
-
 /* ------------------------------------------------------------------ */
 /* FAQ and downloads                                                   */
 /* ------------------------------------------------------------------ */
@@ -466,11 +458,11 @@ export const FAQS = [
   { q: 'Is there a registration fee?', a: '[TBC]' },
   {
     q: 'Can CSR funds support IIT (ISM) projects?',
-    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Corporate Relations to discuss a proposed partnership and confirm its compliance requirements.',
+    a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Alumni Affairs to discuss a proposed partnership and confirm its compliance requirements.',
   },
   {
     q: 'How can my organisation fund a project or sponsor the event?',
-    a: 'Write to csrconclave@iitism.ac.in. The Office of Corporate Relations will share project details and sponsorship options.',
+    a: 'Write to csrconclave@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
   },
   {
     q: 'What is the dress code?',
@@ -484,9 +476,9 @@ export const FAQS = [
 ];
 
 export const DOWNLOADS = [
-  { label: 'Conclave Brochure', note: 'PDF · Coming soon' },
-  { label: 'Partnership Booklet', note: 'PDF · Coming soon' },
-  { label: 'Press Kit and Logos', note: 'ZIP · Coming soon' },
+  { label: 'Conclave Brochure', note: 'PDF | Coming soon' },
+  { label: 'Partnership Booklet', note: 'PDF | Coming soon' },
+  { label: 'Press Kit and Logos', note: 'ZIP | Coming soon' },
 ];
 
 /* ------------------------------------------------------------------ */

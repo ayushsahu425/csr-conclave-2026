@@ -28,7 +28,7 @@ export default function SponsorModal({ onClose, initialTier = '' }: { onClose: (
           <CircleCheck className="mx-auto h-14 w-14 text-maroon-600" strokeWidth={1.5} />
           <p className="mt-4 text-ink-soft">
             Thank you, <strong className="text-ink">{form.contactPerson}</strong>. The brochure is on its way to{' '}
-            <strong className="text-ink">{form.email}</strong>, and our Corporate Relations team will follow up within two working days with
+            <strong className="text-ink">{form.email}</strong>, and our Alumni Affairs team will follow up within two working days with
             invoice and bank details.
           </p>
           {ref && <p className="mt-3 text-sm text-ink-muted">Reference: <span className="font-mono font-semibold text-maroon-700">{ref}</span></p>}

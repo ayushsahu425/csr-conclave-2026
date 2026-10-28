@@ -14,7 +14,7 @@ simultaneous submissions can't collide.
 
 ## One-time setup (≈15 minutes)
 
-Use the Google account that should **own the data and send the emails** (ideally the Corporate Relations / institute account).
+Use the Google account that should **own the data and send the emails** (ideally the Alumni Affairs / institute account).
 
 1. **Create the sheet** – go to <https://sheets.new>, name it `CSR Conclave 2026 – Submissions`.
 2. **Add the script** – in the sheet: **Extensions → Apps Script**. Delete everything in `Code.gs`,
