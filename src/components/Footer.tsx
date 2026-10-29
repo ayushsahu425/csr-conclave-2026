@@ -88,6 +88,8 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
             <li className="flex gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sand-300" />
               <span>
+                Administrative Block, 1st Floor,
+                <br />
                 {EVENT.presenter}
                 <br />
                 Dhanbad, Jharkhand 826004
