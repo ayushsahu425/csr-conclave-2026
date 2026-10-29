@@ -10,6 +10,7 @@ import Speakers from './components/Speakers';
 import Projects from './components/Projects';
 import Sponsorship from './components/Sponsorship';
 import Venue from './components/Venue';
+import Faq from './components/Faq';
 import Footer from './components/Footer';
 
 import RegistrationModal from './components/modals/RegistrationModal';
@@ -52,6 +53,7 @@ export default function App() {
         <Projects onSelectProject={setSelectedProject} />
         <Sponsorship onOpenSponsor={openSponsor} />
         <Venue />
+        <Faq />
       </main>
 
       <Footer onOpenRegister={openRegister} />

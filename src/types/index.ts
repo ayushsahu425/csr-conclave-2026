@@ -5,7 +5,6 @@ export interface RegistrationData {
   category: string;
   email: string;
   phone: string;
-  dietary: string;
   consent: boolean;
 }
 

@@ -39,6 +39,7 @@ export default {
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        hindi: ['"Tiro Devanagari Hindi"', '"Noto Serif Devanagari"', 'serif'],
       },
       boxShadow: {
         card: '0 1px 2px rgba(61,11,22,0.04), 0 8px 24px -12px rgba(61,11,22,0.18)',

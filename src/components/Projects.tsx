@@ -5,7 +5,7 @@ import type { CSRProject } from '../types';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
-const AREAS = ['All', 'Mine Safety', 'Clean Energy', 'Water and Health', 'Skilling', 'Land Reclamation'] as const;
+const AREAS = ['All', 'Mine Safety', 'Clean Energy', 'Water and Health', 'Skilling'] as const;
 
 export default function Projects({ onSelectProject }: { onSelectProject: (p: CSRProject) => void }) {
   const [area, setArea] = useState<(typeof AREAS)[number]>('All');

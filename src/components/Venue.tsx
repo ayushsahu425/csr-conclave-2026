@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import {
   Car,
-  ChevronDown,
-  Download,
+  // Download,
   MapPin,
   Plane,
   TrainFront,
 } from 'lucide-react';
-import { DOWNLOADS, EVENT, FAQS, TRAVEL } from '../data/mockData';
+import { EVENT, TRAVEL } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -18,7 +16,6 @@ const ICONS = {
 } as const;
 
 export default function Venue() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const mapQuery = 'Penman Auditorium, IIT (ISM) Dhanbad';
 
@@ -105,12 +102,12 @@ export default function Venue() {
         </div>
 
         {/* FAQ and Downloads */}
-        <div
+        {/* <div
           id="faq"
           className="mt-20 grid gap-10 lg:grid-cols-[1.4fr_1fr]"
-        >
+        > */}
           {/* FAQ */}
-          <div>
+          {/* <div>
             <SectionHeading
               align="left"
               eyebrow="FAQ"
@@ -165,10 +162,10 @@ export default function Venue() {
                 );
               })}
             </div>
-          </div>
+          </div> */}
 
           {/* Downloads */}
-          <Reveal
+          {/* <Reveal
             delay={150}
             className="h-fit rounded-3xl bg-maroon-900 p-8 text-sand-50"
           >
@@ -203,8 +200,8 @@ export default function Venue() {
                 </li>
               ))}
             </ul>
-          </Reveal>
-        </div>
+          </Reveal> */}
+        {/* </div> */}
       </div>
     </section>
   );

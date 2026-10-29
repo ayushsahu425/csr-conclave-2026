@@ -1,5 +1,5 @@
 import campus from '../assets/campus.webp';
-import { ABOUT, SESSIONS } from '../data/mockData';
+import { ABOUT } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -14,7 +14,8 @@ export default function About() {
               eyebrow="About the Conclave"
               title={
                 <>
-                  A Hundred Years of Knowledge, <em className="font-light text-maroon-600">Shared for Prosperity</em>
+                A Hundred Years of Knowledge, <em className="font-light text-maroon-600">Shared for Prosperity</em>
+                {/*Where Legacy Meets <em className="font-light text-maroon-600">Possibility</em> */}
                 </>
               }
             />
@@ -60,7 +61,7 @@ export default function About() {
         </div>
 
         {/* Two sessions mirror the two halves of the theme */}
-        <div className="mt-24">
+        {/* <div className="mt-24">
           <SectionHeading eyebrow="The Programme" title="Two Flagship Sessions. One Shared Vision." />
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -96,7 +97,7 @@ export default function About() {
               </article>
             </Reveal>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

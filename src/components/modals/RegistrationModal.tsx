@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import QRCode from 'qrcode';
+import { useState } from 'react';
 import { CalendarPlus, CircleCheck, Share2 } from 'lucide-react';
 import { EVENT } from '../../data/mockData';
 import { downloadICS } from '../../lib/calendar';
@@ -12,7 +11,6 @@ import Honeypot from '../ui/Honeypot';
 import SubmitButton from '../ui/SubmitButton';
 
 const CATEGORIES = ['CSR Head / Foundation', 'PSU', 'Government', 'Industry', 'Academia / Faculty', 'Student', 'Media', 'Other'];
-const DIETARY = ['Vegetarian', 'Non-Vegetarian'];
 
 const EMPTY: RegistrationData = {
   fullName: '',
@@ -21,7 +19,6 @@ const EMPTY: RegistrationData = {
   category: '',
   email: '',
   phone: '',
-  dietary: '',
   consent: false,
 };
 
@@ -29,18 +26,8 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
   const [form, setForm] = useState<RegistrationData>(EMPTY);
   const [error, setError] = useState('');
   const [pass, setPass] = useState<IssuedPass | null>(null);
-  const [qr, setQr] = useState('');
   const [loading, setLoading] = useState(false);
   const [hp, setHp] = useState('');
-
-  useEffect(() => {
-    if (!pass) return;
-    QRCode.toDataURL(`CSR26|${pass.passId}|${pass.fullName}|${pass.email}`, {
-      margin: 1,
-      width: 320,
-      color: { dark: '#3D0B16', light: '#FDFAF5' },
-    }).then(setQr);
-  }, [pass]);
 
   const set = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -81,7 +68,7 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
         <div className="text-center">
           <CircleCheck className="mx-auto h-12 w-12 text-maroon-600" strokeWidth={1.5} />
           <p className="mt-3 text-ink-soft">
-            A confirmation with your QR pass has been sent to <strong className="text-ink">{pass.email}</strong>.
+            A confirmation has been sent to <strong className="text-ink">{pass.email}</strong>.
           </p>
         </div>
 
@@ -92,7 +79,6 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
             <p className="font-display text-xl">{EVENT.name}</p>
           </div>
           <div className="flex flex-col items-center gap-5 p-6 sm:flex-row sm:items-start">
-            {qr ? <img src={qr} alt="QR pass" className="h-36 w-36 rounded-xl" /> : <div className="h-36 w-36 animate-pulse rounded-xl bg-sand-200" />}
             <dl className="flex-1 space-y-2 text-sm">
               <div>
                 <dt className="label !mb-0">Name</dt>
@@ -114,7 +100,6 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
               </div>
             </dl>
           </div>
-          <div className="border-t border-dashed border-sand-300 bg-sand-50 px-6 py-3 text-xs text-ink-muted">{EVENT.venue}</div>
         </div>
 
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -131,10 +116,6 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
 
   return (
     <Modal onClose={onClose} eyebrow={`${EVENT.subtitle} · ${EVENT.dateLabel}`} title="Delegate Registration">
-      <div className="mb-6 flex flex-wrap gap-2 text-xs">
-        <span className="chip">{EVENT.venue}</span>
-        <span className="chip">QR pass by email</span>
-      </div>
       <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
         <Field label="Full name" className="sm:col-span-2">
           <input required name="fullName" value={form.fullName} onChange={set} className="input" placeholder="e.g. Ananya Sharma" />
@@ -145,18 +126,10 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
         <Field label="Designation">
           <input required name="designation" value={form.designation} onChange={set} className="input" />
         </Field>
-        <Field label="Category">
+        <Field label="Category" className="sm:col-span-2">
           <select required name="category" value={form.category} onChange={set} className="input">
             <option value="">Select category</option>
             {CATEGORIES.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
-        </Field>
-        <Field label="Dietary preference">
-          <select name="dietary" value={form.dietary} onChange={set} className="input">
-            <option value="">Select preference</option>
-            {DIETARY.map((c) => (
               <option key={c}>{c}</option>
             ))}
           </select>
