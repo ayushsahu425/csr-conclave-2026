@@ -6,7 +6,6 @@ interface NavbarProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
   onOpenRegister: () => void;
-  onOpenSponsor: () => void;
 }
 
 const LINKS = [
@@ -14,12 +13,10 @@ const LINKS = [
   { id: 'why-attend', label: 'Why Attend' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'speakers', label: 'Speakers' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'sponsorship', label: 'Sponsorship' },
   { id: 'venue', label: 'Venue' },
 ];
 
-export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister, onOpenSponsor }: NavbarProps) {
+export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
 
@@ -108,9 +105,6 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
         </div>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <button onClick={onOpenSponsor} className={solid ? 'btn-outline !px-5 !py-2.5' : 'btn-outline-light !px-5 !py-2.5'}>
-            Sponsor
-          </button>
           <button onClick={onOpenRegister} className={solid ? 'btn-primary !px-5 !py-2.5' : 'btn-sand !px-5 !py-2.5'}>
             Register
           </button>
@@ -140,16 +134,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
                 {l.label}
               </a>
             ))}
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenSponsor();
-                }}
-                className="btn-outline"
-              >
-                Sponsor
-              </button>
+            <div className="mt-4">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
