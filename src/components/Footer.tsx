@@ -101,7 +101,12 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
             </li>
             <li className="flex gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-sand-300" />
-              <span>{EVENT.phone}</span>
+              <span>
+                <span className="block font-medium text-sand-100">{EVENT.contactPerson}</span>
+                <a href={`tel:${EVENT.phone.replace(/\s/g, '')}`} className="hover:text-sand-50">
+                  {EVENT.phone}
+                </a>
+              </span>
             </li>
           </ul>
         </div>

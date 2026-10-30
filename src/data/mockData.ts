@@ -48,9 +48,9 @@ export const STATS = [
 
 export const ABOUT = {
   paragraphs: [
-    'In 1926, the Indian School of Mines opened in Dhanbad to build the skills a growing nation needed. A hundred years later, IIT (ISM) Dhanbad begins its centenary year with an invitation to India’s CSR leaders.',
-    'The Institute’s expertise in mining, earth sciences and energy can achieve more when industry joins in. Together, we can turn knowledge into meaningful outcomes for companies, communities and the country.',
-    'Shatabdi Samriddhi 2026 brings CSR heads, PSU leaders, government officials and faculty together for one focused day. The aim is practical: to turn conversations into commitments and support research that can deliver measurable benefits.',
+    'Established in 1926 as the Indian School of Mines, Dhanbad, IIT (ISM) has spent a century advancing knowledge, fostering innovation, and contributing to India’s growth. As the Institute marks its centenary, it invites India’s corporate and public sector leaders to build on this legacy through meaningful CSR partnerships.',
+    'Shatabdi Samriddhi 2026 brings together CSR leaders, PSU representatives, government officials, and distinguished academicians on a common platform to explore opportunities for collaboration. Drawing upon IIT (ISM)’s expertise in mining, earth sciences, energy, and allied disciplines, the conclave aims to connect institutional research and innovation with industry priorities and pressing societal needs.',
+    'More than a gathering of stakeholders, it is a platform to translate dialogue into partnerships, research into actionable solutions, and shared commitments into measurable, lasting impact for communities and the nation.',
   ],
   pillars: ['Education', 'Innovation', 'Societal Impact'],
   captionYears: '1926–2026',
