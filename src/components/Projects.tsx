@@ -16,12 +16,8 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
       <div className="container-x">
         <SectionHeading
           eyebrow="CSR Project Showcase"
-          title={
-            <>
-              Research, Ready to <em className="font-light text-maroon-600">Be Funded</em>
-            </>
-          }
-          description="Each project has a defined problem, budget, identified beneficiaries and alignment with Schedule VII. Each is led by a Principal Investigator from IIT (ISM)."
+          title=""
+          description=""
         />
 
         <Reveal delay={100} className="no-scrollbar -mx-5 mt-10 flex gap-2 overflow-x-auto px-5 md:mx-0 md:justify-center md:px-0">
