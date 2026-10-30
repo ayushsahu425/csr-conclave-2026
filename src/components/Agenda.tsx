@@ -5,12 +5,6 @@ import type { AgendaItem } from '../types';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
-const TABS = [
-  { key: 'all', label: 'Full Day' },
-  { key: 'I', label: 'Session I · Shatabdi' },
-  { key: 'II', label: 'Session II · Samriddhi' },
-] as const;
-
 const TYPE_STYLE: Record<AgendaItem['type'], string> = {
   welcome: 'bg-sand-200 text-maroon-800',
   closing: 'bg-sand-200 text-maroon-800',
@@ -119,13 +113,9 @@ const PROGRAMME: AgendaItem[] = [
 ];
 
 export default function Agenda() {
-  const [tab, setTab] = useState<(typeof TABS)[number]['key']>('all');
   const [open, setOpen] = useState<string | null>('a2');
 
-  const items =
-    tab === 'all'
-      ? PROGRAMME
-      : PROGRAMME.filter((item) => item.track === tab);
+  const items = PROGRAMME;
 
   return (
     <section id="agenda" className="section">
@@ -136,47 +126,10 @@ export default function Agenda() {
           description="The morning honours the Shatabdi legacy. The afternoon focuses on Samriddhi and the partnerships that will carry it forward. All times are in Indian Standard Time (IST)."
         />
 
-        <Reveal
-          delay={100}
-          className="mx-auto mt-12 flex max-w-5xl flex-col items-center justify-between gap-4 md:flex-row"
-        >
-          <div
-            className="no-scrollbar -mx-5 flex w-full gap-2 overflow-x-auto px-5 md:mx-0 md:w-auto md:px-0"
-            role="tablist"
-          >
-            {TABS.map((t) => (
-              <button
-                key={t.key}
-                role="tab"
-                aria-selected={tab === t.key}
-                onClick={() => setTab(t.key)}
-                className={`tab shrink-0 ${
-                  tab === t.key ? 'tab-active' : 'tab-idle'
-                }`}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="no-print flex gap-2">
-            <button
-              onClick={() => downloadICS()}
-              className="btn-outline !px-4 !py-2"
-            >
-              <CalendarPlus className="h-4 w-4" />
-              Add to calendar
-            </button>
-
-            <button
-              onClick={() => window.print()}
-              className="btn-outline !px-4 !py-2"
-            >
-              <Printer className="h-4 w-4" />
-              PDF
-            </button>
-          </div>
-        </Reveal>
+        <div className="mx-auto mt-8 flex max-w-5xl justify-end gap-2 no-print">
+          <button onClick={() => downloadICS()} className="btn-outline !px-4 !py-2"><CalendarPlus className="h-4 w-4" />Add to calendar</button>
+          <button onClick={() => window.print()} className="btn-outline !px-4 !py-2"><Printer className="h-4 w-4" />PDF</button>
+        </div>
 
         <div className="relative mx-auto mt-8 max-w-5xl">
           {/* Timeline spine */}
@@ -194,7 +147,7 @@ export default function Agenda() {
               return (
                 <Reveal
                   as="li"
-                  key={`${tab}-${item.id}`}
+                  key={item.id}
                   delay={i * 70}
                   className="relative"
                 >

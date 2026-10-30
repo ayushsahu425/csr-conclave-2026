@@ -24,7 +24,7 @@ export const EVENT = {
   venue: 'Penman Auditorium, IIT (ISM) Dhanbad',
   city: 'Dhanbad, Jharkhand 826004',
   presenter: 'Office of Alumni Affairs, IIT (ISM) Dhanbad',
-  email: 'csrconclave@iitism.ac.in',
+  email: 'centenary@itism.ac.in',
   phone: '+91 326 223 5000',
   mapsQuery: 'Penman Auditorium, IIT (ISM) Dhanbad',
 };
@@ -35,9 +35,7 @@ export const EVENT = {
 
 export const STATS = [
   { value: 100, suffix: '', label: 'Years of IIT (ISM) Dhanbad' },
-  { value: 300, suffix: '+', label: 'Delegates expected' },
-  { value: 15, suffix: '+', label: 'CSR-ready projects' },
-  { value: 2, suffix: '', label: 'Flagship sessions' },
+  { value: 100, suffix: '+', label: 'Delegates' },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -111,13 +109,12 @@ export const WHY_ATTEND = [
 ];
 
 export const WHO_SHOULD_ATTEND = [
-  'CSR heads and sustainability leaders',
-  'Corporate foundations and philanthropic organisations',
-  'PSU directors and senior officials',
-  'Government and ministry representatives',
-  'Industry leaders and ESG professionals',
-  'NGOs and implementation partners',
-  'IIT (ISM) faculty, researchers and alumni',
+  'Director',
+  'Rajeev',
+  'Dean ICR',
+  'BCEL CMD',
+  'OIL INDIA',
+  'NTPC',
 ];
 
 /* ------------------------------------------------------------------ */
@@ -462,7 +459,7 @@ export const FAQS = [
   },
   {
     q: 'How can my organisation fund a project or sponsor the event?',
-    a: 'Write to csrconclave@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
+    a: 'Write to centenary@itism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
   },
   {
     q: 'What is the dress code?',
