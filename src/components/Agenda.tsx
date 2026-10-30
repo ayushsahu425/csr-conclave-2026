@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { CalendarPlus, ChevronDown, MapPin, Printer } from 'lucide-react';
 import { downloadICS, slotToISO } from '../lib/calendar';
 import type { AgendaItem } from '../types';
@@ -130,7 +131,7 @@ export default function Agenda() {
           <button onClick={() => window.print()} className="btn-outline !px-4 !py-2"><Printer className="h-4 w-4" />PDF</button>
         </div>
 
-        <div className="relative mx-auto mt-8 max-w-5xl">/m
+        <div className="relative mx-auto mt-8 max-w-5xl">
           {/* Timeline spine */}
           <div className="absolute bottom-6 left-[19px] top-6 w-px bg-gradient-to-b from-maroon-300 via-sand-300 to-transparent md:left-[163px]" />
 
