@@ -23,7 +23,7 @@ export async function submitForm(action: FormAction, data: object, honeypot = ''
       await new Promise((r) => setTimeout(r, 600));
       return { ok: true, passId: 'SS26-DEMO1', ref: 'DEMO' };
     }
-    return { ok: false, error: 'Online submissions are not open yet. Please email csrconclave@iitism.ac.in.' };
+    return { ok: false, error: 'Online submissions are not open yet. Please email centenary@iitism.ac.in' };
   }
 
   try {

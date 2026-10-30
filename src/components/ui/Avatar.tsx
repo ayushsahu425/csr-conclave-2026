@@ -16,7 +16,7 @@ export default function Avatar({ name, photo, className = '' }: { name: string; 
           loading="lazy"
           referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
-          className="h-full w-full object-cover object-[50%_20%]"
+          className="h-full w-full object-cover object-[50%_10%]"
         />
         {/* subtle brand tint so mixed photo sources sit together */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-maroon-900/25 via-transparent to-transparent" />

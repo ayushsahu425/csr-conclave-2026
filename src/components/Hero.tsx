@@ -4,9 +4,11 @@ import emblem from '../assets/centenary-emblem.webp';
 import { EVENT, STATS } from '../data/mockData';
 import { useCountdown } from '../hooks/useCountdown';
 import { useInView } from '../hooks/useInView';
+import hindiTitle from '../assets/shatabdi-samriddhi-hindi.webp';
 
 interface HeroProps {
   onOpenRegister: () => void;
+  onOpenSponsor: () => void;
 }
 
 const stagger = (i: number) => ({
@@ -80,8 +82,7 @@ function Countdown() {
               {String(u.v).padStart(2, '0')}
             </span>
           </div>
-          <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-muted">
-            {u.l}
+            <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.08em] text-ink-muted sm:tracking-[0.2em]">            {u.l}
           </span>
         </div>
       ))}
@@ -89,7 +90,7 @@ function Countdown() {
   );
 }
 
-export default function Hero({ onOpenRegister }: HeroProps) {
+export default function Hero({ onOpenRegister, onOpenSponsor }: HeroProps) {
   const [statsRef, statsInView] = useInView<HTMLDivElement>();
 
   return (
@@ -114,12 +115,14 @@ export default function Hero({ onOpenRegister }: HeroProps) {
               {EVENT.eyebrow}
             </p>
 
-            <h1 className="mt-6 animate-fade-up font-display !text-sand-50" style={stagger(1)}>
-              <span className="block text-[2.75rem] font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">
-                Shatabdi Samriddhi
-              </span>
-              <span className="mt-1 block text-[2.75rem] font-light italic leading-[1.02] text-sand-300 sm:text-6xl lg:text-7xl">
-                2026
+            <h1 className="mt-6 animate-fade-up" style={stagger(1)}>
+              <img
+                src={hindiTitle}
+                alt="शताब्दी समृद्धि (Shatabdi Samriddhi)"
+                className="w-full max-w-[300px] sm:max-w-[460px] lg:max-w-[560px]"
+              />
+              <span className="mt-3 block font-display text-xl font-light italic tracking-wide text-sand-300 sm:text-2xl">
+                {EVENT.name}
               </span>
             </h1>
 
@@ -154,6 +157,9 @@ export default function Hero({ onOpenRegister }: HeroProps) {
                 Register as Delegate
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
+              <button onClick={onOpenSponsor} className="btn-outline-light !px-7 !py-3.5">
+                Become a Sponsor
+              </button>
             </div>
           </div>
 
@@ -179,7 +185,7 @@ export default function Hero({ onOpenRegister }: HeroProps) {
                 <img
                   src={emblem}
                   alt="Shatabdi Samriddhi 2026 – CSR Conclave emblem, IIT (ISM) Dhanbad"
-                  className="h-full w-full rounded-full shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]"
+                  className="h-full w-full rounded-full bg-white object-contain p-[4%] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]"
                 />
               </div>
             </div>

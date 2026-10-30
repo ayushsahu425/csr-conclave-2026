@@ -5,15 +5,31 @@ import Reveal from './ui/Reveal';
 
 const QUICK = [
   ['About', '#about'],
-  ['Why Attend', '#why-attend'],
+  ['Objectives', '#why-attend'],
   ['Agenda', '#agenda'],
   ['Speakers', '#speakers'],
-    ['Venue', '#venue'],
+  ['CSR Projects', '#projects'],
+  ['Sponsorship', '#sponsorship'],
+  ['Venue', '#venue'],
   ['FAQs', '#faq'],
 ];
 
 const SOCIAL = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/school/iit-ism-dhanbad/', path: 'M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.85h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4z' },
+  {
+    label: 'Instagram',
+    href: 'https://instagram.com/saac_iitism',
+    path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z'
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/saac-iit-ism-dhanbad/',
+    path: 'M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.85h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4z'
+  },
+  {
+    label: 'YouTube',
+    href: 'https://youtube.com/@iitismdhanbad1926',
+    path: 'M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z'
+  }
 ];
 
 export default function Footer({ onOpenRegister }: { onOpenRegister: () => void }) {
@@ -43,7 +59,7 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
-            <img src={emblem} alt="" className="h-14 w-14 rounded-full" />
+            <img src={emblem} alt="" className="h-14 w-14 rounded-full bg-white object-contain p-1" />
             <div className="leading-tight">
               <p className="font-display text-lg font-semibold text-sand-50">IIT (ISM) Dhanbad</p>
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sand-300">Shatabdi Samriddhi 2026</p>
@@ -72,6 +88,8 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
             <li className="flex gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sand-300" />
               <span>
+                Administrative Block, 1st Floor,
+                <br />
                 {EVENT.presenter}
                 <br />
                 Dhanbad, Jharkhand 826004
@@ -83,7 +101,12 @@ export default function Footer({ onOpenRegister }: { onOpenRegister: () => void 
             </li>
             <li className="flex gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-sand-300" />
-              <span>{EVENT.phone}</span>
+              <span>
+                <span className="block font-medium text-sand-100">{EVENT.contactPerson}</span>
+                <a href={`tel:${EVENT.phone.replace(/\s/g, '')}`} className="hover:text-sand-50">
+                  {EVENT.phone}
+                </a>
+              </span>
             </li>
           </ul>
         </div>

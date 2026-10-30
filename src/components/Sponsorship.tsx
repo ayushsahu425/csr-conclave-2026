@@ -1,6 +1,7 @@
 import { Check, Minus, ArrowRight } from 'lucide-react';
 import {
   PARTNER_GROUPS,
+  // PLATINUM_EXTRAS,
   SPONSOR_TIERS,
   TIER_FEATURES,
 } from '../data/mockData';
@@ -96,7 +97,7 @@ export default function Sponsorship({
 
                   {/* Description */}
                   <p
-                    className={`mt-3 min-h-[72px] text-[15px] leading-relaxed ${
+                    className={`mt-3 text-[15px] leading-relaxed xl:min-h-[50px] ${
                       t.featured
                         ? 'text-ink-soft'
                         : 'text-sand-100/75'
@@ -155,7 +156,27 @@ export default function Sponsorship({
             ))}
 
           </div>
-
+          {/* =====================================================
+              PLATINUM: ADDITIONAL CSR PARTNERSHIP OPPORTUNITIES
+          ===================================================== */}
+          {/* <Reveal delay={150} className="mt-14">
+            <div className="rounded-3xl bg-white/[0.06] p-7 ring-1 ring-sand-100/15 backdrop-blur md:p-9">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sand-300">
+                For Platinum sponsors
+              </p>
+              <h3 className="mt-2 text-2xl font-semibold !text-sand-50">
+                Additional CSR Partnership Opportunities
+              </h3>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {PLATINUM_EXTRAS.map((x) => (
+                  <div key={x.title} className="rounded-2xl bg-white/5 p-5 ring-1 ring-sand-100/10">
+                    <p className="font-semibold text-sand-50">{x.title}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-sand-100/75">{x.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal> */}
           {/* =====================================================
               COMPARISON TABLE
           ===================================================== */}
@@ -245,8 +266,7 @@ export default function Sponsorship({
 
             <p className="mt-4 text-center text-xs text-sand-200/70">
               Sponsorship prices will be announced once confirmed. For
-              bank details and invoices, contact the Office of
-              Alumni Affairs.
+              bank details and invoices, contact the Office of Alumni Affairs Cell / Public Relations Cell.
             </p>
 
           </Reveal>
@@ -289,7 +309,13 @@ export default function Sponsorship({
                     <button
                       key={i}
                       onClick={() => onOpenSponsor()}
-                      className={`group flex items-center justify-center rounded-2xl border border-dashed border-sand-400 bg-white/60 text-sm text-ink-muted transition-all duration-300 hover:border-maroon-400 hover:bg-white hover:text-maroon-700 ${g.size}`}
+                      className={`group flex items-center justify-center rounded-2xl border border-dashed border-sand-400 bg-white/60 text-sm text-ink-muted transition-all duration-300 hover:border-maroon-400 hover:bg-white hover:text-maroon-700 ${
+                        gi === 0
+                          ? 'h-28 w-64'
+                          : gi === 1
+                            ? 'h-24 w-52'
+                            : 'h-20 w-40'
+                      }`}
                     >
 
                       <span className="inline-flex items-center gap-1.5">

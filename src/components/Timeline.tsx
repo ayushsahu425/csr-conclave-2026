@@ -33,6 +33,9 @@ export default function Timeline() {
             {CENTENARY_MILESTONES.map((m, i) => (
               <Reveal key={m.year} delay={300 + i * 180} className="w-[78%] shrink-0 snap-start md:w-auto">
                 <div className="relative">
+                   {i < CENTENARY_MILESTONES.length - 1 && (
+                    <div className="absolute left-14 top-[27px] h-px w-[calc(100%-3.5rem+1.25rem)] bg-gradient-to-r from-sand-300/70 to-sand-200/30 md:hidden" />
+                  )}
                   <div
                     className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full border font-display text-lg ${
                       i === CENTENARY_MILESTONES.length - 1

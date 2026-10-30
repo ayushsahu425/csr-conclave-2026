@@ -5,6 +5,7 @@ import type { AgendaItem } from '../types';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
+
 const TYPE_STYLE: Record<AgendaItem['type'], string> = {
   welcome: 'bg-sand-200 text-maroon-800',
   closing: 'bg-sand-200 text-maroon-800',
@@ -18,45 +19,42 @@ const TYPE_STYLE: Record<AgendaItem['type'], string> = {
 const PROGRAMME: AgendaItem[] = [
   {
     id: 'a1',
-    time: '9:00-10:00 AM',
-    title: 'Welcome',
-    session: 'Ceremony / Break',
+    time: '10:00 AM - 10:20 AM',
+    title: 'Inaugural Session',
+    session: 'Inaugural Session',
     track: null,
-    type: 'welcome',
-    speakers: [],
-    description:
-      'Registration and centenary networking breakfast. QR pass check-in, delegate kits and the Centenary Partnership Booklet.',
+    type: 'ceremony',
+    speakers: ['Prof. Sukumar Mishra, Director, IIT (ISM) Dhanbad'],
+    description: 'Welcome Address & Institutional Overview.',
     venue: '',
   },
   {
     id: 'a2',
-    time: '10:00-10:35 AM',
-    title: 'Session I | Shatabdi',
-    session: 'Session I: Shatabdi',
-    track: 'I',
-    type: 'ceremony',
-    speakers: ['Prof. Sukumar Mishra', 'Chief Guest [TBC]'],
-    description:
-      'Inaugural session, welcome address, ceremonial lamp lighting and release of the IIT (ISM) CSR Project Compendium. Prof. Sukumar Mishra, Director, IIT (ISM) Dhanbad, with the Chief Guest [TBC].',
+    time: '10:20 AM - 10:50 AM',
+    title: 'Addresses by Guest Speakers & Industry Leaders',
+    session: 'Talk',
+    track: null,
+    type: 'talk',
+    speakers: [],
+    description: 'Addresses by guest speakers and leaders from industry and PSUs.',
     venue: '',
   },
   {
     id: 'a3',
-    time: '10:35-11:30 AM',
-    title: 'Session I | Shatabdi',
-    session: 'Session I: Shatabdi',
-    track: 'I',
+    time: '10:50 AM - 11:20 AM',
+    title: 'Interactive Showcase',
+    session: 'Showcase',
+    track: null,
     type: 'showcase',
     speakers: [],
-    description:
-      'Faculty Research Showcase: Mining Technology and Clean Energy. Presentations on CSR-ready work in mine safety, critical mineral recovery and clean technology.',
+    description: 'An interactive showcase of IIT (ISM) Dhanbad’s research, innovation and institutional strengths.',
     venue: '',
   },
   {
     id: 'a4',
-    time: '11:30-11:45 AM',
-    title: 'Break',
-    session: 'Ceremony / Break',
+    time: '11:20 AM - 11:50 AM',
+    title: 'Networking Tea Break',
+    session: 'Break',
     track: null,
     type: 'break',
     speakers: [],
@@ -65,56 +63,65 @@ const PROGRAMME: AgendaItem[] = [
   },
   {
     id: 'a5',
-    time: '11:45 AM-1:00 PM',
-    title: 'Session II | Samriddhi',
-    session: 'Session II: Samriddhi',
-    track: 'II',
+    time: '11:50 AM - 12:35 PM',
+    title: 'Plenary Session I: The Changing Landscape of CSR',
+    session: 'Panel',
+    track: null,
     type: 'panel',
     speakers: [],
     description:
-      'PSU and CSR Leadership Summit. Panel discussion on community development, skilling and sustainable land reclamation in mining regions.',
+      'Redefining corporate responsibility in a changing world: emerging CSR priorities, innovative and inclusive growth, industry–academia collaboration and long-term impact.',
     venue: '',
   },
   {
     id: 'a6',
-    time: '1:00-2:00 PM',
-    title: 'Break',
-    session: 'Ceremony / Break',
+    time: '12:35 PM - 1:35 PM',
+    title: 'Networking Lunch',
+    session: 'Break',
     track: null,
     type: 'break',
     speakers: [],
-    description:
-      'Networking lunch and project exhibition featuring 15+ CSR-ready projects, with faculty Principal Investigators available for discussion.',
+    description: 'Lunch and networking.',
     venue: '',
   },
   {
     id: 'a7',
-    time: '2:00-3:30 PM',
-    title: 'Session II | Samriddhi',
-    session: 'Session II: Samriddhi',
-    track: 'II',
-    type: 'ceremony',
-    speakers: [],
+    time: '1:35 PM - 2:20 PM',
+    title: 'Industry–Academia Connect',
+    session: 'Panel',
+    track: null,
+    type: 'panel',
+    speakers: ['Prof. Alok Kumar Das, Dean (ICR), IIT (ISM) Dhanbad'],
     description:
-      'LoI and MoU exchange and Partnership Booklet launch. Funding partners and IIT (ISM) research leads formalise their commitments.',
+      'Exploring emerging energy technologies, interdisciplinary research and industry–academia partnerships to accelerate India’s clean energy transition and build a sustainable energy future.',
     venue: '',
   },
   {
     id: 'a8',
-    time: '3:30 PM onwards',
-    title: 'Closing',
-    session: 'Ceremony / Break',
+    time: '2:20 PM - 4:00 PM',
+    title: 'Incubated Project Showcase',
+    session: 'Showcase',
+    track: null,
+    type: 'showcase',
+    speakers: [],
+    description: 'A showcase of projects and startups incubated at IIT (ISM) Dhanbad.',
+    venue: '',
+  },
+  {
+    id: 'a9',
+    time: '4:00 PM - 5:00 PM',
+    title: 'Valedictory Session and Felicitation',
+    session: 'Closing',
     track: null,
     type: 'closing',
     speakers: [],
-    description: 'Vote of thanks and high tea.',
+    description: 'Valedictory session and felicitation of partners.',
     venue: '',
   },
 ];
 
 export default function Agenda() {
-  const [open, setOpen] = useState<string | null>('a2');
-
+  const [open, setOpen] = useState<string | null>('a1');
   const items = PROGRAMME;
 
   return (
@@ -123,13 +130,53 @@ export default function Agenda() {
         <SectionHeading
           eyebrow="Agenda"
           title="Programme | Friday, 4 December 2026"
-          description="The morning honours the Shatabdi legacy. The afternoon focuses on Samriddhi and the partnerships that will carry it forward. All times are in Indian Standard Time (IST)."
-        />
+          description="From the inaugural session to the valedictory and felicitation, a full day of dialogue, showcases and partnership. All times are in Indian Standard Time (IST)."        />
 
-        <div className="mx-auto mt-8 flex max-w-5xl justify-end gap-2 no-print">
-          <button onClick={() => downloadICS()} className="btn-outline !px-4 !py-2"><CalendarPlus className="h-4 w-4" />Add to calendar</button>
-          <button onClick={() => window.print()} className="btn-outline !px-4 !py-2"><Printer className="h-4 w-4" />PDF</button>
-        </div>
+        <Reveal
+          delay={100}
+          className="mx-auto mt-12 flex max-w-5xl flex-col items-center justify-between gap-4 md:flex-row"
+        >
+          {/* <div
+            className="no-scrollbar -mx-5 flex w-full gap-2 overflow-x-auto px-5 md:mx-0 md:w-auto md:px-0"
+            role="tablist"
+          >
+            {TABS.map((t) => (
+              <button
+                key={t.key}
+                role="tab"
+                aria-selected={tab === t.key}
+                onClick={() => setTab(t.key)}
+                className={`tab shrink-0 ${
+                  tab === t.key ? 'tab-active' : 'tab-idle'
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div> */}
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="tab tab-active">Full Day</span>
+            <span className="text-sm font-medium text-ink-muted">10:00 AM – 5:00 PM IST</span>
+          </div>
+
+          <div className="no-print flex gap-2">
+            <button
+              onClick={() => downloadICS()}
+              className="btn-outline !px-4 !py-2"
+            >
+              <CalendarPlus className="h-4 w-4" />
+              Add to calendar
+            </button>
+
+            <button
+              onClick={() => window.print()}
+              className="btn-outline !px-4 !py-2"
+            >
+              <Printer className="h-4 w-4" />
+              PDF
+            </button>
+          </div>
+        </Reveal>
 
         <div className="relative mx-auto mt-8 max-w-5xl">
           {/* Timeline spine */}
@@ -147,7 +194,7 @@ export default function Agenda() {
               return (
                 <Reveal
                   as="li"
-                  key={item.id}
+                  key={`${item.id}`}
                   delay={i * 70}
                   className="relative"
                 >
@@ -198,11 +245,11 @@ export default function Agenda() {
                               {item.type}
                             </span>
 
-                            {item.session.toLowerCase() !== item.type && (
+                            {/* {item.session.toLowerCase() !== item.type && (
                               <span className="text-xs font-medium text-ink-muted">
                                 {item.session}
                               </span>
-                            )}
+                            )} */}
                           </div>
 
                           <h3 className="mt-2 text-lg font-semibold leading-snug md:text-xl">

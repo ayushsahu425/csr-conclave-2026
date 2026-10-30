@@ -11,21 +11,25 @@ import type { AgendaItem, CSRProject, Speaker } from '../types';
 
 export const EVENT = {
   name: 'Shatabdi Samriddhi 2026',
+  nameHindi: 'शताब्दी समृद्धि',
   subtitle: 'CSR Conclave',
   eyebrow: 'IIT (ISM) Dhanbad | Centenary Year 1926–2026',
   tagline:
     'Celebrating a century of IIT (ISM) Dhanbad by building partnerships for education, innovation and societal impact.',
   dateLabel: 'Friday, 4 December 2026',
-  timeLabel: '9:00 AM IST',
+  timeLabel: '10:00 AM IST',
   shortDate: '04 · 12 · 2026',
-  start: '2026-12-04T09:00:00+05:30',
-  end: '2026-12-04T15:30:00+05:30',
+  start: '2026-12-04T10:00:00+05:30',
+  end: '2026-12-04T17:00:00+05:30',
   venueName: 'Penman Auditorium',
   venue: 'Penman Auditorium, IIT (ISM) Dhanbad',
   city: 'Dhanbad, Jharkhand 826004',
-  presenter: 'Office of Alumni Affairs, IIT (ISM) Dhanbad',
-  email: 'centenary@itism.ac.in',
-  phone: '+91 326 223 5000',
+  presenter: 'Office of Alumni Affairs Cell / Public Relations Cell, IIT(ISM)',
+  address: 'Administrative Block, 1st Floor,Office of Alumni Affairs Cell / Public Relations Cell, IIT (ISM) Dhanbad, Jharkhand 826004',
+  contactPerson: 'Ms. Shrishti Shankar',
+  email: 'centenary@iitism.ac.in',
+  phone: '+91 77639 74506',
+  website: 'https://www.iitism.ac.in',
   mapsQuery: 'Penman Auditorium, IIT (ISM) Dhanbad',
 };
 
@@ -35,7 +39,7 @@ export const EVENT = {
 
 export const STATS = [
   { value: 100, suffix: '', label: 'Years of IIT (ISM) Dhanbad' },
-  { value: 100, suffix: '+', label: 'Delegates' },
+  { value: 100, suffix: '+', label: 'Delegates expected' }
 ];
 
 /* ------------------------------------------------------------------ */
@@ -44,16 +48,14 @@ export const STATS = [
 
 export const ABOUT = {
   paragraphs: [
-    'In 1926, the Indian School of Mines opened in Dhanbad to build the skills a growing nation needed. A hundred years later, IIT (ISM) Dhanbad begins its centenary year with an invitation to India’s CSR leaders.',
-    'The Institute’s expertise in mining, earth sciences and energy can achieve more when industry joins in. Together, we can turn knowledge into meaningful outcomes for companies, communities and the country.',
-    'Shatabdi Samriddhi 2026 brings CSR heads, PSU leaders, government officials and faculty together for one focused day. The aim is practical: to turn conversations into commitments and support research that can deliver measurable benefits.',
+    'Established in 1926 as the Indian School of Mines, Dhanbad, IIT (ISM) has spent a century advancing knowledge, fostering innovation, and contributing to India’s growth. As the Institute marks its centenary, it invites India’s corporate and public sector leaders to build on this legacy through meaningful CSR partnerships.',
+    'Shatabdi Samriddhi 2026 brings together CSR leaders, PSU representatives, government officials, and distinguished academicians on a common platform to explore opportunities for collaboration. Drawing upon IIT (ISM)’s expertise in mining, earth sciences, energy, and allied disciplines, the conclave aims to connect institutional research and innovation with industry priorities and pressing societal needs.',
+    'More than a gathering of stakeholders, it is a platform to translate dialogue into partnerships, research into actionable solutions, and shared commitments into measurable, lasting impact for communities and the nation.',
   ],
   pillars: ['Education', 'Innovation', 'Societal Impact'],
   captionYears: '1926–2026',
   caption: 'A century of nation-building from Dhanbad',
-  // Campus drone video: put the file in the public folder (e.g. public/campus-drone.mp4)
-  // and set video: '/campus-drone.mp4'. While empty, the campus photo is shown.
-  video: '',
+  video: '/campus-drone.mp4',
 };
 
 export const SESSIONS = [
@@ -87,34 +89,30 @@ export const SESSIONS = [
 
 export const WHY_ATTEND = [
   {
-    icon: 'flask',
-    title: 'Research and Innovation',
-    desc: 'See a century of expertise in mining, energy and earth sciences translated into technologies ready for field application.',
-  },
-  {
-    icon: 'hand',
-    title: 'CSR Opportunities',
-    desc: 'Explore projects aligned with Schedule VII of the Companies Act, 2013. Each project has a defined budget, identified beneficiaries and a named Principal Investigator.',
-  },
-  {
     icon: 'handshake',
-    title: 'Strategic Partnerships',
-    desc: 'Meet PSU leaders, CSR heads and faculty in one place. Build relationships and work towards formal commitments through LoIs and MoUs.',
+    title: 'Synergising Industry and Academia',
+    desc: 'Establishing enduring partnerships between corporate organisations and IIT (ISM) Dhanbad to advance collaborative research, strengthen academic infrastructure, and translate institutional expertise into innovative solutions for real-world challenges.',
   },
   {
     icon: 'sprout',
-    title: 'Measurable Impact',
-    desc: 'Support initiatives that improve daily life in mining regions through clean water, safer workplaces, skills development, energy access and land restoration.',
+    title: 'Advancing the Green and Clean Energy Transition',
+    desc: 'Leveraging IIT (ISM) Dhanbad’s expertise in mining, minerals and energy to promote sustainable technologies, encourage responsible resource utilisation, and accelerate India’s transition towards a cleaner, more resilient energy future.',
+  },
+  {
+    icon: 'flask',
+    title: 'Fostering Innovation and Social Impact',
+    desc: 'Mobilising CSR partnerships to expand educational opportunities, empower emerging talent through scholarships and fellowships, support transformative research, and advance impactful initiatives that create lasting value for communities.',
   },
 ];
 
 export const WHO_SHOULD_ATTEND = [
-  'Director',
-  'Rajeev',
-  'Dean ICR',
-  'BCEL CMD',
-  'OIL INDIA',
-  'NTPC',
+  'CSR heads and sustainability leaders',
+  'Corporate foundations and philanthropic organisations',
+  'PSU directors and senior officials',
+  'Government and ministry representatives',
+  'Industry leaders and ESG professionals',
+  'NGOs and implementation partners',
+  'IIT (ISM) faculty, researchers and alumni',
 ];
 
 /* ------------------------------------------------------------------ */
@@ -250,56 +248,86 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Director',
     org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo: 'https://www.iitism.ac.in/storage/files/director2.jpg',
-    bio: 'Prof. Sukumar Mishra is the Director of IIT (ISM) Dhanbad. He is a renowned academician and researcher in electrical engineering and power systems.',
-    sessionTitle: 'Inaugural address',
-  },
-  {
-    id: 'sp5',
-    name: 'Chief Guest [TBC]',
-    title: 'Ministry of Coal or Ministry of Mines',
-    org: 'Government of India',
-    category: 'Government',
-    bio: 'The Chief Guest for the Centenary CSR Conclave will be announced once confirmed.',
-    sessionTitle: 'Inaugural session',
+    photo: '/speakers/sukumar-mishra.jpg',
+    bio: 'As IIT (ISM) Dhanbad celebrates a century of excellence, Shatabdi Samriddhi 2026 – CSR Conclave offers an opportunity to build meaningful partnerships between industry and academia. By fostering collaboration in education, research, innovation and social development, we aim to translate our institutional strengths into lasting societal impact.',
+    sessionTitle: 'Inaugural Session',
   },
   {
     id: 'sp2',
-    name: 'Prof. V. M. S. R. Murthy',
-    title: 'Senior Professor',
-    org: 'Department of Mining Engineering, IIT (ISM)',
+    name: 'Prof. Rajeev Upadhyay',
+    title: 'Dean, Alumni Affairs',
+    org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo: 'https://www.iitism.ac.in/facultyImages/Prof.%20V%20M%20S%20R%20Murthy.jpg',
-    bio: 'Lead inventor for patented self-indexing mechanisms in heavy mining machinery, with extensive expertise in mine mechanisation and safety.',
-    sessionTitle: 'Faculty Research Showcase',
+    photo: '/speakers/rajeev-upadhyay.jpg',
+    bio: 'Shatabdi Samriddhi 2026 – CSR Conclave seeks to transform corporate commitment into meaningful social impact through collaboration between industry and academia. By promoting clean energy, sustainable infrastructure, research, scholarships and student welfare, the Conclave aims to create lasting value for society.',
+    sessionTitle: 'Welcome Address & Institutional Overview',
   },
   {
     id: 'sp3',
-    name: 'Prof. L. A. Kumaraswamidhas',
-    title: 'Professor',
-    org: 'Department of Mechanical Engineering, IIT (ISM)',
+    name: 'Prof. Alok Kumar Das',
+    title: 'Dean, Innovation & Corporate Relations',
+    org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo: 'https://www.iitism.ac.in/facultyImages/Dr%20L%20A%20Kumaraswamidhas.jpg',
-    bio: 'Works on component lifecycle optimisation and sustainable mechanical design for heavy mining equipment.',
-    sessionTitle: 'Faculty Research Showcase',
+    photo: '/speakers/alok-kumar-das.jpg',
+    bio: 'Shatabdi Samriddhi 2026 – CSR Conclave provides a platform to strengthen industry–academia partnerships and translate innovative ideas into impactful solutions. By connecting corporate expertise with institutional research, technological innovation and entrepreneurial talent, we aim to address pressing societal challenges and promote sustainable development.',
+    sessionTitle: 'Industry–Academia Connect',
   },
   {
     id: 'sp4',
-    name: 'Shri A. K. Singh [TBC]',
-    title: 'Director (Technical or CSR)',
-    org: 'Public Sector Undertaking',
+    name: 'CMD [TBC]',
+    title: 'Chairman-cum-Managing Director',
+    org: 'Bharat Coking Coal Limited (BCCL)',
     category: 'PSU',
-    bio: 'A PSU leader overseeing regional CSR interventions in India’s mining belts. Details will be shared once confirmed.',
-    sessionTitle: 'PSU and CSR Leadership Summit',
+    bio: 'Details will be shared once confirmed.',
+    sessionTitle: 'Addresses by Guest Speakers & Industry Leaders',
+  },
+  {
+    id: 'sp5',
+    name: 'Speaker [TBC]',
+    title: 'Senior Leadership',
+    org: 'Oil India Limited',
+    category: 'PSU',
+    bio: 'Details will be shared once confirmed.',
+    sessionTitle: 'Addresses by Guest Speakers & Industry Leaders',
   },
   {
     id: 'sp6',
-    name: 'CSR Head [TBC]',
-    title: 'Head of CSR',
-    org: 'Industry partner',
-    category: 'Industry',
-    bio: 'An industry CSR leader joining the Samriddhi panel. Details will be shared once confirmed.',
-    sessionTitle: 'PSU and CSR Leadership Summit',
+    name: 'Speaker [TBC]',
+    title: 'Senior Leadership',
+    org: 'NTPC Limited',
+    category: 'PSU',
+    bio: 'Details will be shared once confirmed.',
+    sessionTitle: 'Addresses by Guest Speakers & Industry Leaders',
+  },
+];
+
+export const LEADERSHIP_MESSAGES = [
+  {
+    name: 'Prof. Sukumar Mishra',
+    role: 'Director, IIT (ISM) Dhanbad',
+    photo: '/speakers/sukumar-mishra.jpg',
+    message: [
+      'As IIT (ISM) Dhanbad celebrates a century of excellence, Shatabdi Samriddhi 2026 – CSR Conclave offers an opportunity to build meaningful partnerships between industry and academia. By fostering collaboration in education, research, innovation and social development, we aim to translate our institutional strengths into lasting societal impact.',
+      'As we embark on our next century, we invite our corporate partners and stakeholders to join us in building a more sustainable and inclusive future.',
+    ],
+  },
+  {
+    name: 'Prof. Rajeev Upadhyay',
+    role: 'Dean, Alumni Affairs, IIT (ISM) Dhanbad',
+    photo: '/speakers/rajeev-upadhyay.jpg',
+    message: [
+      'Shatabdi Samriddhi 2026 – CSR Conclave seeks to transform corporate commitment into meaningful social impact through collaboration between industry and academia. By promoting clean energy, sustainable infrastructure, research, scholarships and student welfare, the Conclave aims to create lasting value for society.',
+      'Together, we can empower future generations and advance inclusive and sustainable national development.',
+    ],
+  },
+  {
+    name: 'Prof. Alok Kumar Das',
+    role: 'Dean, Innovation & Corporate Relations, IIT (ISM) Dhanbad',
+    photo: '/speakers/alok-kumar-das.jpg',
+    message: [
+      'Shatabdi Samriddhi 2026 – CSR Conclave provides a platform to strengthen industry–academia partnerships and translate innovative ideas into impactful solutions. By connecting corporate expertise with institutional research, technological innovation and entrepreneurial talent, we aim to address pressing societal challenges and promote sustainable development.',
+      'Through collaborative initiatives, we aspire to build enduring partnerships that create shared value for industry, the Institute and society.',
+    ],
   },
 ];
 
@@ -368,57 +396,85 @@ export const PROJECTS_DATA: CSRProject[] = [
 
 export const SPONSOR_TIERS = [
   {
-    name: 'Bronze',
-    price: '₹[TBC] + GST',
-    blurb: 'A visible presence among CSR leaders and PSU delegates.',
-    highlights: ['Logo on the website and event backdrop', '2 delegate passes', 'Listing in the Partnership Booklet'],
-    featured: false,
-  },
-  {
     name: 'Silver',
     price: '₹[TBC] + GST',
-    blurb: 'A strong on-ground presence with a dedicated exhibition booth.',
-    highlights: ['Exhibition booth at the Conclave', 'Standee and flyers in the delegate kit', '4 delegate passes'],
+    blurb: 'Supporting Partner of the CSR Conclave.',
+    highlights: [
+      'Recognition as a Supporting Partner',
+      'Small logo on the website, brochures and sponsor displays',
+      'Standard listing on standees, banners and promotional displays',
+      'Dedicated campaign on all official social media platforms',
+      'Certificate presented by institute leadership',
+    ],
     featured: false,
   },
   {
     name: 'Gold',
     price: '₹[TBC] + GST',
-    blurb: 'Title-level association with the Centenary CSR Conclave.',
-    highlights: ['Title branding', 'Speaking slot in the Samriddhi session', 'Press mentions and 8 delegate passes'],
-    featured: true,
+    blurb: 'Gold Partner of the CSR Conclave.',
+    highlights: [
+      'Recognition as a Gold Partner',
+      'Medium logo on the website, brochures and sponsor displays',
+      'Prominent listing on standees, banners and promotional displays',
+      'Dedicated campaign on all official social media platforms',
+      'Certificate presented by institute leadership',
+    ],
+    featured: false,
+  },
+  {
+    name: 'Diamond',
+    price: '₹[TBC] + GST',
+    blurb: 'Principal Partner of the CSR Conclave.',
+    highlights: [
+      'Recognition as the Principal Partner',
+      'Large logo on the backdrop, invitations, website and digital promotions',
+      'Very prominent visibility on banners and standees, second only to Platinum',
+      'Dedicated exhibition stall',
+      'Dedicated campaign on all official social media platforms',
+      'Memento presented by institute leadership',
+    ],
+    featured: false,
   },
   {
     name: 'Platinum',
     price: '₹[TBC] + GST',
-    blurb: 'The highest sponsorship tier, designed for strategic engagement and prominent visibility.',
+    blurb: 'Title / Presenting Partner of the CSR Conclave.',
     highlights: [
-      'Premium logo placement across event materials',
-      'Dedicated brand visibility at the venue',
-      'Speaking or engagement opportunity',
-      '8 delegate passes',
+      'Recognition as the Title / Presenting Partner',
+      'Largest logo on the backdrop, website and digital promotions',
+      'Highest visibility on banners, standees and promotional displays',
+      'Dedicated exhibition stall',
+      'Dedicated campaign on all official social media platforms',
+      'Memento presented by institute leadership',
     ],
     featured: false,
   },
 ];
 
-// Comparison table: feature → [Bronze, Silver, Gold, Platinum]
+// Comparison table: feature → [Silver, Gold, Diamond, Platinum]
 export const TIER_FEATURES: { feature: string; values: (boolean | string)[] }[] = [
-  { feature: 'Logo on website and event backdrop', values: [true, true, true, true] },
-  { feature: 'Delegate passes', values: ['2', '4', '8', '8'] },
-  { feature: 'Partnership Booklet', values: ['Listing', 'Half page', 'Full page', '[TBC]'] },
-  { feature: 'Exhibition booth', values: [false, true, false, false] },
-  { feature: 'Standee and flyers in delegate kit', values: [false, true, false, false] },
-  { feature: 'Speaking slot in Samriddhi session', values: [false, false, true, true] },
-  { feature: 'Title branding and press mentions', values: [false, false, true, '[TBC]'] },
+  { feature: 'Recognition level', values: ['Supporting Partner', 'Gold Partner', 'Principal Partner', 'Title / Presenting Partner'] },
+  { feature: 'Logo on website', values: ['Small', 'Medium', 'Large', 'Title Sponsor (largest)'] },
+  { feature: 'Standees and banners', values: ['Standard listing', 'Prominent', 'Very prominent', 'Highest prominence'] },
+  { feature: 'Exhibition stall', values: [false, false, true, true] },
+  { feature: 'Dedicated social media campaign', values: [true, true, true, true] },
+  { feature: 'Felicitation', values: ['Certificate', 'Certificate', 'Memento', 'Memento'] },
+];
+
+// Extra CSR partnership options, shown below the cards for Platinum sponsors
+export const PLATINUM_EXTRAS = [
+  { title: 'Clean & Green Energy Partner', desc: 'Clean energy, green hydrogen, renewable integration, energy storage and decarbonisation.' },
+  { title: 'Research & Innovation Partner', desc: 'Sponsored research, laboratory development, technology transfer and incubated startups.' },
+  { title: 'Education & Student Welfare Partner', desc: 'Scholarships, fellowships, educational access and career development.' },
+  { title: 'Community Development Partner', desc: 'Skill training, healthcare outreach, rural development and environmental restoration.' },
 ];
 
 // size = Tailwind classes for each logo box in that row
 export const PARTNER_GROUPS = [
   { tier: 'Platinum Partners', slots: 1, size: 'h-32 w-72' },
-  { tier: 'Gold Partners', slots: 2, size: 'h-28 w-64' },
-  { tier: 'Silver Partners', slots: 3, size: 'h-24 w-52' },
-  { tier: 'Bronze and Knowledge Partners', slots: 5, size: 'h-20 w-40' },
+  { tier: 'Diamond Partners', slots: 2, size: 'h-28 w-64' },
+  { tier: 'Gold Partners', slots: 3, size: 'h-24 w-52' },
+  { tier: 'Silver and Knowledge Partners', slots: 5, size: 'h-20 w-40' },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -459,7 +515,7 @@ export const FAQS = [
   },
   {
     q: 'How can my organisation fund a project or sponsor the event?',
-    a: 'Write to centenary@itism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
+    a: 'Write to centenary@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
   },
   {
     q: 'What is the dress code?',
@@ -472,11 +528,11 @@ export const FAQS = [
   },
 ];
 
-export const DOWNLOADS = [
-  { label: 'Conclave Brochure', note: 'PDF | Coming soon' },
-  { label: 'Partnership Booklet', note: 'PDF | Coming soon' },
-  { label: 'Press Kit and Logos', note: 'ZIP | Coming soon' },
-];
+// export const DOWNLOADS = [
+//   { label: 'Conclave Brochure', note: 'PDF | Coming soon' },
+//   { label: 'Partnership Booklet', note: 'PDF | Coming soon' },
+//   { label: 'Press Kit and Logos', note: 'ZIP | Coming soon' },
+// ];
 
 /* ------------------------------------------------------------------ */
 /* Footer                                                              */

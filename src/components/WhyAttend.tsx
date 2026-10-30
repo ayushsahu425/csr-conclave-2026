@@ -1,5 +1,5 @@
-import { Check, FlaskConical, HandHeart, Handshake, Sprout } from 'lucide-react';
-import { WHO_SHOULD_ATTEND, WHY_ATTEND } from '../data/mockData';
+import {FlaskConical, HandHeart, Handshake, Sprout } from 'lucide-react';
+import {WHY_ATTEND } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -10,11 +10,14 @@ export default function WhyAttend() {
     <section id="why-attend" className="section bg-sand-100">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Why Attend?"
-          title="One Day. Every Stakeholder in CSR."
-          description="For CSR heads, foundation leaders, PSU officials and business leaders who want their investments to create lasting value."
+          // eyebrow="Why Attend?"
+          // title="One Day. Every Stakeholder in CSR."
+          // description="For CSR heads, foundation leaders, PSU officials and business leaders who want their investments to create lasting value."
+          eyebrow="Our Objectives"
+          title={<>Building Partnerships. <em className="font-light text-maroon-600">Shaping the Next Century.</em></>}
+          description="Through purposeful collaboration between industry and academia, Shatabdi Samriddhi 2026 aspires to transform shared commitments into lasting contributions to education, innovation, sustainable development and the vision of a Viksit Bharat."
         />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {WHY_ATTEND.map((w, i) => {
             const Icon = ICONS[w.icon as keyof typeof ICONS];
             return (
@@ -33,7 +36,7 @@ export default function WhyAttend() {
         </div>
 
         {/* Who should attend */}
-        <Reveal delay={150} className="mt-16">
+        {/* <Reveal delay={150} className="mt-16">
           <div className="grid gap-8 rounded-3xl bg-white p-8 ring-1 ring-sand-300/70 md:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
               <p className="eyebrow">Audience</p>
@@ -50,7 +53,7 @@ export default function WhyAttend() {
               ))}
             </ul>
           </div>
-        </Reveal>
+        </Reveal> */}
       </div>
     </section>
   );

@@ -6,13 +6,16 @@ interface NavbarProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
   onOpenRegister: () => void;
+  onOpenSponsor: () => void;
 }
 
 const LINKS = [
   { id: 'about', label: 'About' },
-  { id: 'why-attend', label: 'Why Attend' },
+  { id: 'why-attend', label: 'Objectives' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'speakers', label: 'Speakers' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'sponsorship', label: 'Sponsorship' },
   { id: 'venue', label: 'Venue' },
 ];
 
@@ -56,8 +59,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
           <img
             src={emblem}
             alt="Shatabdi Samriddhi 2026 centenary emblem"
-            className="h-11 w-11 rounded-full shadow-md ring-2 ring-white/40 transition-transform duration-700 group-hover:rotate-[360deg]"
-          />
+            className="h-11 w-11 rounded-full bg-white object-contain p-0.5 shadow-md ring-2 ring-white/40 transition-transform duration-700 group-hover:rotate-[360deg]"          />
           <span className="leading-tight">
             <span
               className={`block font-display text-[17px] font-semibold transition-colors ${
@@ -105,6 +107,9 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
         </div>
 
         <div className="hidden items-center gap-2 lg:flex">
+          {/* <button onClick={onOpenSponsor} className={solid ? 'btn-outline !px-5 !py-2.5' : 'btn-outline-light !px-5 !py-2.5'}>
+            Sponsor
+          </button> */}
           <button onClick={onOpenRegister} className={solid ? 'btn-primary !px-5 !py-2.5' : 'btn-sand !px-5 !py-2.5'}>
             Register
           </button>
@@ -134,7 +139,16 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
                 {l.label}
               </a>
             ))}
-            <div className="mt-4">
+            <div className="mt-4 grid grid-cols-1 gap-3">
+              {/* <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenSponsor();
+                }}
+                className="btn-outline"
+              >
+                Sponsor
+              </button> */}
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
