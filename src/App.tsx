@@ -7,20 +7,17 @@ import WhyAttend from './components/WhyAttend';
 import Timeline from './components/Timeline';
 import Agenda from './components/Agenda';
 import Speakers from './components/Speakers';
-import Projects from './components/Projects';
 import Venue from './components/Venue';
 import Footer from './components/Footer';
 
 import RegistrationModal from './components/modals/RegistrationModal';
-import ProjectInterestModal from './components/modals/ProjectInterestModal';
 import SpeakerBioModal from './components/modals/SpeakerBioModal';
 
-import type { CSRProject, Speaker } from './types';
+import type { Speaker } from './types';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [regModalOpen, setRegModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<CSRProject | null>(null);
   const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
   const openRegister = () => setRegModalOpen(true);
@@ -34,20 +31,18 @@ export default function App() {
       />
 
       <main>
-        <Hero onOpenRegister={openRegister} onOpenSponsor={() => openSponsor()} />
+        <Hero onOpenRegister={openRegister} />
         <About />
         <WhyAttend />
         <Timeline />
         <Agenda />
         <Speakers onSelectSpeaker={setSelectedSpeaker} />
-        <Projects onSelectProject={setSelectedProject} />
         <Venue />
       </main>
 
       <Footer onOpenRegister={openRegister} />
 
       {regModalOpen && <RegistrationModal onClose={() => setRegModalOpen(false)} />}
-      {selectedProject && <ProjectInterestModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
       {selectedSpeaker && <SpeakerBioModal speaker={selectedSpeaker} onClose={() => setSelectedSpeaker(null)} />}
     </div>
   );
