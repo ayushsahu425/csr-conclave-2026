@@ -2,12 +2,11 @@ import { useState } from 'react';
 import {
   Car,
   ChevronDown,
-  Download,
   MapPin,
   Plane,
   TrainFront,
 } from 'lucide-react';
-import { DOWNLOADS, EVENT, FAQS, TRAVEL } from '../data/mockData';
+import { EVENT, FAQS, TRAVEL } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
@@ -104,10 +103,10 @@ export default function Venue() {
           </Reveal>
         </div>
 
-        {/* FAQ and Downloads */}
+        {/* FAQ */}
         <div
           id="faq"
-          className="mt-20 grid gap-10 lg:grid-cols-[1.4fr_1fr]"
+          className="mt-20"
         >
           {/* FAQ */}
           <div>
@@ -167,43 +166,6 @@ export default function Venue() {
             </div>
           </div>
 
-          {/* Downloads */}
-          <Reveal
-            delay={150}
-            className="h-fit rounded-3xl bg-maroon-900 p-8 text-sand-50"
-          >
-            <p className="eyebrow eyebrow-light">Downloads</p>
-
-            <h3 className="mt-3 text-2xl font-semibold !text-sand-50">
-              Brochure and Press Kit
-            </h3>
-
-            <ul className="mt-6 space-y-3">
-              {DOWNLOADS.map((d) => (
-                <li
-                  key={d.label}
-                  className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 px-4 py-3 ring-1 ring-sand-100/10"
-                >
-                  <span>
-                    <span className="block text-sm font-semibold">
-                      {d.label}
-                    </span>
-                    <span className="text-xs text-sand-200/60">
-                      {d.note}
-                    </span>
-                  </span>
-
-                  <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sand-100/10 text-sand-300"
-                    aria-label="Coming soon"
-                    title="Coming soon"
-                  >
-                    <Download className="h-4 w-4" />
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
         </div>
       </div>
     </section>
