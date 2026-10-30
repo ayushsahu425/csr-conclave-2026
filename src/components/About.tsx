@@ -1,5 +1,5 @@
 import campus from '../assets/campus.webp';
-import { ABOUT, SESSIONS } from '../data/mockData';
+import { ABOUT } from '../data/mockData';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
 
