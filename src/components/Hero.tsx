@@ -7,7 +7,6 @@ import { useInView } from '../hooks/useInView';
 
 interface HeroProps {
   onOpenRegister: () => void;
-  onOpenSponsor: () => void;
 }
 
 const stagger = (i: number) => ({
@@ -90,7 +89,7 @@ function Countdown() {
   );
 }
 
-export default function Hero({ onOpenRegister, onOpenSponsor }: HeroProps) {
+export default function Hero({ onOpenRegister }: HeroProps) {
   const [statsRef, statsInView] = useInView<HTMLDivElement>();
 
   return (
@@ -154,9 +153,6 @@ export default function Hero({ onOpenRegister, onOpenSponsor }: HeroProps) {
               <button onClick={onOpenRegister} className="btn-sand group !px-7 !py-3.5">
                 Register as Delegate
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
-              <button onClick={onOpenSponsor} className="btn-outline-light !px-7 !py-3.5">
-                Become a Sponsor
               </button>
             </div>
           </div>
