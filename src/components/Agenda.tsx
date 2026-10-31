@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CalendarPlus, ChevronDown, MapPin, Printer } from 'lucide-react';
+import { CalendarPlus, ChevronDown, MapPin,FileDown} from 'lucide-react';
 import { downloadICS, slotToISO } from '../lib/calendar';
 import type { AgendaItem } from '../types';
 import Reveal from './ui/Reveal';
@@ -168,13 +168,15 @@ export default function Agenda() {
               Add to calendar
             </button>
 
-            <button
-              onClick={() => window.print()}
+            <a
+              href="/Shatabdi-Samriddhi-2026-Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-outline !px-4 !py-2"
             >
-              <Printer className="h-4 w-4" />
+              <FileDown className="h-4 w-4" />
               PDF
-            </button>
+            </a>
           </div>
         </Reveal>
 
