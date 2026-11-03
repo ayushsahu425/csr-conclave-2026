@@ -43,7 +43,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
       window.removeEventListener('scroll', onScroll);
       observer.disconnect();
     };
-  }, []);
+  }, [isTeamPage]);
 
   const solid = scrolled || mobileMenuOpen;
 
