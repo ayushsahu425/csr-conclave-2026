@@ -4,14 +4,15 @@ import { EVENT, FOOTER_ABOUT } from '../data/mockData';
 import Reveal from './ui/Reveal';
 
 const QUICK = [
-  ['About', '#about'],
-  ['Objectives', '#why-attend'],
-  ['Agenda', '#agenda'],
-  ['Speakers', '#speakers'],
-  ['CSR Projects', '#projects'],
-  ['Sponsorship', '#sponsorship'],
-  ['Venue', '#venue'],
-  ['FAQs', '#faq'],
+  ['About', '/#about'],
+  ['Objectives', '/#why-attend'],
+  ['Agenda', '/#agenda'],
+  ['Speakers', '/#speakers'],
+  ['Team', '/team'],
+  ['CSR Projects', '/#projects'],
+  ['Sponsorship', '/#sponsorship'],
+  ['Venue', '/#venue'],
+  ['FAQs', '/#faq'],
 ];
 
 const SOCIAL = [
