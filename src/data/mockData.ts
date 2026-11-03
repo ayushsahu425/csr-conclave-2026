@@ -268,7 +268,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Dean, Innovation & Corporate Relations',
     org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo: '/speakers/alok-kumar-das.jpg',
+    photo: '/speakers/alok-kumar-das.jpeg',
     bio: 'Shatabdi Samriddhi 2026 – CSR Conclave provides a platform to strengthen industry–academia partnerships and translate innovative ideas into impactful solutions. By connecting corporate expertise with institutional research, technological innovation and entrepreneurial talent, we aim to address pressing societal challenges and promote sustainable development.',
     sessionTitle: 'Industry–Academia Connect',
   },
@@ -323,7 +323,7 @@ export const LEADERSHIP_MESSAGES = [
   {
     name: 'Prof. Alok Kumar Das',
     role: 'Dean, Innovation & Corporate Relations, IIT (ISM) Dhanbad',
-    photo: '/speakers/alok-kumar-das.jpg',
+    photo: '/speakers/alok-kumar-das.jpeg',
     message: [
       'Shatabdi Samriddhi 2026 – CSR Conclave provides a platform to strengthen industry–academia partnerships and translate innovative ideas into impactful solutions. By connecting corporate expertise with institutional research, technological innovation and entrepreneurial talent, we aim to address pressing societal challenges and promote sustainable development.',
       'Through collaborative initiatives, we aspire to build enduring partnerships that create shared value for industry, the Institute and society.',
