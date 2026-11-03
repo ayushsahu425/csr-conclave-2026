@@ -12,20 +12,20 @@
 
 const CONFIG = {
   // Who receives a notification for every submission (comma-separate several).
-  TEAM_EMAIL: 'csrconclave@iitism.ac.in',
+  TEAM_EMAIL: 'centenary@iitism.ac.in',
   // Shown as the sender name on outgoing emails.
   SENDER_NAME: 'CSR Conclave 2026 · IIT (ISM) Dhanbad',
   // Replies from delegates/sponsors go here.
-  REPLY_TO: 'csrconclave@iitism.ac.in',
+  REPLY_TO: 'centenary@iitism.ac.in',
   // Registration closes automatically at this many delegates.
   CAPACITY: 500,
   // Event details used in emails and the calendar invite (IST).
   EVENT_NAME: 'Shatabdi Samriddhi 2026 – CSR Conclave',
-  EVENT_DATE_LABEL: 'Friday, 4 December 2026 · 9:00 AM IST',
-  EVENT_START_UTC: '20261204T033000Z', // 09:00 IST
-  EVENT_END_UTC: '20261204T100000Z', //   15:30 IST
-  EVENT_VENUE: 'Penman Auditorium, IIT (ISM) Dhanbad, Jharkhand 826004',
-  WEBSITE_URL: 'https://github.com/ayushsahu425/csr-conclave-2026', // replace with the live site URL
+  EVENT_DATE_LABEL: 'Friday, 4 December 2026 · 10:00 AM – 5:00 PM IST',
+  EVENT_START_UTC: '20261204T043000Z', // 10:00 IST
+  EVENT_END_UTC: '20261204T113000Z', //   17:00 IST
+  EVENT_VENUE: 'GJLT Auditorium, IIT (ISM) Dhanbad, Jharkhand 826004',
+  WEBSITE_URL: 'https://csrconclave.netlify.app',
   // Optional: route project-interest leads to the PI as well. Key = project id on the website.
   PROJECT_PI_EMAILS: {
     // 'prj-01': 'pi.name@iitism.ac.in',
@@ -35,7 +35,7 @@ const CONFIG = {
 const SHEETS = {
   register: {
     name: 'Registrations',
-    headers: ['Timestamp', 'Pass ID', 'Full name', 'Organisation', 'Designation', 'Category', 'Email', 'Phone', 'Dietary', 'Consent', 'Checked in'],
+    headers: ['Timestamp', 'Pass ID', 'Full name', 'Organisation', 'Designation', 'Category', 'Email', 'Phone', 'Consent', 'Checked in'],
   },
   sponsor: {
     name: 'Sponsor Enquiries',
@@ -125,13 +125,13 @@ function handleRegister_(d) {
   const passId = 'SS26-' + randomId_(5);
   sheet.appendRow([
     new Date(), passId, clean_(d.fullName), clean_(d.organisation), clean_(d.designation), clean_(d.category),
-    email, phone_(d.phone), clean_(d.dietary), 'Yes', '',
+    email, phone_(d.phone), 'Yes', '',
   ]);
 
   sendRegistrationEmail_(passId, d, email);
   notifyTeam_('New registration: ' + clean_(d.fullName) + ' (' + clean_(d.organisation) + ')', [
     ['Pass ID', passId], ['Name', d.fullName], ['Organisation', d.organisation], ['Designation', d.designation],
-    ['Category', d.category], ['Email', email], ['Phone', d.phone], ['Dietary', d.dietary],
+    ['Category', d.category], ['Email', email], ['Phone', d.phone],
     ['Total registered', rows + 1 + ' / ' + CONFIG.CAPACITY],
   ]);
 
@@ -195,10 +195,6 @@ function handleProject_(d) {
 /* ------------------------------------------------------------------ */
 
 function sendRegistrationEmail_(passId, d, email) {
-  const qrData = 'CSR26|' + passId + '|' + clean_(d.fullName) + '|' + email;
-  const qrBlob = UrlFetchApp.fetch('https://quickchart.io/qr?size=320&margin=1&dark=3D0B16&light=FDFAF5&text=' + encodeURIComponent(qrData))
-    .getBlob().setName(passId + '-qr.png');
-
   const ics = [
     'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//IIT ISM Dhanbad//CSR Conclave 2026//EN', 'METHOD:PUBLISH',
     'BEGIN:VEVENT', 'UID:' + passId + '@iitism.ac.in', 'DTSTAMP:' + Utilities.formatDate(new Date(), 'UTC', "yyyyMMdd'T'HHmmss'Z'"),
@@ -211,10 +207,9 @@ function sendRegistrationEmail_(passId, d, email) {
   const html = emailShell_(
     "You're registered",
     '<p>Dear ' + esc_(d.fullName) + ',</p>' +
-      '<p>Your registration for <b>' + esc_(CONFIG.EVENT_NAME) + '</b> is confirmed. Please show the QR pass below at the registration desk along with a government photo ID.</p>' +
+      '<p>Your registration for <b>' + esc_(CONFIG.EVENT_NAME) + '</b> is confirmed. Please carry a government-issued photo ID to the registration desk.</p>' +
       '<table role="presentation" style="margin:20px 0;border:1px solid #E5D3B8;border-radius:16px;background:#fff;width:100%">' +
-      '<tr><td style="padding:20px;width:170px"><img src="cid:qr" width="160" height="160" alt="QR pass" style="display:block"></td>' +
-      '<td style="padding:20px;font-size:14px;color:#2B1A1D;line-height:1.7">' +
+      '<tr><td style="padding:20px;font-size:14px;color:#2B1A1D;line-height:1.7">' +
       '<b style="font-size:18px;color:#3D0B16">' + esc_(d.fullName) + '</b><br>' + esc_(d.organisation) + '<br>' +
       'Pass ID: <b style="color:#7A172B;font-family:monospace">' + passId + '</b><br>' +
       esc_(CONFIG.EVENT_DATE_LABEL) + '<br>' + esc_(CONFIG.EVENT_VENUE) + '</td></tr></table>' +
@@ -227,8 +222,7 @@ function sendRegistrationEmail_(passId, d, email) {
     htmlBody: html,
     name: CONFIG.SENDER_NAME,
     replyTo: CONFIG.REPLY_TO,
-    inlineImages: { qr: qrBlob },
-    attachments: [qrBlob, icsBlob],
+    attachments: [icsBlob],
   });
 }
 
