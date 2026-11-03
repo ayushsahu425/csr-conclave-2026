@@ -6,7 +6,7 @@ interface NavbarProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
   onOpenRegister: () => void;
-  onOpenSponsor: () => void;
+  isTeamPage?: boolean;
 }
 
 const LINKS = [
@@ -14,12 +14,13 @@ const LINKS = [
   { id: 'why-attend', label: 'Objectives' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'speakers', label: 'Speakers' },
+  { id: 'team', label: 'Team' },
   { id: 'projects', label: 'Projects' },
   { id: 'sponsorship', label: 'Sponsorship' },
   { id: 'venue', label: 'Venue' },
 ];
 
-export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister }: NavbarProps) {
+export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister, isTeamPage = false }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
 
@@ -84,7 +85,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
             return (
               <a
                 key={l.id}
-                href={`#${l.id}`}
+                href={l.id === 'team' ? '/team' : isTeamPage ? `/#${l.id}` : `#${l.id}`}
                 className={`relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors ${
                   solid
                     ? isActive
@@ -131,7 +132,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
             {LINKS.map((l, i) => (
               <a
                 key={l.id}
-                href={`#${l.id}`}
+                href={l.id === 'team' ? '/team' : isTeamPage ? `/#${l.id}` : `#${l.id}`}
                 onClick={() => setMobileMenuOpen(false)}
                 className="border-b border-sand-200 py-3 font-display text-lg text-maroon-800"
                 style={{ transitionDelay: `${i * 30}ms` }}
