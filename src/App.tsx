@@ -12,6 +12,7 @@ import Sponsorship from './components/Sponsorship';
 import Venue from './components/Venue';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
+import TeamPage from './pages/TeamPage';
 
 import RegistrationModal from './components/modals/RegistrationModal';
 import ProjectInterestModal from './components/modals/ProjectInterestModal';
@@ -29,6 +30,7 @@ export default function App() {
   const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
   const openRegister = () => setRegModalOpen(true);
+  const isTeamPage = window.location.pathname.replace(/\/+$/, '') === '/team';
   const openSponsor = (tier?: string) => {
     setSponsorTier(tier ?? '');
     setSponsorModalOpen(true);
@@ -40,20 +42,26 @@ export default function App() {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         onOpenRegister={openRegister}
-        onOpenSponsor={() => openSponsor()}
+        isTeamPage={isTeamPage}
       />
 
       <main>
-        <Hero onOpenRegister={openRegister} onOpenSponsor={() => openSponsor()} />
-        <About />
-        <WhyAttend />
-        <Timeline />
-        <Agenda />
-        <Speakers onSelectSpeaker={setSelectedSpeaker} />
-        <Projects onSelectProject={setSelectedProject} />
-        <Sponsorship onOpenSponsor={openSponsor} />
-        <Venue />
-        <Faq />
+        {isTeamPage ? (
+          <TeamPage />
+        ) : (
+          <>
+            <Hero onOpenRegister={openRegister} onOpenSponsor={() => openSponsor()} />
+            <About />
+            <WhyAttend />
+            <Timeline />
+            <Agenda />
+            <Speakers onSelectSpeaker={setSelectedSpeaker} />
+            <Projects onSelectProject={setSelectedProject} />
+            <Sponsorship onOpenSponsor={openSponsor} />
+            <Venue />
+            <Faq />
+          </>
+        )}
       </main>
 
       <Footer onOpenRegister={openRegister} />

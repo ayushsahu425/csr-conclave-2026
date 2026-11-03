@@ -6,7 +6,7 @@ interface NavbarProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
   onOpenRegister: () => void;
-  onOpenSponsor: () => void;
+  isTeamPage?: boolean;
 }
 
 const LINKS = [
@@ -14,17 +14,18 @@ const LINKS = [
   { id: 'why-attend', label: 'Objectives' },
   { id: 'agenda', label: 'Agenda' },
   { id: 'speakers', label: 'Speakers' },
+  { id: 'team', label: 'Team' },
   { id: 'projects', label: 'Projects' },
   { id: 'sponsorship', label: 'Sponsorship' },
   { id: 'venue', label: 'Venue' },
 ];
 
-export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState('');
+export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister, isTeamPage = false }: NavbarProps) {
+  const [scrolled, setScrolled] = useState(isTeamPage);
+  const [active, setActive] = useState(isTeamPage ? 'team' : '');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(isTeamPage || window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -42,7 +43,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
       window.removeEventListener('scroll', onScroll);
       observer.disconnect();
     };
-  }, []);
+  }, [isTeamPage]);
 
   const solid = scrolled || mobileMenuOpen;
 
@@ -55,7 +56,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
       }`}
     >
       <nav className="container-x flex h-[76px] items-center justify-between gap-6">
-        <a href="#top" className="group flex items-center gap-3">
+        <a href={isTeamPage ? '/' : '#top'} className="group flex items-center gap-3">
           <img
             src={emblem}
             alt="Shatabdi Samriddhi 2026 centenary emblem"
@@ -84,7 +85,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
             return (
               <a
                 key={l.id}
-                href={`#${l.id}`}
+                href={l.id === 'team' ? '/team' : isTeamPage ? `/#${l.id}` : `#${l.id}`}
                 className={`relative rounded-full px-3.5 py-2 text-[13.5px] font-medium transition-colors ${
                   solid
                     ? isActive
@@ -131,7 +132,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
             {LINKS.map((l, i) => (
               <a
                 key={l.id}
-                href={`#${l.id}`}
+                href={l.id === 'team' ? '/team' : isTeamPage ? `/#${l.id}` : `#${l.id}`}
                 onClick={() => setMobileMenuOpen(false)}
                 className="border-b border-sand-200 py-3 font-display text-lg text-maroon-800"
                 style={{ transitionDelay: `${i * 30}ms` }}
