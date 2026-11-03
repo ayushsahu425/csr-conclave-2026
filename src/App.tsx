@@ -30,7 +30,7 @@ export default function App() {
   const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
   const openRegister = () => setRegModalOpen(true);
-  const isTeamPage = window.location.pathname.replace(/\\/+$/, '') === '/team';
+  const isTeamPage = window.location.pathname.replace(/\/+$/, '') === '/team';
   const openSponsor = (tier?: string) => {
     setSponsorTier(tier ?? '');
     setSponsorModalOpen(true);
