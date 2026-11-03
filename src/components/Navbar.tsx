@@ -22,7 +22,7 @@ const LINKS = [
 
 export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister, isTeamPage = false }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState(isTeamPage ? 'team' : '');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -56,7 +56,7 @@ export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegist
       }`}
     >
       <nav className="container-x flex h-[76px] items-center justify-between gap-6">
-        <a href="#top" className="group flex items-center gap-3">
+        <a href={isTeamPage ? '/' : '#top'} className="group flex items-center gap-3">
           <img
             src={emblem}
             alt="Shatabdi Samriddhi 2026 centenary emblem"
