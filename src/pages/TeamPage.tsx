@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { ArrowDown, ArrowUpRight, Mail, Users } from 'lucide-react';
 import { EVENT, LEADERSHIP_MESSAGES } from '../data/mockData';
 import Avatar from '../components/ui/Avatar';
@@ -5,6 +6,12 @@ import Reveal from '../components/ui/Reveal';
 import SectionHeading from '../components/ui/SectionHeading';
 
 export default function TeamPage() {
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = 'Team · Shatabdi Samriddhi 2026 | IIT (ISM) Dhanbad';
+    return () => { document.title = previousTitle; };
+  }, []);
+
   return (
     <>
       <section id="team" className="relative overflow-hidden bg-sand-100 pb-20 pt-32 md:pb-28 md:pt-40">
