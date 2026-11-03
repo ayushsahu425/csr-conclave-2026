@@ -42,7 +42,6 @@ export default function App() {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         onOpenRegister={openRegister}
-        onOpenSponsor={() => openSponsor()}
         isTeamPage={isTeamPage}
       />
 
