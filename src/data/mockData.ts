@@ -21,8 +21,8 @@ export const EVENT = {
   shortDate: '04 · 12 · 2026',
   start: '2026-12-04T10:00:00+05:30',
   end: '2026-12-04T17:00:00+05:30',
-  venueName: 'Penman Auditorium',
-  venue: 'Penman Auditorium, IIT (ISM) Dhanbad',
+  venueName: 'GJLT Auditorium',
+  venue: 'GJLT Auditorium, IIT (ISM) Dhanbad',
   city: 'Dhanbad, Jharkhand 826004',
   presenter: 'Office of Alumni Affairs Cell / Public Relations Cell, IIT(ISM)',
   address: 'Administrative Block, 1st Floor,Office of Alumni Affairs Cell / Public Relations Cell, IIT (ISM) Dhanbad, Jharkhand 826004',
@@ -30,7 +30,7 @@ export const EVENT = {
   email: 'centenary@iitism.ac.in',
   phone: '+91 77639 74506',
   website: 'https://www.iitism.ac.in',
-  mapsQuery: 'Penman Auditorium, IIT (ISM) Dhanbad',
+  mapsQuery: 'GJLT Auditorium, IIT (ISM) Dhanbad',
 };
 
 /* ------------------------------------------------------------------ */
@@ -524,7 +524,7 @@ export const FAQS = [
   { q: 'Is parking available on campus?', a: '[TBC]' },
   {
     q: 'Where is the venue?',
-    a: 'The Conclave is planned for Penman Auditorium, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',
+    a: 'The Conclave is planned for GJLT Auditorium, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',
   },
 ];
 
