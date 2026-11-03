@@ -21,11 +21,11 @@ const LINKS = [
 ];
 
 export default function Navbar({ mobileMenuOpen, setMobileMenuOpen, onOpenRegister, isTeamPage = false }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(isTeamPage);
   const [active, setActive] = useState(isTeamPage ? 'team' : '');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(isTeamPage || window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
