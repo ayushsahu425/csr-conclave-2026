@@ -248,7 +248,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Director',
     org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo: '/speakers/sukumar-mishra.jpg',
+    photo: '/speakers/sukumar-mishra.png',
     bio: 'As IIT (ISM) Dhanbad celebrates a century of excellence, Shatabdi Samriddhi 2026 – CSR Conclave offers an opportunity to build meaningful partnerships between industry and academia. By fostering collaboration in education, research, innovation and social development, we aim to translate our institutional strengths into lasting societal impact.',
     sessionTitle: 'Inaugural Session',
   },

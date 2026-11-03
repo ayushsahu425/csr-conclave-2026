@@ -17,7 +17,7 @@ const ICONS = {
 
 export default function Venue() {
 
-  const mapQuery = 'Penman Auditorium, IIT (ISM) Dhanbad';
+  const mapQuery = 'GJLT Auditorium, IIT (ISM) Dhanbad';
 
   return (
     <section id="venue" className="section">
@@ -34,7 +34,7 @@ export default function Venue() {
           <Reveal className="card h-full overflow-hidden">
             <div className="relative h-full min-h-[460px] overflow-hidden bg-sand-200">
               <iframe
-                title="Map – Penman Auditorium, IIT (ISM) Dhanbad"
+                title="Map – GJLT Auditorium, IIT (ISM) Dhanbad"
                 src={`https://maps.google.com/maps?q=${encodeURIComponent(
                   mapQuery
                 )}&z=16&output=embed`}
@@ -51,7 +51,7 @@ export default function Venue() {
 
                   <span className="text-sm leading-tight">
                     <span className="block font-semibold text-maroon-900">
-                      Penman Auditorium
+                      GJLT Auditorium
                     </span>
                     <span className="text-ink-muted">
                       IIT (ISM) Dhanbad, Jharkhand 826004

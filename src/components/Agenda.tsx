@@ -64,7 +64,7 @@ const PROGRAMME: AgendaItem[] = [
   {
     id: 'a5',
     time: '11:50 AM - 12:35 PM',
-    title: 'Plenary Session I: The Changing Landscape of CSR',
+    title: 'Plenary Session: The Changing Landscape of CSR',
     session: 'Panel',
     track: null,
     type: 'panel',
@@ -99,7 +99,7 @@ const PROGRAMME: AgendaItem[] = [
   {
     id: 'a8',
     time: '2:20 PM - 4:00 PM',
-    title: 'Incubated Project Showcase',
+    title: 'CSR Project Showcase',
     session: 'Showcase',
     track: null,
     type: 'showcase',
@@ -110,7 +110,7 @@ const PROGRAMME: AgendaItem[] = [
   {
     id: 'a9',
     time: '4:00 PM - 5:00 PM',
-    title: 'Valedictory Session and Felicitation',
+    title: ' Felicitation and Concluding Session',
     session: 'Closing',
     track: null,
     type: 'closing',
