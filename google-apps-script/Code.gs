@@ -21,9 +21,9 @@ const CONFIG = {
   CAPACITY: 500,
   // Event details used in emails and the calendar invite (IST).
   EVENT_NAME: 'Shatabdi Samriddhi 2026 – CSR Conclave',
-  EVENT_DATE_LABEL: 'Friday, 4 December 2026 · 10:00 AM – 5:00 PM IST',
-  EVENT_START_UTC: '20261204T043000Z', // 10:00 IST
-  EVENT_END_UTC: '20261204T113000Z', //   17:00 IST
+    EVENT_DATE_LABEL: 'Saturday, 5 December 2026 · 10:00 AM – 5:00 PM IST',
+  EVENT_START_UTC: '20261205T043000Z', // 10:00 IST
+  EVENT_END_UTC: '20261205T113000Z', //   17:00 IST
   EVENT_VENUE: 'GJLT Auditorium, IIT (ISM) Dhanbad, Jharkhand 826004',
   WEBSITE_URL: 'https://csrconclave.netlify.app',
   // Optional: route project-interest leads to the PI as well. Key = project id on the website.
