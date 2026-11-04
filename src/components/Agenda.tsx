@@ -99,7 +99,7 @@ const PROGRAMME: AgendaItem[] = [
   {
     id: 'a8',
     time: '2:20 PM - 4:00 PM',
-    title: 'CSR Project Showcase',
+    title: 'CSR–Supported Projects @ IIT (ISM) Dhanbad',
     session: 'Showcase',
     track: null,
     type: 'showcase',
@@ -110,7 +110,7 @@ const PROGRAMME: AgendaItem[] = [
   {
     id: 'a9',
     time: '4:00 PM - 5:00 PM',
-    title: ' Felicitation and Concluding Session',
+    title: 'Felicitation and Concluding Session',
     session: 'Closing',
     track: null,
     type: 'closing',
