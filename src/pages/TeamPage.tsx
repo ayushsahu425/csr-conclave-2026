@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { ArrowDown, ArrowUpRight, Camera, Crown } from 'lucide-react';
 
@@ -342,31 +341,34 @@ export default function TeamPage() {
               </div>
             </div>
 
+            {/* ORGANISING TEAM COUNTER - UPDATED COLOURS ONLY */}
+
             <div className="relative mx-auto w-full max-w-sm">
-              <div className="relative overflow-hidden rounded-3xl bg-maroon-900 p-6 text-sand-50 shadow-lift sm:p-8">
-                <div className="hatch pointer-events-none absolute -right-3 top-0 h-full w-16 text-sand-100/10" />
+              <div className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/20 bg-gradient-to-br from-[#7A172B] via-[#6B0C28] to-[#4A081B] p-6 text-[#FAF6F0] shadow-[0_20px_50px_rgba(74,8,27,0.22)] sm:p-8">
 
-                <div className="pointer-events-none absolute -bottom-16 -left-10 h-52 w-52 rounded-full border-[24px] border-sand-100/5" />
+                <div className="hatch pointer-events-none absolute -right-3 top-0 h-full w-16 text-[#F6D8D8]/15" />
 
-                <p className="relative text-[10px] font-semibold uppercase tracking-[0.25em] text-sand-300">
+                <div className="pointer-events-none absolute -bottom-16 -left-10 h-52 w-52 rounded-full border-[24px] border-[#F6D8D8]/[0.06]" />
+
+                <p className="relative text-[10px] font-semibold uppercase tracking-[0.25em] text-[#F0D9A5]">
                   The organising team
                 </p>
 
-                <p className="relative mt-5 font-display text-6xl font-semibold leading-none text-sand-100 sm:text-7xl">
+                <p className="relative mt-5 font-display text-6xl font-semibold leading-none text-[#FAF6F0] sm:text-7xl">
                   {String(totalMembers).padStart(2, '0')}
-                  <span className="text-maroon-300">.</span>
+                  <span className="text-[#D4AF37]">.</span>
                 </p>
 
-                <p className="relative mt-2 font-display text-xl text-sand-100 sm:text-2xl">
+                <p className="relative mt-2 font-display text-xl text-[#FAF6F0] sm:text-2xl">
                   People. One purpose.
                 </p>
 
-                <div className="relative mt-7 flex items-center justify-between border-t border-sand-100/15 pt-4">
-                  <span className="text-xs text-sand-200/70">
+                <div className="relative mt-7 flex items-center justify-between border-t border-[#FAF6F0]/20 pt-4">
+                  <span className="text-xs text-[#E8D8C8]">
                     IIT (ISM) Dhanbad
                   </span>
 
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-sand-300">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#F0D9A5]">
                     Centenary year
                   </span>
                 </div>
