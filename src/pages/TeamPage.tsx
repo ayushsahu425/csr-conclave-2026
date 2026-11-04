@@ -1,239 +1,533 @@
-import { useEffect } from 'react';
-import { ArrowDown, ArrowUpRight, Camera, Mail, UserRound } from 'lucide-react';
-import { EVENT, LEADERSHIP_MESSAGES } from '../data/mockData';
-import Avatar from '../components/ui/Avatar';
-import Reveal from '../components/ui/Reveal';
-import SectionHeading from '../components/ui/SectionHeading';
 
-const TEAM_DEPARTMENTS = [
+import { useEffect } from 'react';
+import { ArrowDown, ArrowUpRight, Camera, Crown } from 'lucide-react';
+
+type TeamMember = {
+  name: string;
+  branch: string;
+  description: string;
+  photo?: string;
+};
+
+type TeamDepartment = {
+  id: string;
+  number: string;
+  name: string;
+  description: string;
+  members: TeamMember[];
+};
+
+const TEAM_DEPARTMENTS: TeamDepartment[] = [
   {
-    id: 'outreach',
-    name: 'Outreach',
+    id: 'design',
     number: '01',
-    description: 'The people building connections with institutions, organisations and partners.',
+    name: 'Design',
+    description: 'Creating the visual identity and creative experience of the Conclave.',
+    members: [
+      { name: 'Aryan', branch: 'Branch to be added', description: 'Design team member introduction to be added.' },
+      { name: 'Navneet', branch: 'Branch to be added', description: 'Design team member introduction to be added.' },
+      { name: 'Siddhi', branch: 'Branch to be added', description: 'Design team member introduction to be added.' },
+    ],
   },
   {
     id: 'sponsorship',
-    name: 'Sponsorship',
     number: '02',
-    description: 'The team coordinating sponsorship relationships and partnership support.',
+    name: 'Sponsorship',
+    description: 'Building meaningful partnerships and supporting event collaborations.',
+    members: [
+      { name: 'Anshu', branch: 'Branch to be added', description: 'Sponsorship team member introduction to be added.' },
+      { name: 'Radhe', branch: 'Branch to be added', description: 'Sponsorship team member introduction to be added.' },
+    ],
   },
   {
-    id: 'web-design',
-    name: 'Web & Design',
+    id: 'outreach',
     number: '03',
-    description: 'The people shaping the digital experience and visual identity of the Conclave.',
+    name: 'Outreach',
+    description: 'Connecting with institutions, organisations and potential partners.',
+    members: [
+      { name: 'Vishal', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
+      { name: 'Muqseet', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
+      { name: 'Vijaya', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
+      { name: 'Abhinav', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
+    ],
+  },
+  {
+    id: 'web-dev',
+    number: '04',
+    name: 'Web Development',
+    description: 'Building and maintaining the digital experience of the Conclave.',
+    members: [
+      { name: 'Ayush', branch: 'Branch to be added', description: 'Web development team member introduction to be added.' },
+      { name: 'Dipak', branch: 'Branch to be added', description: 'Web development team member introduction to be added.' },
+      { name: 'Shreshth', branch: 'Branch to be added', description: 'Web development team member introduction to be added.' },
+    ],
   },
   {
     id: 'content',
+    number: '05',
     name: 'Content',
-    number: '04',
-    description: 'The team bringing the Conclave story, information and communications together.',
+    description: 'Shaping the Conclave story through content and communication.',
+    members: [
+      { name: 'Nehal', branch: 'Branch to be added', description: 'Content team member introduction to be added.' },
+      { name: 'Pragathi', branch: 'Branch to be added', description: 'Content team member introduction to be added.' },
+      { name: 'Anchal', branch: 'Branch to be added', description: 'Content team member introduction to be added.' },
+    ],
   },
   {
     id: 'hospitality',
+    number: '06',
     name: 'Hospitality',
-    number: '05',
-    description: 'The people making sure speakers, guests and delegates feel welcome.',
+    description: 'Ensuring a welcoming and comfortable experience for every guest.',
+    members: [
+      { name: 'Hemant', branch: 'Branch to be added', description: 'Hospitality team member introduction to be added.' },
+      { name: 'Hemya', branch: 'Branch to be added', description: 'Hospitality team member introduction to be added.' },
+    ],
   },
 ];
 
-const MEMBER_SLOTS = Array.from({ length: 6 }, (_, index) => index + 1);
+/* =========================================
+   LEADERSHIP CARD - LANDSCAPE DESIGN
+========================================= */
 
-function MemberPlaceholder({ number }: { number: number }) {
+function LeadershipCard({
+  name,
+  role,
+  photo,
+  description,
+  department,
+  number,
+}: {
+  name: string;
+  role: string;
+  photo: string;
+  description: string;
+  department: string;
+  number: string;
+}) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-card transition-all duration-500 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
-      <div className="relative flex aspect-[5/4] items-center justify-center overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
-        <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(#7A172B_0.7px,transparent_0.7px)] [background-size:12px_12px]" />
-        <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-maroon-600/15 bg-sand-50/80 text-maroon-500 shadow-sm transition-transform duration-500 group-hover:scale-105">
-          <UserRound className="h-10 w-10" strokeWidth={1.25} />
+    <article className="group relative flex w-full overflow-hidden rounded-2xl border border-[#D8C18A] bg-[#FFFCF7] p-2 shadow-[0_6px_25px_rgba(74,8,27,0.07)] transition-all duration-500 hover:-translate-y-1 hover:border-[#B89545] hover:shadow-[0_14px_35px_rgba(74,8,27,0.14)]">
+
+      {/* PHOTO */}
+      <div className="relative w-[38%] shrink-0 overflow-hidden rounded-xl bg-[#F0E5D6] sm:w-[40%]">
+        <div className="absolute inset-0">
+          <img
+            src={photo}
+            alt={name}
+            className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
         </div>
-        <span className="absolute bottom-4 inline-flex items-center gap-1.5 rounded-full border border-white/70 bg-sand-50/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-maroon-700">
-          <Camera className="h-3.5 w-3.5" /> Photo to be added
+
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#3D0B16]/40 via-transparent to-transparent" />
+
+        <span className="absolute left-2 top-2 rounded-full border border-[#E4CE91]/70 bg-[#4A081B]/90 px-2.5 py-1 text-[8px] font-bold uppercase tracking-[0.12em] text-[#F6E7B8] sm:left-3 sm:top-3 sm:text-[9px]">
+          {number}
         </span>
-        <span className="absolute right-4 top-4 font-display text-2xl font-semibold text-maroon-700/45">
-          {String(number).padStart(2, '0')}
-        </span>
+
+        <div className="absolute bottom-2 left-2 text-[#F6E7B8] sm:bottom-3 sm:left-3">
+          <Crown className="h-4 w-4 sm:h-5 sm:w-5" />
+        </div>
       </div>
 
-      <div className="p-5 md:p-6">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-maroon-500">
-          Team member {String(number).padStart(2, '0')}
+      {/* DETAILS */}
+      <div className="flex min-w-0 flex-1 flex-col justify-center px-3 py-3 sm:px-5 sm:py-5">
+
+        <span className="mb-2 inline-flex w-fit rounded-full bg-[#F1E5C9] px-3 py-1 text-[8px] font-bold uppercase tracking-[0.18em] text-[#6B0C28] sm:text-[9px]">
+          {role}
+        </span>
+
+        <h3 className="font-display text-lg font-semibold leading-tight text-[#4A081B] sm:text-2xl">
+          {name}
+        </h3>
+
+        <p className="mt-1.5 text-[8px] font-bold uppercase leading-4 tracking-[0.12em] text-[#98733B] sm:text-[10px] sm:tracking-[0.15em]">
+          {department}
         </p>
-        <h4 className="mt-2 font-display text-xl font-semibold text-maroon-950">
-          Name to be added
-        </h4>
-        <div className="mt-4 border-t border-sand-200 pt-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-ink-muted">
-            Department
-          </p>
-          <p className="mt-1 text-sm font-medium text-ink-soft">Department to be added</p>
-        </div>
-        <p className="mt-4 min-h-[3.5rem] text-sm leading-6 text-ink-muted">
-          Short description to be added. Add a brief introduction about this team member here.
+
+        <div className="my-2.5 h-px w-9 bg-[#C5A45D] sm:my-3 sm:w-12" />
+
+        <p className="text-[10px] leading-[1.65] text-[#66545A] sm:text-xs sm:leading-[1.8]">
+          {description}
+        </p>
+
+        <p className="mt-3 text-[8px] font-semibold uppercase tracking-[0.12em] text-[#987B70] sm:text-[9px] sm:tracking-[0.15em]">
+          Shatabdi Samriddhi 2026
         </p>
       </div>
     </article>
   );
 }
 
+/* =========================================
+   REGULAR TEAM MEMBER CARD
+========================================= */
+
+function MemberCard({
+  member,
+  index,
+}: {
+  member: TeamMember;
+  index: number;
+}) {
+  const initials = member.name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
+  return (
+    <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
+
+      {/* MOBILE: HORIZONTAL CARD */}
+      <div className="flex items-center gap-4 p-3 sm:hidden">
+        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
+          {member.photo ? (
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <div className="flex h-full w-full flex-col items-center justify-center text-maroon-700">
+              <span className="font-display text-3xl font-semibold">
+                {initials}
+              </span>
+              <span className="mt-1 flex items-center gap-1 text-[8px] font-semibold uppercase tracking-wider text-maroon-600/70">
+                <Camera className="h-3 w-3" />
+                Photo
+              </span>
+            </div>
+          )}
+
+          <span className="absolute right-1 top-1 text-[9px] font-semibold text-maroon-700/70">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        </div>
+
+        <div className="min-w-0 flex-1 py-1">
+          <h4 className="truncate font-display text-lg font-semibold leading-tight text-maroon-950">
+            {member.name}
+          </h4>
+
+          <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-maroon-600">
+            Team Member
+          </p>
+
+          <div className="my-2 h-px w-8 bg-maroon-300" />
+
+          <p className="text-[11px] leading-4 text-ink-muted">
+            {member.branch}
+          </p>
+
+          <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-ink-soft">
+            {member.description}
+          </p>
+        </div>
+      </div>
+
+      {/* DESKTOP: PORTRAIT CARD */}
+      <div className="hidden sm:block">
+        <div className="relative aspect-[4/4.2] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
+          {member.photo ? (
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex h-full w-full flex-col items-center justify-center text-maroon-700">
+              <span className="font-display text-6xl font-semibold lg:text-7xl">
+                {initials}
+              </span>
+
+              <span className="mt-3 flex items-center gap-1.5 rounded-full border border-white/70 bg-sand-50/90 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-wider text-maroon-600">
+                <Camera className="h-3.5 w-3.5" />
+                Photo coming soon
+              </span>
+            </div>
+          )}
+
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-maroon-950/35 to-transparent" />
+
+          <span className="absolute right-3 top-3 rounded-full border border-white/50 bg-sand-50/90 px-3 py-1 text-[10px] font-semibold text-maroon-700">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        </div>
+
+        <div className="p-4 lg:p-5">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-maroon-500">
+            Team Member
+          </p>
+
+          <h4 className="mt-1.5 font-display text-xl font-semibold leading-tight text-maroon-950 lg:text-2xl">
+            {member.name}
+          </h4>
+
+          <div className="my-3 h-px w-10 bg-maroon-300 transition-all duration-300 group-hover:w-16 group-hover:bg-maroon-600" />
+
+          <p className="text-xs font-medium text-ink-muted">
+            {member.branch}
+          </p>
+
+          <p className="mt-2 min-h-[2.5rem] text-xs leading-5 text-ink-soft">
+            {member.description}
+          </p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+/* =========================================
+   MAIN TEAM PAGE
+========================================= */
+
 export default function TeamPage() {
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = 'Team · Shatabdi Samriddhi 2026 | IIT (ISM) Dhanbad';
-    return () => { document.title = previousTitle; };
+    document.title = 'Our Team · Shatabdi Samriddhi 2026 | IIT (ISM) Dhanbad';
+
+    return () => {
+      document.title = previousTitle;
+    };
   }, []);
+
+  const totalMembers = TEAM_DEPARTMENTS.reduce(
+    (total, department) => total + department.members.length,
+    0
+  );
 
   return (
     <>
-      <section id="team" className="relative overflow-hidden bg-sand-100 pb-20 pt-32 md:pb-28 md:pt-40">
+      {/* HERO SECTION */}
+
+      <section
+        id="team"
+        className="relative overflow-hidden bg-sand-100 pb-12 pt-28 sm:pb-16 sm:pt-32"
+      >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_90%_at_100%_0%,rgba(158,47,70,0.10),transparent_65%)]" />
-        <div className="hatch pointer-events-none absolute right-0 top-28 h-52 w-10 text-maroon-600/10 md:w-16" />
+
+        <div className="hatch pointer-events-none absolute right-0 top-24 h-40 w-12 text-maroon-600/10 sm:w-16" />
+
         <div className="container-x relative">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+
             <div>
-              <p className="eyebrow">Shatabdi Samriddhi 2026 · The People</p>
-              <h1 className="mt-7 max-w-3xl font-display text-5xl font-semibold leading-[1.04] tracking-tight text-maroon-950 sm:text-6xl lg:text-7xl">
-                A shared vision.
-                <span className="mt-2 block font-light italic text-maroon-600">A team behind it.</span>
-              </h1>
-              <p className="mt-7 max-w-2xl text-base leading-8 text-ink-soft md:text-lg">
-                Meet the institutional leadership and the teams bringing the CSR Conclave together as IIT (ISM) Dhanbad marks a century of knowledge, innovation and societal impact.
+              <p className="eyebrow">
+                Shatabdi Samriddhi 2026 · The People
               </p>
-              <div className="mt-9 flex flex-wrap items-center gap-4">
+
+              <h1 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.08] tracking-tight text-maroon-950 sm:text-5xl md:text-6xl">
+                A shared vision.
+                <span className="mt-1 block font-light italic text-maroon-600">
+                  A team behind it.
+                </span>
+              </h1>
+
+              <p className="mt-5 max-w-xl text-sm leading-7 text-ink-soft sm:text-base sm:leading-8">
+                Meet the people working together to bring Shatabdi Samriddhi
+                2026 to life. A team united by ideas, creativity and a shared
+                commitment to meaningful impact.
+              </p>
+
+              <div className="mt-7 flex flex-wrap items-center gap-4">
                 <a href="#departments" className="btn-primary">
-                  Meet the teams <ArrowDown className="h-4 w-4" />
+                  Meet the team
+                  <ArrowDown className="h-4 w-4" />
                 </a>
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-700">1926 — 2026</span>
+
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-700">
+                  1926 — 2026
+                </span>
               </div>
             </div>
 
-            <Reveal delay={120} className="relative mx-auto w-full max-w-lg">
-              <div className="relative overflow-hidden rounded-[2rem] bg-maroon-900 p-7 text-sand-50 shadow-lift md:p-9">
-                <div className="hatch pointer-events-none absolute -right-3 top-0 h-full w-20 text-sand-100/10" />
-                <div className="pointer-events-none absolute -bottom-20 -left-10 h-64 w-64 rounded-full border-[28px] border-sand-100/5" />
-                <p className="relative text-xs font-semibold uppercase tracking-[0.28em] text-sand-300">One institution · One hundred years</p>
-                <p className="relative mt-7 font-display text-7xl font-semibold leading-none text-sand-100 sm:text-8xl">100<span className="text-maroon-300">.</span></p>
-                <p className="relative mt-3 max-w-xs font-display text-2xl leading-snug text-sand-100">Years of ideas becoming impact.</p>
-                <div className="relative mt-10 flex items-center justify-between border-t border-sand-100/15 pt-5">
-                  <span className="text-xs font-medium tracking-wide text-sand-200/70">IIT (ISM) Dhanbad</span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-sand-300">Centenary year</span>
+            <div className="relative mx-auto w-full max-w-sm">
+              <div className="relative overflow-hidden rounded-3xl bg-maroon-900 p-6 text-sand-50 shadow-lift sm:p-8">
+                <div className="hatch pointer-events-none absolute -right-3 top-0 h-full w-16 text-sand-100/10" />
+
+                <div className="pointer-events-none absolute -bottom-16 -left-10 h-52 w-52 rounded-full border-[24px] border-sand-100/5" />
+
+                <p className="relative text-[10px] font-semibold uppercase tracking-[0.25em] text-sand-300">
+                  The organising team
+                </p>
+
+                <p className="relative mt-5 font-display text-6xl font-semibold leading-none text-sand-100 sm:text-7xl">
+                  {String(totalMembers).padStart(2, '0')}
+                  <span className="text-maroon-300">.</span>
+                </p>
+
+                <p className="relative mt-2 font-display text-xl text-sand-100 sm:text-2xl">
+                  People. One purpose.
+                </p>
+
+                <div className="relative mt-7 flex items-center justify-between border-t border-sand-100/15 pt-4">
+                  <span className="text-xs text-sand-200/70">
+                    IIT (ISM) Dhanbad
+                  </span>
+
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-sand-300">
+                    Centenary year
+                  </span>
                 </div>
               </div>
-              <div className="absolute -bottom-5 -left-5 -z-0 h-24 w-24 rounded-full border border-maroon-300/50" />
-            </Reveal>
+
+              <div className="absolute -bottom-3 -left-3 -z-0 h-16 w-16 rounded-full border border-maroon-300/50 sm:h-20 sm:w-20" />
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="leadership" className="section bg-sand-50">
-        <div className="container-x">
-          <SectionHeading
-            eyebrow="Leadership & Guidance"
-            title={<>The people guiding <em className="font-light text-maroon-600">the next century.</em></>}
-            description="Institutional leadership perspectives on building meaningful partnerships between industry, academia and society."
-          />
+      {/* DEPARTMENTS SECTION */}
 
-          <div className="mt-14 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-            {LEADERSHIP_MESSAGES.map((leader, index) => (
-              <Reveal key={leader.name} delay={index * 100}>
-                <article className="group card card-hover h-full overflow-hidden">
-                  <div className="relative aspect-[5/4] overflow-hidden bg-sand-200">
-                    <div className="h-full w-full transition-transform duration-700 group-hover:scale-[1.035]">
-                      <Avatar name={leader.name} photo={leader.photo} />
-                    </div>
-                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-maroon-950/45 to-transparent" />
-                    <span className="absolute bottom-4 left-5 rounded-full border border-white/30 bg-sand-50/95 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-maroon-700">
-                      Institute leadership
-                    </span>
-                  </div>
-                  <div className="flex h-full flex-col p-6 md:p-7">
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-maroon-600">{leader.role}</p>
-                    <h3 className="mt-3 font-display text-2xl font-semibold leading-tight text-maroon-950">{leader.name}</h3>
-                    <div className="my-5 h-px w-12 bg-maroon-300 transition-all duration-500 group-hover:w-20 group-hover:bg-maroon-600" />
-                    <p className="text-sm leading-7 text-ink-soft">{leader.message[0]}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+      <section id="departments" className="section scroll-mt-20 bg-sand-50">
+        <div className="container-x">
+
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">
+              The Organising Team
+            </p>
+
+            <h2 className="mt-3 font-display text-3xl font-semibold text-maroon-950 sm:text-4xl">
+              Meet the <em className="font-light text-maroon-600">people.</em>
+            </h2>
+
+            <p className="mt-3 text-sm leading-7 text-ink-soft sm:text-base">
+              Different skills, different responsibilities, one shared
+              ambition — making the Conclave memorable.
+            </p>
           </div>
-        </div>
-      </section>
 
-      <section id="departments" className="section bg-sand-100">
-        <div className="container-x">
-          <SectionHeading
-            eyebrow="The Organising Team"
-            title={<>Five teams. <em className="font-light text-maroon-600">One shared purpose.</em></>}
-            description="Meet the people working across the Conclave. Each department has six member slots, ready for the approved photographs, names, academic departments and introductions."
-          />
+          {/* DEPARTMENT NAVIGATION */}
 
-          <nav aria-label="Team departments" className="mt-10 flex flex-wrap justify-center gap-2">
+          <nav
+            aria-label="Team departments"
+            className="mt-7 flex flex-wrap justify-center gap-2"
+          >
             {TEAM_DEPARTMENTS.map((department) => (
-              <a key={department.id} href={`#${department.id}`} className="rounded-full border border-maroon-600/20 bg-white/75 px-4 py-2 text-xs font-semibold text-maroon-700 transition-all duration-300 hover:border-maroon-600 hover:bg-maroon-600 hover:text-sand-50">
+              <a
+                key={department.id}
+                href={`#${department.id}`}
+                className="rounded-full border border-maroon-600/20 bg-white px-4 py-2 text-xs font-semibold text-maroon-700 transition-all duration-300 hover:border-maroon-600 hover:bg-maroon-600 hover:text-sand-50"
+              >
                 {department.name}
+                <span className="ml-1.5 text-maroon-400">
+                  {department.members.length}
+                </span>
               </a>
             ))}
           </nav>
 
-          <div className="mt-14 space-y-16 md:mt-20 md:space-y-20">
-            {TEAM_DEPARTMENTS.map((department, departmentIndex) => (
-              <section key={department.id} id={department.id} className="scroll-mt-28">
-                <Reveal className="mb-7 flex flex-col gap-3 border-b border-sand-300 pb-5 sm:flex-row sm:items-end sm:justify-between">
+          {/* CORE LEADERSHIP */}
+
+          <section className="mb-10 mt-8 sm:mb-12 sm:mt-10">
+
+            <div className="mb-8 text-center">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-maroon-500">
+                Core Leadership
+              </p>
+
+              <h2 className="mt-3 font-display text-3xl font-semibold text-maroon-950 sm:text-4xl">
+                Leading the <em className="font-light text-maroon-600">vision.</em>
+              </h2>
+
+              <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-ink-soft">
+                Meet the people guiding the organising team and bringing
+                the Conclave's vision to life.
+              </p>
+            </div>
+
+            <div className="mx-auto grid max-w-5xl grid-cols-1 items-stretch gap-5 lg:grid-cols-2 lg:gap-7">
+
+              <LeadershipCard
+                name="Sahil Sharma"
+                role="Head"
+                number="01 · Head"
+                department="Overall Coordination & Leadership"
+                description="Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision."
+                photo="/images/team/sahil-sharma.jpg"
+              />
+
+              <LeadershipCard
+                name="Sriya Pissapatti"
+                role="Co-Head"
+                number="02 · Co-Head"
+                department="Overall Coordination & Leadership"
+                description="Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure smooth execution of activities and event initiatives."
+                photo="/images/team/sriya-pissapatti.jpg"
+              />
+
+            </div>
+          </section>
+
+          {/* DEPARTMENT MEMBER SECTIONS */}
+
+          <div className="space-y-10 sm:space-y-12">
+
+            {TEAM_DEPARTMENTS.map((department) => (
+              <section
+                key={department.id}
+                id={department.id}
+                className="scroll-mt-28"
+              >
+                <div className="mb-5 flex flex-col gap-3 border-b border-sand-300 pb-4 sm:flex-row sm:items-end sm:justify-between">
+
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.24em] text-maroon-500">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-maroon-500">
                       Department {department.number}
                     </p>
-                    <h3 className="mt-2 font-display text-3xl font-semibold text-maroon-950 md:text-4xl">
+
+                    <h3 className="mt-1 font-display text-2xl font-semibold text-maroon-950 sm:text-3xl">
                       {department.name}
                     </h3>
-                    <p className="mt-2 max-w-2xl text-sm leading-6 text-ink-soft">{department.description}</p>
-                  </div>
-                  <span className="inline-flex w-fit rounded-full border border-maroon-600/15 bg-white px-3 py-1.5 text-xs font-semibold text-maroon-700">
-                    6 member placeholders
-                  </span>
-                </Reveal>
 
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6">
-                  {MEMBER_SLOTS.map((slot) => (
-                    <Reveal key={`${department.id}-${slot}`} delay={(slot - 1) * 55 + departmentIndex * 35}>
-                      <MemberPlaceholder number={slot} />
-                    </Reveal>
+                    <p className="mt-1 max-w-xl text-xs leading-6 text-ink-soft sm:text-sm">
+                      {department.description}
+                    </p>
+                  </div>
+
+                  <span className="inline-flex w-fit items-center rounded-full border border-maroon-600/15 bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-maroon-700">
+                    {department.members.length}{' '}
+                    {department.members.length === 1 ? 'Member' : 'Members'}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-5">
+                  {department.members.map((member, index) => (
+                    <MemberCard
+                      key={`${department.id}-${member.name}`}
+                      member={member}
+                      index={index}
+                    />
                   ))}
                 </div>
               </section>
             ))}
+
           </div>
         </div>
       </section>
 
-      <section className="section overflow-hidden bg-maroon-900 text-sand-50">
-        <div className="hatch pointer-events-none absolute right-0 top-0 h-40 w-14 text-sand-100/10" />
-        <div className="container-x relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-sand-300">Be part of the centenary</p>
-            <h2 className="mt-3 font-display text-4xl font-semibold leading-tight text-sand-50 md:text-5xl">
-              Many hands.
-              <span className="block font-light italic text-sand-300">One shared purpose.</span>
-            </h2>
-          </Reveal>
+      {/* FOOTER */}
 
-          <Reveal delay={120} className="rounded-3xl border border-sand-100/15 bg-white/[0.04] p-7 md:p-9">
-            <p className="text-base leading-8 text-sand-100/85">
-              Have an update for the organising team or want to share the final member details? Get in touch with the Conclave team.
-            </p>
-            <a href={`mailto:${EVENT.email}?subject=Shatabdi%20Samriddhi%202026%20-%20Team`} className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-sand-200 transition-colors hover:text-white">
-              Contact the Conclave team <Mail className="h-4 w-4" />
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </Reveal>
-        </div>
-      </section>
+      <section className="bg-sand-100 py-6">
+        <div className="container-x flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
 
-      <section className="bg-sand-100 py-10">
-        <div className="container-x flex flex-col gap-3 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-          <p className="font-display text-xl text-maroon-900">Shatabdi Samriddhi 2026 <span className="font-light italic text-maroon-600">· CSR Conclave</span></p>
-          <a href="/#top" className="text-sm font-semibold text-maroon-700 transition-colors hover:text-maroon-900">Back to the conclave <ArrowUpRight className="inline h-4 w-4" /></a>
+          <p className="font-display text-lg text-maroon-900">
+            Shatabdi Samriddhi 2026
+            <span className="font-light italic text-maroon-600">
+              {' '}· CSR Conclave
+            </span>
+          </p>
+
+          <a
+            href="/#top"
+            className="text-xs font-semibold text-maroon-700 transition-colors hover:text-maroon-900"
+          >
+            Back to the Conclave
+            <ArrowUpRight className="ml-1 inline h-4 w-4" />
+          </a>
+
         </div>
       </section>
     </>
