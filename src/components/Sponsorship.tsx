@@ -155,7 +155,7 @@ export default function Sponsorship({
           />
 
           <p className="mt-5 text-center text-sm text-sand-200/80">
-            4 December 2026 | Celebrating a Century of Excellence
+            5 December 2026 | Celebrating a Century of Excellence
           </p>
 
           {/* Four sponsorship category cards */}

@@ -17,7 +17,7 @@ const ICONS = {
 
 export default function Venue() {
 
-  const mapQuery = 'GJLT Auditorium, IIT (ISM) Dhanbad';
+  const mapQuery = 'Golden Jubilee Lecture Theatre (GJLT), IIT (ISM) Dhanbad';
 
   return (
     <section id="venue" className="section">

@@ -129,7 +129,7 @@ export default function Agenda() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Agenda"
-          title="Programme | Friday, 4 December 2026"
+          title="Programme | Saturday, 5 December 2026"
           description="From the inaugural session to the valedictory and felicitation, a full day of dialogue, showcases and partnership. All times are in Indian Standard Time (IST)."        />
 
         <Reveal
