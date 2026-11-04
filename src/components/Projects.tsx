@@ -1,5 +1,4 @@
-import { ArrowRight, Building2, CalendarClock, Handshake, Mail, MapPin, Target, Users } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { ArrowRight, Building2, CalendarClock, Mail, MapPin, Target, Users } from 'lucide-react';import type { ReactNode } from 'react';
 import { EVENT, PROJECTS_DATA, SUPPORTED_PROJECTS } from '../data/mockData';
 import type { CSRProject } from '../types';
 import Reveal from './ui/Reveal';
@@ -119,17 +118,21 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
             description="Projects at IIT (ISM) Dhanbad that have been made possible through CSR partnerships."
           />
 
-          {SUPPORTED_PROJECTS.length === 0 ? (
+            {SUPPORTED_PROJECTS.length === 0 ? (
             <Reveal delay={100} className="mx-auto mt-10 max-w-3xl">
-              <div className="relative overflow-hidden rounded-3xl border border-sand-300/70 bg-gradient-to-br from-sand-50 via-white to-maroon-50 px-8 py-12 text-center shadow-card">
+              <div className="rounded-3xl border border-sand-300/70 bg-white px-8 py-10 text-center shadow-card">
+                {/*
                 <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-maroon-600 text-sand-50 shadow-[0_10px_24px_-12px_rgba(122,23,43,0.7)]">
                   <Handshake className="h-6 w-6" />
                 </span>
                 <span className="chip mt-5">Coming soon</span>
-                <p className="mt-4 font-display text-2xl font-semibold text-maroon-800">Details will be shared soon</p>
+                */}
+                <p className="font-display text-2xl font-semibold text-maroon-800">Details will be shared soon.</p>
+                {/*
                 <p className="mx-auto mt-2 max-w-lg text-[15px] leading-relaxed text-ink-soft">
                   Projects supported by our CSR partners will be showcased here.
                 </p>
+                */}
               </div>
             </Reveal>
           ) : (
