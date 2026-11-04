@@ -508,7 +508,6 @@ export const FAQS = [
     q: 'Who is the Conclave for?',
     a: 'CSR leaders, foundation heads, PSU officials, government representatives, industry leaders, and IIT (ISM) faculty and researchers.',
   },
-  { q: 'Is there a registration fee?', a: '[TBC]' },
   {
     q: 'Can CSR funds support IIT (ISM) projects?',
     a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Alumni Affairs to discuss a proposed partnership and confirm its compliance requirements.',
@@ -517,11 +516,6 @@ export const FAQS = [
     q: 'How can my organisation fund a project or sponsor the event?',
     a: 'Write to centenary@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
   },
-  {
-    q: 'What is the dress code?',
-    a: 'Business formals or Indian formals are recommended. Please carry a government-issued photo ID and your QR delegate pass.',
-  },
-  { q: 'Is parking available on campus?', a: '[TBC]' },
   {
     q: 'Where is the venue?',
     a: 'The Conclave is planned for GJLT Auditorium, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',
