@@ -4,7 +4,7 @@
  * or set VITE_FORMS_ENDPOINT in your hosting provider's environment variables instead.
  * See docs/FORMS_SETUP.md.
  */
-const PASTED_URL = '';
+const PASTED_URL = 'https://script.google.com/macros/s/AKfycbxs2KpE3bogz-8ltdjavHevbVKro2dYzNMrjSXVy2Q5CsFys7CSDkKkPmZE06-d-FKh/exec';
 
 export const FORMS_ENDPOINT: string =
   (import.meta.env.VITE_FORMS_ENDPOINT as string | undefined) || PASTED_URL;

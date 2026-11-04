@@ -49,20 +49,30 @@ export interface Speaker {
 
 export interface CSRProject {
   id: string;
-  title: string;
   code: string;
-  focusArea:
-    | 'Mine Safety'
-    | 'Clean Energy'
-    | 'Water and Health'
-    | 'Skilling'
-    | 'Land Reclamation';
-  problemStatement: string;
-  budget: string;
-  beneficiaries: string;
-  scheduleVII: string;
-  piName: string;
-  dept: string;
+  /** Label on the card, e.g. 'CSR Project' or 'Social Initiative'. */
+  kind: string;
+  title: string;
+  description: string;
+  /** Amount shown large on the card, e.g. '₹5–25 lakh'. */
+  support: string;
+  /** Small line under the amount, e.g. 'Sponsorship packages'. */
+  supportNote?: string;
+  beneficiaries?: string;
+  scheduleVII?: string;
+  focusAreas?: string;
+  duration?: string;
+  proponent: string;
+  proponentLocation?: string;
+}
+
+/** Projects already supported through CSR at IIT (ISM) Dhanbad (details to be added). */
+export interface SupportedProject {
+  id: string;
+  title: string;
+  /** Company or organisation that supported it. */
+  partner: string;
+  description: string;
 }
 
 export interface AgendaItem {

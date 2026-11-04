@@ -41,7 +41,7 @@ export function slotToISO(slot: string) {
     if (!m) return EVENT.start;
     let h = parseInt(m[1], 10) % 12;
     if (m[3].toUpperCase() === 'PM') h += 12;
-    return `2026-12-04T${String(h).padStart(2, '0')}:${m[2]}:00+05:30`;
+    return `${EVENT.start.slice(0, 10)}T${String(h).padStart(2, '0')}:${m[2]}:00+05:30`;
   };
   const start = conv(parts[0]);
   // Open-ended slots ("3:30 PM onwards") get a one-hour calendar block.

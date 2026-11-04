@@ -118,7 +118,7 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
     <Modal onClose={onClose} eyebrow={`${EVENT.subtitle} · ${EVENT.dateLabel}`} title="Delegate Registration">
       <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
         <Field label="Full name" className="sm:col-span-2">
-          <input required name="fullName" value={form.fullName} onChange={set} className="input" placeholder="e.g. Ananya Sharma" />
+          <input required name="fullName" value={form.fullName} onChange={set} className="input" placeholder="e.g. Sahil Sharma" />
         </Field>
         <Field label="Organisation">
           <input required name="organisation" value={form.organisation} onChange={set} className="input" />

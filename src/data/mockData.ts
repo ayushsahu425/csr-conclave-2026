@@ -3,8 +3,7 @@
  * Source: "Shatabdi_Samriddhi_2026_Revised_Combined_Website_Content.docx"
  * Edit text here; components read from this file.
  */
-import type { AgendaItem, CSRProject, Speaker } from '../types';
-
+import type { AgendaItem, CSRProject, Speaker, SupportedProject } from '../types';
 /* ------------------------------------------------------------------ */
 /* Event                                                               */
 /* ------------------------------------------------------------------ */
@@ -16,11 +15,11 @@ export const EVENT = {
   eyebrow: 'IIT (ISM) Dhanbad | Centenary Year 1926–2026',
   tagline:
     'Celebrating a century of IIT (ISM) Dhanbad by building partnerships for education, innovation and societal impact.',
-  dateLabel: 'Friday, 4 December 2026',
+  dateLabel: 'Saturday, 5 December 2026',
   timeLabel: '10:00 AM IST',
-  shortDate: '04 · 12 · 2026',
-  start: '2026-12-04T10:00:00+05:30',
-  end: '2026-12-04T17:00:00+05:30',
+  shortDate: '05 · 12 · 2026',
+  start: '2026-12-05T10:00:00+05:30',
+  end: '2026-12-05T17:00:00+05:30',
   venueName: 'GJLT Auditorium',
   venue: 'GJLT Auditorium, IIT (ISM) Dhanbad',
   city: 'Dhanbad, Jharkhand 826004',
@@ -30,8 +29,7 @@ export const EVENT = {
   email: 'centenary@iitism.ac.in',
   phone: '+91 77639 74506',
   website: 'https://www.iitism.ac.in',
-  mapsQuery: 'GJLT Auditorium, IIT (ISM) Dhanbad',
-};
+  mapsQuery: 'Golden Jubilee Lecture Theatre (GJLT), IIT (ISM) Dhanbad',};
 
 /* ------------------------------------------------------------------ */
 /* Home                                                                */
@@ -268,7 +266,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Dean, Innovation & Corporate Relations',
     org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo: '/speakers/alok-kumar-das.jpg',
+    photo: '/speakers/alok-kumar-das.jpeg',
     bio: 'Shatabdi Samriddhi 2026 – CSR Conclave provides a platform to strengthen industry–academia partnerships and translate innovative ideas into impactful solutions. By connecting corporate expertise with institutional research, technological innovation and entrepreneurial talent, we aim to address pressing societal challenges and promote sustainable development.',
     sessionTitle: 'Industry–Academia Connect',
   },
@@ -323,7 +321,7 @@ export const LEADERSHIP_MESSAGES = [
   {
     name: 'Prof. Alok Kumar Das',
     role: 'Dean, Innovation & Corporate Relations, IIT (ISM) Dhanbad',
-    photo: '/speakers/alok-kumar-das.jpg',
+    photo: '/speakers/alok-kumar-das.jpeg',
     message: [
       'Shatabdi Samriddhi 2026 – CSR Conclave provides a platform to strengthen industry–academia partnerships and translate innovative ideas into impactful solutions. By connecting corporate expertise with institutional research, technological innovation and entrepreneurial talent, we aim to address pressing societal challenges and promote sustainable development.',
       'Through collaborative initiatives, we aspire to build enduring partnerships that create shared value for industry, the Institute and society.',
@@ -335,60 +333,56 @@ export const LEADERSHIP_MESSAGES = [
 /* CSR projects                                                        */
 /* ------------------------------------------------------------------ */
 
+// Research projects ready to be funded (shown on the website in this order)
 export const PROJECTS_DATA: CSRProject[] = [
   {
     id: 'prj-01',
     code: 'PRJ-01',
-    title: 'Self-Indexing Pick Assembly for Excavators (Patented)',
-    focusArea: 'Mine Safety',
-    problemStatement:
-      'A rotating pick-box mechanism designed to reduce downtime and lower hazard risk in heavy mining excavators.',
-    budget: '₹45 lakh',
-    beneficiaries: 'Mine workers and heavy machinery operators',
-    scheduleVII: 'Item (i), preventive health care [confirm applicability]',
-    piName: 'Prof. V. M. S. R. Murthy',
-    dept: 'Mining Engineering',
+    kind: 'CSR Project',
+    title: 'PARAM JAL – Mine-Pit Water Purification',
+    description:
+      'Transforming unused mine-pit water into safe, affordable drinking water, addressing water scarcity in mining communities.',
+    support: '₹5–25 lakh',
+    supportNote: 'Sponsorship packages',
+    beneficiaries: '550–2,700 people per year, depending on sponsorship',
+    scheduleVII: 'Item (i) – Safe Drinking Water',
+    proponent: 'Param Innovations Pvt. Ltd.',
+    proponentLocation: 'Dhanbad, Jharkhand',
   },
   {
     id: 'prj-02',
     code: 'PRJ-02',
-    title: 'Community Solar Micro-Grids for Mining-Region Villages',
-    focusArea: 'Clean Energy',
-    problemStatement:
-      'Off-grid hybrid solar units for remote settlements around coalfields, providing reliable clean power around the clock.',
-    budget: '₹80 lakh',
-    beneficiaries: '2,500+ tribal households',
-    scheduleVII: 'Item (iv), environmental sustainability',
-    piName: 'Prof. S. Chakrabarti',
-    dept: 'Electrical Engineering',
+    kind: 'CSR Project',
+    title: 'Bahumulya Nutrition – Innovative Wellness Formulations',
+    description:
+      'A health and wellness venture developing formulations for daily supplementation, with a focus on commercial production and building a scalable wellness brand.',
+    support: '₹45 lakh',
+    supportNote: 'Grant funding',
+    scheduleVII: 'CSR eligibility and applicable category to be verified',
+    duration: '12 months',
+    proponent: 'Antaka Global Private Limited',
+    proponentLocation: 'Jamshedpur, Jharkhand',
   },
   {
     id: 'prj-03',
     code: 'PRJ-03',
-    title: 'Mine Water Purification and Village Drinking Water Supply',
-    focusArea: 'Water and Health',
-    problemStatement:
-      'Membrane filtration to treat discharged mine-sump water and provide safe drinking water to nearby villages, subject to applicable water-quality standards.',
-    budget: '₹60 lakh',
-    beneficiaries: '15,000 villagers',
-    scheduleVII: 'Item (i), safe drinking water',
-    piName: 'Prof. A. K. Samanta',
-    dept: 'Chemical Engineering',
-  },
-  {
-    id: 'prj-04',
-    code: 'PRJ-04',
-    title: 'Virtual Reality Simulator Lab for Heavy Machinery Skills',
-    focusArea: 'Skilling',
-    problemStatement:
-      'Virtual-reality training hubs to prepare local youth for employment operating mining equipment.',
-    budget: '₹1.2 crore',
-    beneficiaries: '500 young people annually',
-    scheduleVII: 'Item (ii), education and vocational skills',
-    piName: 'Prof. R. Chattopadhyay',
-    dept: 'Humanities and Management',
+    kind: 'CSR Project',
+    title: 'JHARSHILP – Jute & Bamboo Livelihood Centre',
+    description:
+      'A women-led livelihood initiative empowering local women through traditional jute and bamboo craft skills, product development and entrepreneurship.',
+    support: '₹1 crore',
+    supportNote: 'Funding',
+    beneficiaries: '40 local women',
+    focusAreas: 'Women Empowerment, Skill Development and Sustainable Livelihoods',
+    duration: '12 months',
+    proponent: 'Jharshilp Mahila Vikas Sahyog Samiti',
+    proponentLocation: 'ACIC IIT (ISM) Foundation, Belgaria, Dhanbad',
   },
 ];
+
+// CSR-supported projects at IIT (ISM) Dhanbad – details to be added.
+// While this list is empty, the website shows "Details will be shared soon".
+export const SUPPORTED_PROJECTS: SupportedProject[] = [];
 
 /* ------------------------------------------------------------------ */
 /* Sponsorship                                                         */
@@ -508,7 +502,6 @@ export const FAQS = [
     q: 'Who is the Conclave for?',
     a: 'CSR leaders, foundation heads, PSU officials, government representatives, industry leaders, and IIT (ISM) faculty and researchers.',
   },
-  { q: 'Is there a registration fee?', a: '[TBC]' },
   {
     q: 'Can CSR funds support IIT (ISM) projects?',
     a: 'Schedule VII of the Companies Act, 2013 includes eligible CSR activities involving research and development and contributions to qualifying institutions. Please contact the Office of Alumni Affairs to discuss a proposed partnership and confirm its compliance requirements.',
@@ -517,11 +510,6 @@ export const FAQS = [
     q: 'How can my organisation fund a project or sponsor the event?',
     a: 'Write to centenary@iitism.ac.in. The Office of Alumni Affairs will share project details and sponsorship options.',
   },
-  {
-    q: 'What is the dress code?',
-    a: 'Business formals or Indian formals are recommended. Please carry a government-issued photo ID and your QR delegate pass.',
-  },
-  { q: 'Is parking available on campus?', a: '[TBC]' },
   {
     q: 'Where is the venue?',
     a: 'The Conclave is planned for GJLT Auditorium, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',

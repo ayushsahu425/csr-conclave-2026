@@ -29,13 +29,13 @@ export default function ProjectInterestModal({ project, onClose }: { project: CS
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
   return (
-    <Modal onClose={onClose} eyebrow={`Express interest · ${project.focusArea}`} title={project.title}>
+    <Modal onClose={onClose} eyebrow={`Express interest · ${project.code}`} title={project.title}>
       {done ? (
         <div className="py-4 text-center">
           <CircleCheck className="mx-auto h-14 w-14 text-maroon-600" strokeWidth={1.5} />
           <p className="mt-4 text-ink-soft">
-            Your interest has been routed to <strong className="text-ink">{project.piName}</strong> ({project.dept}) and the Alumni Affairs
-            office. Expect a response within three working days.
+            Your interest in this project has been shared with the Alumni Affairs office, who will connect you with{' '}
+            <strong className="text-ink">{project.proponent}</strong>. Expect a response within three working days.
           </p>
           {ref && <p className="mt-3 text-sm text-ink-muted">Reference: <span className="font-mono font-semibold text-maroon-700">{ref}</span></p>}
           <button onClick={onClose} className="btn-primary mt-8">
@@ -46,9 +46,9 @@ export default function ProjectInterestModal({ project, onClose }: { project: CS
         <>
           <div className="mb-6 grid grid-cols-3 gap-px overflow-hidden rounded-2xl bg-sand-300 text-sm">
             {[
-              ['Budget', project.budget],
-              ['Beneficiaries', project.beneficiaries],
-              ['PI', project.piName],
+              ['Support', project.support],
+              ['Beneficiaries', project.beneficiaries ?? '—'],
+              ['Proponent', project.proponent],
             ].map(([k, v]) => (
               <div key={k} className="bg-sand-100 p-3">
                 <p className="text-[10px] font-semibold uppercase tracking-wider text-ink-muted">{k}</p>
