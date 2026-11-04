@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { ArrowDown, ArrowUpRight, Camera, Crown } from 'lucide-react';
 
@@ -21,71 +22,174 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
     id: 'design',
     number: '01',
     name: 'Design',
-    description: 'Creating the visual identity and creative experience of the Conclave.',
+    description:
+      'Creating the visual identity and creative experience of the Conclave.',
     members: [
-      { name: 'Aryan', branch: 'Branch to be added', description: 'Design team member introduction to be added.' },
-      { name: 'Navneet', branch: 'Branch to be added', description: 'Design team member introduction to be added.' },
-      { name: 'Siddhi', branch: 'Branch to be added', description: 'Design team member introduction to be added.' },
+      {
+        name: 'Aryan Sharma',
+        branch: 'Applied Geophysics · Third Year',
+        description:
+          'A creative and enthusiastic member of the Design Team with an interest in visual creativity and professional design. He enjoys exploring new ideas, experimenting with design tools, and contributing to the visual identity of CSR Conclave 2026.',
+        photo: '/Team%20members/Aryan%20Sharma.png',
+      },
+      {
+        name: 'Navneet Patel',
+        branch: 'Petroleum Engineering · Third Year',
+        description:
+          'A pre-final-year Petroleum Engineering student at IIT (ISM) Dhanbad and Design Head at SAAC. He enjoys exploring creative ideas, designing engaging visuals, and bringing fresh perspectives to collaborative projects.',
+        photo: '/Team%20members/Navneet%20Patel.png',
+      },
+      {
+        name: 'Siddhi',
+        branch: 'Design Team',
+        description:
+          'Contributing to the creative direction and visual presentation of CSR Conclave 2026 through design collaboration and creative execution.',
+      },
     ],
   },
   {
     id: 'sponsorship',
     number: '02',
     name: 'Sponsorship',
-    description: 'Building meaningful partnerships and supporting event collaborations.',
+    description:
+      'Building meaningful partnerships and supporting event collaborations.',
     members: [
-      { name: 'Anshu', branch: 'Branch to be added', description: 'Sponsorship team member introduction to be added.' },
-      { name: 'Radhe', branch: 'Branch to be added', description: 'Sponsorship team member introduction to be added.' },
+      {
+        name: 'Anshu',
+        branch: 'Sponsorship Team',
+        description:
+          'Contributing to sponsorship outreach and partnership coordination to support the successful execution of CSR Conclave 2026.',
+      },
+      {
+        name: 'Radhe',
+        branch: 'Sponsorship Team',
+        description:
+          'Supporting sponsorship initiatives and helping develop meaningful collaborations with organisations for CSR Conclave 2026.',
+      },
     ],
   },
   {
     id: 'outreach',
     number: '03',
     name: 'Outreach',
-    description: 'Connecting with institutions, organisations and potential partners.',
+    description:
+      'Connecting with institutions, organisations and potential partners.',
     members: [
-      { name: 'Vishal', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
-      { name: 'Muqseet', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
-      { name: 'Vijaya', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
-      { name: 'Abhinav', branch: 'Branch to be added', description: 'Outreach team member introduction to be added.' },
+      {
+        name: 'Vishal',
+        branch: 'Outreach Team',
+        description:
+          'Supporting outreach initiatives and contributing to stakeholder engagement and partnership development for CSR Conclave 2026.',
+      },
+      {
+        name: 'Muqseet Ahmed Bandukwala',
+        branch: 'Petroleum Engineering · Third Year',
+        description:
+          'A Petroleum Engineering student at IIT (ISM) Dhanbad and a first-in-India finisher at PetroCup. He brings experience in event organisation and team coordination to the CSR Outreach Team, where he connects with companies and industry leaders to build partnerships and encourage meaningful CSR collaborations.',
+        photo: '/Team%20members/Muqseet%20Ahmed.png',
+      },
+      {
+        name: 'K Vijaya Lakshmi',
+        branch: 'MBA · Second Year',
+        description:
+          'A second-year MBA student at IIT (ISM) Dhanbad with a passion for corporate relations and strategic networking. As part of the Corporate Outreach Team, she focuses on building industry partnerships and fostering meaningful collaborations for CSR Conclave 2026.',
+        photo: '/Team%20members/K%20Vijayalakshmi.png',
+      },
+      {
+        name: 'Abhinav Anand',
+        branch: 'Department of Management Studies and Industrial Engineering · First Year',
+        description:
+          'A first-year MBA student at IIT (ISM) Dhanbad with a keen interest in marketing, corporate partnerships, and social impact. As a member of the CSR Conclave Outreach Team, he focuses on connecting with corporate leaders, building strategic collaborations, and facilitating meaningful delegate engagement.',
+        photo: '/Team%20members/Abhinav%20Anand.png',
+      },
     ],
   },
   {
     id: 'web-dev',
     number: '04',
     name: 'Web Development',
-    description: 'Building and maintaining the digital experience of the Conclave.',
+    description:
+      'Building and maintaining the digital experience of the Conclave.',
     members: [
-      { name: 'Ayush', branch: 'Branch to be added', description: 'Web development team member introduction to be added.' },
-      { name: 'Dipak', branch: 'Branch to be added', description: 'Web development team member introduction to be added.' },
-      { name: 'Shreshth', branch: 'Branch to be added', description: 'Web development team member introduction to be added.' },
+      {
+        name: 'Ayush Sahu',
+        branch: 'MBA Business Analytics · First Year',
+        description:
+          'First-year MBA (Business Analytics) student at IIT (ISM) Dhanbad with a background in AI and Machine Learning. Experienced in delivering 40+ web development projects, with skills in full-stack development, technical SEO, and business automation.',
+        photo: '/Team%20members/Ayush%20Sahu.png',
+      },
+      {
+        name: 'Dipak Gupta',
+        branch: 'Mining Engineering · Third Year',
+        description:
+          'A third-year Mining Engineering student at IIT (ISM) Dhanbad with a passion for technology and web development. As a member of the Web Development Team, he contributes his technical skills to building and maintaining the digital experience of CSR Conclave 2026.',
+        photo: '/Team%20members/Dipak%20Gupta.png',
+      },
+      {
+        name: 'Shreshth Lohiya',
+        branch: 'Mining Engineering · Third Year',
+        description:
+          'A dedicated and enthusiastic Mining Engineering student at IIT (ISM) Dhanbad with an interest in learning, teamwork, and creative problem-solving. He aims to contribute to CSR Conclave 2026 through his creativity, technical skills, and collaborative approach.',
+        photo: '/Team%20members/Shreshth%20Lohiya.png',
+      },
     ],
   },
   {
     id: 'content',
     number: '05',
     name: 'Content',
-    description: 'Shaping the Conclave story through content and communication.',
+    description:
+      'Shaping the Conclave story through content and communication.',
     members: [
-      { name: 'Nehal', branch: 'Branch to be added', description: 'Content team member introduction to be added.' },
-      { name: 'Pragathi', branch: 'Branch to be added', description: 'Content team member introduction to be added.' },
-      { name: 'Anchal', branch: 'Branch to be added', description: 'Content team member introduction to be added.' },
+      {
+        name: 'Nehal Agarwal',
+        branch: 'Electronics and Communication · Third Year',
+        description:
+          'A passionate communicator with a keen interest in content creation, storytelling, and creative expression. As a member of the Content Team for Shatabdi Samriddhi 2026, she contributes to crafting engaging content that reflects the vision of the Conclave and communicates its purpose effectively.',
+        photo: '/Team%20members/Nehal%20Agrawal.png',
+      },
+      {
+        name: 'Pragati Kumari',
+        branch: 'Mechanical Engineering · Final Year',
+        description:
+          'A final-year Mechanical Engineering student at IIT (ISM) Dhanbad with a passion for content creation, creative writing, and effective communication. As the Content Team Head, she focuses on crafting engaging narratives and meaningful content that highlight CSR initiatives and their social impact. She believes in the power of storytelling to inspire positive change.',
+        photo: '/Team%20members/Pragati%20Kumari.png',
+      },
+      {
+        name: 'Anchal Bharti',
+        branch: 'Chemical Engineering · Final Year',
+        description:
+          'A final-year Chemical Engineering student at IIT (ISM) Dhanbad with an interest in creative writing, communication, and storytelling. As a member of the CSR Conclave Content Team, she believes in the power of collaboration and thoughtful communication to bring diverse perspectives together and create meaningful social impact.',
+      },
     ],
   },
   {
     id: 'hospitality',
     number: '06',
     name: 'Hospitality',
-    description: 'Ensuring a welcoming and comfortable experience for every guest.',
+    description:
+      'Ensuring a welcoming and comfortable experience for every guest.',
     members: [
-      { name: 'Hemant', branch: 'Branch to be added', description: 'Hospitality team member introduction to be added.' },
-      { name: 'Hemya', branch: 'Branch to be added', description: 'Hospitality team member introduction to be added.' },
+      {
+        name: 'Hemant Raj Rana',
+        branch: 'Petroleum Engineering · Third Year',
+        description:
+          'A third-year Petroleum Engineering student at IIT (ISM) Dhanbad with a keen interest in leadership, teamwork, and event management. As a member of the Hospitality Team, he contributes to creating a warm, welcoming, and memorable experience for guests at CSR Conclave 2026.',
+        photo: '/Team%20members/Hemant%20Raj.png',
+      },
+      {
+        name: 'Hemya Sri',
+        branch: 'Mechanical Engineering · Third Year',
+        description:
+          'A Mechanical Engineering student at IIT (ISM) Dhanbad with an interest in teamwork, event management, and learning new skills. As a member of the CSR Conclave Hospitality Team, she contributes to guest coordination and hospitality while supporting the smooth execution of event operations.',
+        photo: '/Team%20members/Hemya%20Sri.png',
+      },
     ],
   },
 ];
 
 /* =========================================
-   LEADERSHIP CARD - LANDSCAPE DESIGN
+   LEADERSHIP CARD
 ========================================= */
 
 function LeadershipCard({
@@ -105,16 +209,12 @@ function LeadershipCard({
 }) {
   return (
     <article className="group relative flex w-full overflow-hidden rounded-2xl border border-[#D8C18A] bg-[#FFFCF7] p-2 shadow-[0_6px_25px_rgba(74,8,27,0.07)] transition-all duration-500 hover:-translate-y-1 hover:border-[#B89545] hover:shadow-[0_14px_35px_rgba(74,8,27,0.14)]">
-
-      {/* PHOTO */}
       <div className="relative w-[38%] shrink-0 overflow-hidden rounded-xl bg-[#F0E5D6] sm:w-[40%]">
-        <div className="absolute inset-0">
-          <img
-            src={photo}
-            alt={name}
-            className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
+        <img
+          src={photo}
+          alt={name}
+          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+        />
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#3D0B16]/40 via-transparent to-transparent" />
 
@@ -127,9 +227,7 @@ function LeadershipCard({
         </div>
       </div>
 
-      {/* DETAILS */}
       <div className="flex min-w-0 flex-1 flex-col justify-center px-3 py-3 sm:px-5 sm:py-5">
-
         <span className="mb-2 inline-flex w-fit rounded-full bg-[#F1E5C9] px-3 py-1 text-[8px] font-bold uppercase tracking-[0.18em] text-[#6B0C28] sm:text-[9px]">
           {role}
         </span>
@@ -176,8 +274,7 @@ function MemberCard({
 
   return (
     <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
-
-      {/* MOBILE: HORIZONTAL CARD */}
+      {/* MOBILE CARD */}
       <div className="flex items-center gap-4 p-3 sm:hidden">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
@@ -224,7 +321,7 @@ function MemberCard({
         </div>
       </div>
 
-      {/* DESKTOP: PORTRAIT CARD */}
+      {/* DESKTOP CARD */}
       <div className="hidden sm:block">
         <div className="relative aspect-[4/4.2] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
@@ -284,7 +381,9 @@ function MemberCard({
 export default function TeamPage() {
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = 'Our Team · Shatabdi Samriddhi 2026 | IIT (ISM) Dhanbad';
+
+    document.title =
+      'Our Team · Shatabdi Samriddhi 2026 | IIT (ISM) Dhanbad';
 
     return () => {
       document.title = previousTitle;
@@ -299,7 +398,6 @@ export default function TeamPage() {
   return (
     <>
       {/* HERO SECTION */}
-
       <section
         id="team"
         className="relative overflow-hidden bg-sand-100 pb-12 pt-28 sm:pb-16 sm:pt-32"
@@ -310,7 +408,6 @@ export default function TeamPage() {
 
         <div className="container-x relative">
           <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-
             <div>
               <p className="eyebrow">
                 Shatabdi Samriddhi 2026 · The People
@@ -341,11 +438,9 @@ export default function TeamPage() {
               </div>
             </div>
 
-            {/* ORGANISING TEAM COUNTER - UPDATED COLOURS ONLY */}
-
+            {/* ORGANISING TEAM COUNTER */}
             <div className="relative mx-auto w-full max-w-sm">
               <div className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/20 bg-gradient-to-br from-[#7A172B] via-[#6B0C28] to-[#4A081B] p-6 text-[#FAF6F0] shadow-[0_20px_50px_rgba(74,8,27,0.22)] sm:p-8">
-
                 <div className="hatch pointer-events-none absolute -right-3 top-0 h-full w-16 text-[#F6D8D8]/15" />
 
                 <div className="pointer-events-none absolute -bottom-16 -left-10 h-52 w-52 rounded-full border-[24px] border-[#F6D8D8]/[0.06]" />
@@ -381,14 +476,10 @@ export default function TeamPage() {
       </section>
 
       {/* DEPARTMENTS SECTION */}
-
       <section id="departments" className="section scroll-mt-20 bg-sand-50">
         <div className="container-x">
-
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">
-              The Organising Team
-            </p>
+            <p className="eyebrow">The Organising Team</p>
 
             <h2 className="mt-3 font-display text-3xl font-semibold text-maroon-950 sm:text-4xl">
               Meet the <em className="font-light text-maroon-600">people.</em>
@@ -401,7 +492,6 @@ export default function TeamPage() {
           </div>
 
           {/* DEPARTMENT NAVIGATION */}
-
           <nav
             aria-label="Team departments"
             className="mt-7 flex flex-wrap justify-center gap-2"
@@ -421,9 +511,7 @@ export default function TeamPage() {
           </nav>
 
           {/* CORE LEADERSHIP */}
-
           <section className="mb-10 mt-8 sm:mb-12 sm:mt-10">
-
             <div className="mb-8 text-center">
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-maroon-500">
                 Core Leadership
@@ -440,14 +528,13 @@ export default function TeamPage() {
             </div>
 
             <div className="mx-auto grid max-w-5xl grid-cols-1 items-stretch gap-5 lg:grid-cols-2 lg:gap-7">
-
               <LeadershipCard
                 name="Sahil Sharma"
                 role="Head"
                 number="01 · Head"
                 department="Overall Coordination & Leadership"
                 description="Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision."
-                photo="/images/team/sahil-sharma.jpg"
+                photo="/Team%20members/Sahil-Sharma.png"
               />
 
               <LeadershipCard
@@ -455,17 +542,14 @@ export default function TeamPage() {
                 role="Co-Head"
                 number="02 · Co-Head"
                 department="Overall Coordination & Leadership"
-                description="Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure smooth execution of activities and event initiatives."
-                photo="/images/team/sriya-pissapatti.jpg"
+                description="Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives."
+                photo="/Team%20members/Sriya-Pissapati.png"
               />
-
             </div>
           </section>
 
           {/* DEPARTMENT MEMBER SECTIONS */}
-
           <div className="space-y-10 sm:space-y-12">
-
             {TEAM_DEPARTMENTS.map((department) => (
               <section
                 key={department.id}
@@ -473,7 +557,6 @@ export default function TeamPage() {
                 className="scroll-mt-28"
               >
                 <div className="mb-5 flex flex-col gap-3 border-b border-sand-300 pb-4 sm:flex-row sm:items-end sm:justify-between">
-
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-maroon-500">
                       Department {department.number}
@@ -505,16 +588,13 @@ export default function TeamPage() {
                 </div>
               </section>
             ))}
-
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-
       <section className="bg-sand-100 py-6">
         <div className="container-x flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
-
           <p className="font-display text-lg text-maroon-900">
             Shatabdi Samriddhi 2026
             <span className="font-light italic text-maroon-600">
@@ -529,7 +609,6 @@ export default function TeamPage() {
             Back to the Conclave
             <ArrowUpRight className="ml-1 inline h-4 w-4" />
           </a>
-
         </div>
       </section>
     </>
