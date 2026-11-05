@@ -55,17 +55,19 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
       'Building meaningful partnerships and supporting event collaborations.',
     members: [
       {
-        name: 'Anshu',
-        branch: 'Sponsorship Team',
+        name: 'Anshu Mishra',
+        branch: 'MTECH IEM · First Year',
         description:
-          'Contributing to sponsorship outreach and partnership coordination to support the successful execution of CSR Conclave 2026.',
-      },
+          'A first-year MBA student in Industrial Engineering and Management with an interest in corporate relations, strategic partnerships, and social impact. Brings strong communication, negotiation, and relationship-building skills to the team.',
+            photo: '/Team%20members/Anshu-mishra.webp',
+        },
       {
-        name: 'Radhe',
-        branch: 'Sponsorship Team',
+        name: 'Radhe Shyam',
+        branch: 'Petroleum Engineering · Final Year',
         description:
-          'Supporting sponsorship initiatives and helping develop meaningful collaborations with organisations for CSR Conclave 2026.',
-      },
+          'A final-year Petroleum Engineering student with an interest in leadership and teamwork. Contributes to sponsorship initiatives and building meaningful partnerships for the CSR Conclave.',
+             photo: '/Team%20members/Radhe-Shyam.webp',
+        },
     ],
   },
   {
@@ -76,11 +78,12 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
       'Connecting with institutions, organisations and potential partners.',
     members: [
       {
-        name: 'Vishal',
-        branch: 'Outreach Team',
+        name: 'Vishal Kannaujiya',
+        branch: 'Mathematics & Computing · Third Year',
         description:
-          'Supporting outreach initiatives and contributing to stakeholder engagement and partnership development for CSR Conclave 2026.',
-      },
+          'A third-year Mathematics and Computing student passionate about entrepreneurship, innovation, and social impact. Interested in team leadership, operations, and building strategic partnerships through outreach and collaboration.',
+           photo: '/Team%20members/Vishal.webp',
+        },
       {
         name: 'Muqseet Ahmed Bandukwala',
         branch: 'Petroleum Engineering · Third Year',
@@ -160,7 +163,8 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Chemical Engineering · Final Year',
         description:
           'A final-year Chemical Engineering student at IIT (ISM) Dhanbad with an interest in creative writing, communication, and storytelling. As a member of the CSR Conclave Content Team, she believes in the power of collaboration and thoughtful communication to bring diverse perspectives together and create meaningful social impact.',
-      },
+          photo: '/Team%20members/Anchal-Bharti.webp',
+        },
     ],
   },
   {
