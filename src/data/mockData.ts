@@ -339,6 +339,21 @@ export const PROJECTS_DATA: CSRProject[] = [
     id: 'prj-01',
     code: 'PRJ-01',
     kind: 'CSR Project',
+    title: 'ATOMS ON WHEELS – Mobile Nuclear Science Education Initiative',
+    description:
+      'A mobile science education initiative bringing hands-on learning about nuclear science to school students, with a focus on underprivileged students in underserved communities around Dhanbad.',
+    support: '₹1.20 crore',
+    supportNote: 'Complete project sponsorship',
+    beneficiaries: 'School students in and around Dhanbad, primarily from underserved communities',
+    scheduleVII: 'Item (ii) – Promoting Education',
+    duration: '5 years',
+    proponent: 'Indian Institute of Technology (ISM) Dhanbad',
+    proponentLocation: 'Dhanbad, Jharkhand',
+  },
+  {
+    id: 'prj-02',
+    code: 'PRJ-02',
+    kind: 'CSR Project',
     title: 'PARAM JAL – Mine-Pit Water Purification',
     description:
       'Transforming unused mine-pit water into safe, affordable drinking water, addressing water scarcity in mining communities.',
@@ -350,8 +365,8 @@ export const PROJECTS_DATA: CSRProject[] = [
     proponentLocation: 'Dhanbad, Jharkhand',
   },
   {
-    id: 'prj-02',
-    code: 'PRJ-02',
+    id: 'prj-03',
+    code: 'PRJ-03',
     kind: 'CSR Project',
     title: 'Bahumulya Nutrition – Innovative Wellness Formulations',
     description:
@@ -364,8 +379,8 @@ export const PROJECTS_DATA: CSRProject[] = [
     proponentLocation: 'Jamshedpur, Jharkhand',
   },
   {
-    id: 'prj-03',
-    code: 'PRJ-03',
+    id: 'prj-04',
+    code: 'PRJ-04',
     kind: 'CSR Project',
     title: 'JHARSHILP – Jute & Bamboo Livelihood Centre',
     description:
