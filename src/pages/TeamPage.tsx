@@ -30,7 +30,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Applied Geophysics · Third Year',
         description:
           'A creative and enthusiastic member of the Design Team with an interest in visual creativity and professional design. He enjoys exploring new ideas, experimenting with design tools, and contributing to the visual identity of CSR Conclave 2026.',
-        photo: '/Team%20members/Aryan%20Sharma.webp',
+        photo: '/Team%20members/aryansharma.webp',
       },
       {
         name: 'Navneet Patel',
@@ -40,11 +40,12 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         photo: '/Team%20members/Navneet%20Patel.webp',
       },
       {
-        name: 'Siddhi',
-        branch: 'Design Team',
-        description:
-          'Contributing to the creative direction and visual presentation of CSR Conclave 2026 through design collaboration and creative execution.',
-      },
+         name: 'Siddhi Sen',
+         branch: 'Mining Engineering · Third Year',
+         description:
+           'A third-year Mining Engineering student at IIT (ISM) Dhanbad and Design Co-Head at SAAC. Passionate about design, creativity, and visual storytelling, she brings fresh ideas and a collaborative approach to creating meaningful designs.',
+        photo: '/Team%20members/siddhisen.webp',
+       },
     ],
   },
   {
@@ -66,7 +67,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Petroleum Engineering · Final Year',
         description:
           'A final-year Petroleum Engineering student with an interest in leadership and teamwork. Contributes to sponsorship initiatives and building meaningful partnerships for the CSR Conclave.',
-             photo: '/Team%20members/Radhe-Shyam.webp',
+             photo: '/Team%20members/radheshyam.webp',
         },
     ],
   },
@@ -82,21 +83,29 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Mathematics & Computing · Third Year',
         description:
           'A third-year Mathematics and Computing student passionate about entrepreneurship, innovation, and social impact. Interested in team leadership, operations, and building strategic partnerships through outreach and collaboration.',
-           photo: '/Team%20members/Vishal.webp',
+           photo: '/Team%20members/vishal.webp',
+        },
+        
+        {
+         name: 'Priyotosh Mazumder',
+         branch: 'MBA · First Year',
+         description:
+           'A first-year MBA student at IIT (ISM) Dhanbad with nearly two years of corporate experience at Tech Mahindra and Genpact. Recognised among InsideIIM’s 50 Most Promising MBA Students of 2026, he is passionate about product management, strategy, and innovation.',
+        photo: '/Team%20members/priyotosh.webp',
         },
       {
         name: 'Muqseet Ahmed Bandukwala',
         branch: 'Petroleum Engineering · Third Year',
         description:
           'A Petroleum Engineering student at IIT (ISM) Dhanbad and a first-in-India finisher at PetroCup. He brings experience in event organisation and team coordination to the CSR Outreach Team, where he connects with companies and industry leaders to build partnerships and encourage meaningful CSR collaborations.',
-        photo: '/Team%20members/Muqseet%20Ahmed.webp',
+        photo: '/Team%20members/muqseet.webp',
       },
       {
         name: 'K Vijaya Lakshmi',
         branch: 'MBA · Second Year',
         description:
           'A second-year MBA student at IIT (ISM) Dhanbad with a passion for corporate relations and strategic networking. As part of the Corporate Outreach Team, she focuses on building industry partnerships and fostering meaningful collaborations for CSR Conclave 2026.',
-        photo: '/Team%20members/K%20Vijayalakshmi.webp',
+        photo: '/Team%20members/vijaya.webp',
       },
       {
         name: 'Abhinav Anand',
@@ -119,21 +128,21 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'MBA Business Analytics · First Year',
         description:
           'First-year MBA (Business Analytics) student at IIT (ISM) Dhanbad with a background in AI and Machine Learning. Experienced in delivering 40+ web development projects, with skills in full-stack development, technical SEO, and business automation.',
-        photo: '/Team%20members/Ayush%20Sahu.webp',
+        photo: '/Team%20members/ayushsahu.webp',
       },
       {
         name: 'Dipak Gupta',
         branch: 'Mining Engineering · Third Year',
         description:
           'A third-year Mining Engineering student at IIT (ISM) Dhanbad with a passion for technology and web development. As a member of the Web Development Team, he contributes his technical skills to building and maintaining the digital experience of CSR Conclave 2026.',
-        photo: '/Team%20members/Dipak%20Gupta.webp',
+        photo: '/Team%20members/dipak.webp',
       },
       {
         name: 'Shreshth Lohiya',
         branch: 'Mining Engineering · Third Year',
         description:
           'A dedicated and enthusiastic Mining Engineering student at IIT (ISM) Dhanbad with an interest in learning, teamwork, and creative problem-solving. He aims to contribute to CSR Conclave 2026 through his creativity, technical skills, and collaborative approach.',
-        photo: '/Team%20members/Shreshth%20Lohiya.webp',
+        photo: '/Team%20members/shreshth.webp',
       },
     ],
   },
@@ -149,14 +158,14 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Electronics and Communication · Third Year',
         description:
           'A passionate communicator with a keen interest in content creation, storytelling, and creative expression. As a member of the Content Team for Shatabdi Samriddhi 2026, she contributes to crafting engaging content that reflects the vision of the Conclave and communicates its purpose effectively.',
-        photo: '/Team%20members/Nehal%20Agrawal.webp',
+        photo: '/Team%20members/nehal.webp',
       },
       {
         name: 'Pragati Kumari',
         branch: 'Mechanical Engineering · Final Year',
         description:
           'A final-year Mechanical Engineering student at IIT (ISM) Dhanbad with a passion for content creation, creative writing, and effective communication. As the Content Team Head, she focuses on crafting engaging narratives and meaningful content that highlight CSR initiatives and their social impact. She believes in the power of storytelling to inspire positive change.',
-        photo: '/Team%20members/Pragati%20Kumari.webp',
+        photo: '/Team%20members/pragati.webp',
       },
       {
         name: 'Anchal Bharti',
@@ -179,14 +188,14 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Petroleum Engineering · Third Year',
         description:
           'A third-year Petroleum Engineering student at IIT (ISM) Dhanbad with a keen interest in leadership, teamwork, and event management. As a member of the Hospitality Team, he contributes to creating a warm, welcoming, and memorable experience for guests at CSR Conclave 2026.',
-        photo: '/Team%20members/Hemant%20Raj.webp',
+        photo: '/Team%20members/hemant.webp',
       },
       {
         name: 'Hemya Sri',
         branch: 'Mechanical Engineering · Third Year',
         description:
           'A Mechanical Engineering student at IIT (ISM) Dhanbad with an interest in teamwork, event management, and learning new skills. As a member of the CSR Conclave Hospitality Team, she contributes to guest coordination and hospitality while supporting the smooth execution of event operations.',
-        photo: '/Team%20members/Hemya%20Sri.webp',
+        photo: '/Team%20members/hemya.webp',
       },
     ],
   },
@@ -553,7 +562,7 @@ export default function TeamPage() {
                 number="02 · Co-Head"
                 department="Overall Coordination & Leadership"
                 description="Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives."
-                photo="/Team%20members/Sriya-Pissapati.webp"
+                photo="/Team%20members/sriya.webp"
               />
             </div>
           </section>
