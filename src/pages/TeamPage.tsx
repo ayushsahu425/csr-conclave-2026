@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { ArrowDown, ArrowUpRight, Camera, Crown } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Camera } from 'lucide-react';
 
 type TeamMember = {
   name: string;
@@ -202,68 +202,97 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
 ];
 
 /* =========================================
-   LEADERSHIP CARD
+   LEADERSHIP / OFFICIAL CARDS
 ========================================= */
 
-function LeadershipCard({
-  name,
-  role,
-  photo,
-  description,
-  department,
-  number,
-}: {
+
+type OfficialMember = {
   name: string;
   role: string;
-  photo: string;
-  description: string;
-  department: string;
-  number: string;
-}) {
+  photo?: string;
+  description?: string;
+};
+
+function OfficialCard({ member, index }: { member: OfficialMember; index: number }) {
+  const initials = member.name
+    .split(' ')
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
-    <article className="group relative flex w-full overflow-hidden rounded-2xl border border-[#D8C18A] bg-[#FFFCF7] p-2 shadow-[0_6px_25px_rgba(74,8,27,0.07)] transition-all duration-500 hover:-translate-y-1 hover:border-[#B89545] hover:shadow-[0_14px_35px_rgba(74,8,27,0.14)]">
-      <div className="relative w-[38%] shrink-0 overflow-hidden rounded-xl bg-[#F0E5D6] sm:w-[40%]">
-        <img
-          src={photo}
-          loading="lazy"
-          decoding="async"
-          alt={name}
-          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-        />
-
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#3D0B16]/40 via-transparent to-transparent" />
-
-        <span className="absolute left-2 top-2 rounded-full border border-[#E4CE91]/70 bg-[#4A081B]/90 px-2.5 py-1 text-[8px] font-bold uppercase tracking-[0.12em] text-[#F6E7B8] sm:left-3 sm:top-3 sm:text-[9px]">
-          {number}
-        </span>
-
-        <div className="absolute bottom-2 left-2 text-[#F6E7B8] sm:bottom-3 sm:left-3">
-          <Crown className="h-4 w-4 sm:h-5 sm:w-5" />
+    <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
+      {/* MOBILE CARD — matches regular team member cards */}
+      <div className="flex items-center gap-4 p-3 sm:hidden">
+        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
+          {member.photo ? (
+            <img
+              src={member.photo}
+              loading="lazy"
+              decoding="async"
+              alt={member.name}
+              onError={(event) => { event.currentTarget.style.display = 'none'; }}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center font-display text-3xl font-semibold text-maroon-700">
+              {initials}
+            </div>
+          )}
+          <span className="absolute right-1 top-1 text-[9px] font-semibold text-maroon-700/70">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        </div>
+        <div className="min-w-0 flex-1 py-1">
+          <h4 className="truncate font-display text-lg font-semibold leading-tight text-maroon-950">
+            {member.name}
+          </h4>
+          <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-maroon-600">
+            {member.role}
+          </p>
+          <div className="my-2 h-px w-8 bg-maroon-300" />
+          <p className="line-clamp-2 text-[11px] leading-4 text-ink-soft">
+            {member.description || 'Details to be updated.'}
+          </p>
         </div>
       </div>
 
-      <div className="flex min-w-0 flex-1 flex-col justify-center px-3 py-3 sm:px-5 sm:py-5">
-        <span className="mb-2 inline-flex w-fit rounded-full bg-[#F1E5C9] px-3 py-1 text-[8px] font-bold uppercase tracking-[0.18em] text-[#6B0C28] sm:text-[9px]">
-          {role}
-        </span>
-
-        <h3 className="font-display text-lg font-semibold leading-tight text-[#4A081B] sm:text-2xl">
-          {name}
-        </h3>
-
-        <p className="mt-1.5 text-[8px] font-bold uppercase leading-4 tracking-[0.12em] text-[#98733B] sm:text-[10px] sm:tracking-[0.15em]">
-          {department}
-        </p>
-
-        <div className="my-2.5 h-px w-9 bg-[#C5A45D] sm:my-3 sm:w-12" />
-
-        <p className="text-[10px] leading-[1.65] text-[#66545A] sm:text-xs sm:leading-[1.8]">
-          {description}
-        </p>
-
-        <p className="mt-3 text-[8px] font-semibold uppercase tracking-[0.12em] text-[#987B70] sm:text-[9px] sm:tracking-[0.15em]">
-          Shatabdi Samriddhi 2026
-        </p>
+      {/* DESKTOP CARD — same dimensions and spacing as MemberCard */}
+      <div className="hidden sm:block">
+        <div className="relative aspect-[4/4.2] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
+          {member.photo ? (
+            <img
+              src={member.photo}
+              loading="lazy"
+              decoding="async"
+              alt={member.name}
+              onError={(event) => { event.currentTarget.style.display = 'none'; }}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center font-display text-6xl font-semibold text-maroon-700 lg:text-7xl">
+              {initials}
+            </div>
+          )}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-maroon-950/35 to-transparent" />
+          <span className="absolute right-3 top-3 rounded-full border border-white/50 bg-sand-50/90 px-3 py-1 text-[10px] font-semibold text-maroon-700">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        </div>
+        <div className="p-4 lg:p-5">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-maroon-500">
+            {member.role}
+          </p>
+          <h3 className="mt-1.5 break-words font-display text-xl font-semibold leading-tight text-maroon-950 sm:text-2xl">
+            {member.name}
+          </h3>
+          <div className="my-3 h-px w-10 bg-maroon-300 transition-all duration-300 group-hover:w-16 group-hover:bg-maroon-600" />
+          <p className="line-clamp-4 text-xs leading-5 text-ink-soft">
+            {member.description || 'Details to be updated.'}
+          </p>
+        </div>
       </div>
     </article>
   );
@@ -498,7 +527,7 @@ export default function TeamPage() {
       <section id="departments" className="section scroll-mt-20 bg-sand-50">
         <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">The Organising Team</p>
+            <p className="eyebrow">The People Behind the Conclave</p>
 
             <h2 className="mt-3 font-display text-3xl font-semibold text-maroon-950 sm:text-4xl">
               Meet the <em className="font-light text-maroon-600">people.</em>
@@ -529,41 +558,67 @@ export default function TeamPage() {
             ))}
           </nav>
 
-          {/* CORE LEADERSHIP */}
-          <section className="mb-10 mt-8 sm:mb-12 sm:mt-10">
-            <div className="mb-8 text-center">
-              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-maroon-500">
-                Core Leadership
-              </p>
-
-              <h2 className="mt-3 font-display text-3xl font-semibold text-maroon-950 sm:text-4xl">
-                Leading the <em className="font-light text-maroon-600">vision.</em>
-              </h2>
-
-              <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-ink-soft">
-                Meet the people guiding the organising team and bringing
-                the Conclave's vision to life.
-              </p>
+          {/* LEADERSHIP, ORGANISING COMMITTEE & STUDENT COORDINATORS */}
+          <section className="mb-12 mt-8 space-y-12 sm:mb-16 sm:mt-10 sm:space-y-16">
+            {/* PATRONAGE */}
+            <div>
+              <div className="mb-5 border-b border-sand-300 pb-3 text-center">
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-maroon-500">
+                  Institutional Guidance
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-semibold text-maroon-950 sm:text-3xl">
+                  Patronage &amp; <em className="font-light text-maroon-600">Advisory</em>
+                </h3>
+              </div>
+              <div className="mx-auto grid max-w-[1020px] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:gap-5">
+                <OfficialCard index={0} member={{ name: 'Chief Patron', role: 'Chief Patron', description: 'Institutional leadership and guidance.' }} />
+                <OfficialCard index={1} member={{ name: 'Patron', role: 'Patron', description: 'Guidance and support for the Conclave.' }} />
+                <OfficialCard index={2} member={{ name: 'Advisor', role: 'Advisor', description: 'Strategic direction and mentorship.' }} />
+              </div>
             </div>
 
-            <div className="mx-auto grid max-w-5xl grid-cols-1 items-stretch gap-5 lg:grid-cols-2 lg:gap-7">
-              <LeadershipCard
-                name="Sahil Sharma"
-                role="Head"
-                number="01 · Head"
-                department="Overall Coordination & Leadership"
-                description="Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision."
-                photo="/Team%20members/Sahil-Sharma.webp"
-              />
+            {/* ORGANISING COMMITTEE */}
+            <div>
+              <div className="mb-5 flex flex-col gap-2 border-b border-sand-300 pb-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-maroon-500">
+                    Executive Committee
+                  </p>
+                  <h3 className="mt-1 font-display text-2xl font-semibold text-maroon-950 sm:text-3xl">
+                    Organising Committee
+                  </h3>
+                  <p className="mt-1 text-xs leading-5 text-ink-soft sm:text-sm">
+                    The team responsible for coordination, execution, and operations.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-5">
+                <OfficialCard index={0} member={{ name: 'Alok Kumar Das', role: 'Convener', photo: '/Team%20members/Alok%20Kumar%20Das.webp' }} />
+                <OfficialCard index={1} member={{ name: 'Rajeev Sir', role: 'Co-Convener', photo: '/Team%20members/Rajeev.webp' }} />
+                <OfficialCard index={2} member={{ name: 'Mrityunjay Sharma', role: 'Organisation Secretary', photo: '/Team%20members/Mrityunjay%20Sharma.webp' }} />
+                <OfficialCard index={3} member={{ name: 'Shrishti Shankar', role: 'Joint Organising Secretary', photo: '/Team%20members/Shrishti%20Shankar.webp' }} />
+                <OfficialCard index={4} member={{ name: 'Ashish Sir', role: 'Treasurer', photo: '/Team%20members/Ashish.webp' }} />
+                <OfficialCard index={5} member={{ name: 'Mukul', role: 'Assistant Treasurer', photo: '/Team%20members/Mukul.webp' }} />
+                <OfficialCard index={6} member={{ name: 'Ajit Jha', role: 'Executive Member', photo: '/Team%20members/Ajit%20Jha.webp' }} />
+              </div>
+            </div>
 
-              <LeadershipCard
-                name="Sriya Pissapatti"
-                role="Co-Head"
-                number="02 · Co-Head"
-                department="Overall Coordination & Leadership"
-                description="Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives."
-                photo="/Team%20members/sriya.webp"
-              />
+            {/* STUDENT COORDINATORS */}
+            <div>
+              <div className="mb-5 flex items-end justify-between border-b border-sand-300 pb-3">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-maroon-500">
+                    Student Leadership
+                  </p>
+                  <h3 className="mt-1 font-display text-2xl font-semibold text-maroon-950 sm:text-3xl">
+                    Student Coordinators
+                  </h3>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-5">
+                <OfficialCard index={0} member={{ name: 'Sahil Sharma', role: 'Head', photo: '/Team%20members/Sahil-Sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
+                <OfficialCard index={1} member={{ name: 'Sriya Pissapatti', role: 'Co-Head', photo: '/Team%20members/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+              </div>
             </div>
           </section>
 
