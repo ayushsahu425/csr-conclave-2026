@@ -30,21 +30,21 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Applied Geophysics · Third Year',
         description:
           'A creative and enthusiastic member of the Design Team with an interest in visual creativity and professional design. He enjoys exploring new ideas, experimenting with design tools, and contributing to the visual identity of CSR Conclave 2026.',
-        photo: '/Team%20members/aryansharma.webp',
+        photo: '/team/aryan.webp',
       },
       {
         name: 'Navneet Patel',
         branch: 'Petroleum Engineering · Third Year',
         description:
           'A pre-final-year Petroleum Engineering student at IIT (ISM) Dhanbad and Design Head at SAAC. He enjoys exploring creative ideas, designing engaging visuals, and bringing fresh perspectives to collaborative projects.',
-        photo: '/Team%20members/Navneet%20Patel.webp',
+        photo: '/team/navneet.webp',
       },
       {
          name: 'Siddhi Sen',
          branch: 'Mining Engineering · Third Year',
          description:
            'A third-year Mining Engineering student at IIT (ISM) Dhanbad and Design Co-Head at SAAC. Passionate about design, creativity, and visual storytelling, she brings fresh ideas and a collaborative approach to creating meaningful designs.',
-        photo: '/Team%20members/siddhisen.webp',
+        photo: '/team/siddhi.webp',
        },
     ],
   },
@@ -60,14 +60,14 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'MTECH IEM · First Year',
         description:
           'A first-year MBA student in Industrial Engineering and Management with an interest in corporate relations, strategic partnerships, and social impact. Brings strong communication, negotiation, and relationship-building skills to the team.',
-            photo: '/Team%20members/Anshu-mishra.webp',
+            photo: '/team/anshu.webp',
         },
       {
         name: 'Radhe Shyam',
         branch: 'Petroleum Engineering · Final Year',
         description:
           'A final-year Petroleum Engineering student with an interest in leadership and teamwork. Contributes to sponsorship initiatives and building meaningful partnerships for the CSR Conclave.',
-             photo: '/Team%20members/radheshyam.webp',
+             photo: '/team/radhe%20shyam.webp',
         },
     ],
   },
@@ -83,7 +83,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Mathematics & Computing · Third Year',
         description:
           'A third-year Mathematics and Computing student passionate about entrepreneurship, innovation, and social impact. Interested in team leadership, operations, and building strategic partnerships through outreach and collaboration.',
-           photo: '/Team%20members/vishal.webp',
+           photo: '/team/vishal.webp',
         },
         
         {
@@ -91,28 +91,28 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
          branch: 'MBA · First Year',
          description:
            'A first-year MBA student at IIT (ISM) Dhanbad with nearly two years of corporate experience at Tech Mahindra and Genpact. Recognised among InsideIIM’s 50 Most Promising MBA Students of 2026, he is passionate about product management, strategy, and innovation.',
-        photo: '/Team%20members/priyotosh.webp',
+        photo: '/team/priyotosh.webp',
         },
       {
         name: 'Muqseet Ahmed Bandukwala',
         branch: 'Petroleum Engineering · Third Year',
         description:
           'A Petroleum Engineering student at IIT (ISM) Dhanbad and a first-in-India finisher at PetroCup. He brings experience in event organisation and team coordination to the CSR Outreach Team, where he connects with companies and industry leaders to build partnerships and encourage meaningful CSR collaborations.',
-        photo: '/Team%20members/muqseet.webp',
+        photo: '/team/muqseet.webp',
       },
       {
         name: 'K Vijaya Lakshmi',
         branch: 'MBA · Second Year',
         description:
           'A second-year MBA student at IIT (ISM) Dhanbad with a passion for corporate relations and strategic networking. As part of the Corporate Outreach Team, she focuses on building industry partnerships and fostering meaningful collaborations for CSR Conclave 2026.',
-        photo: '/Team%20members/vijaya.webp',
+        photo: '/team/Vijaya%20(1).webp',
       },
       {
         name: 'Abhinav Anand',
         branch: 'Department of Management Studies and Industrial Engineering · First Year',
         description:
           'A first-year MBA student at IIT (ISM) Dhanbad with a keen interest in marketing, corporate partnerships, and social impact. As a member of the CSR Conclave Outreach Team, he focuses on connecting with corporate leaders, building strategic collaborations, and facilitating meaningful delegate engagement.',
-        photo: '/Team%20members/Abhinav%20Anand.webp',
+        photo: '/team/abhinav.webp',
       },
     ],
   },
@@ -128,21 +128,21 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'MBA Business Analytics · First Year',
         description:
           'First-year MBA (Business Analytics) student at IIT (ISM) Dhanbad with a background in AI and Machine Learning. Experienced in delivering 40+ web development projects, with skills in full-stack development, technical SEO, and business automation.',
-        photo: '/Team%20members/ayushsahu.webp',
+        photo: '/team/ayush.webp',
       },
       {
         name: 'Dipak Gupta',
         branch: 'Mining Engineering · Third Year',
         description:
           'A third-year Mining Engineering student at IIT (ISM) Dhanbad with a passion for technology and web development. As a member of the Web Development Team, he contributes his technical skills to building and maintaining the digital experience of CSR Conclave 2026.',
-        photo: '/Team%20members/dipak.webp',
+        photo: '/team/dipak.webp',
       },
       {
         name: 'Shreshth Lohiya',
         branch: 'Mining Engineering · Third Year',
         description:
           'A dedicated and enthusiastic Mining Engineering student at IIT (ISM) Dhanbad with an interest in learning, teamwork, and creative problem-solving. He aims to contribute to CSR Conclave 2026 through his creativity, technical skills, and collaborative approach.',
-        photo: '/Team%20members/shreshth.webp',
+        photo: '/team/Shreshth%20Lohiya%20(1).webp',
       },
     ],
   },
@@ -158,21 +158,20 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Electronics and Communication · Third Year',
         description:
           'A passionate communicator with a keen interest in content creation, storytelling, and creative expression. As a member of the Content Team for Shatabdi Samriddhi 2026, she contributes to crafting engaging content that reflects the vision of the Conclave and communicates its purpose effectively.',
-        photo: '/Team%20members/nehal.webp',
+        photo: '/team/nehal.webp',
       },
       {
         name: 'Pragati Kumari',
         branch: 'Mechanical Engineering · Final Year',
         description:
           'A final-year Mechanical Engineering student at IIT (ISM) Dhanbad with a passion for content creation, creative writing, and effective communication. As the Content Team Head, she focuses on crafting engaging narratives and meaningful content that highlight CSR initiatives and their social impact. She believes in the power of storytelling to inspire positive change.',
-        photo: '/Team%20members/pragati.webp',
+        photo: '/team/pragati.webp',
       },
       {
         name: 'Anchal Bharti',
         branch: 'Chemical Engineering · Final Year',
         description:
           'A final-year Chemical Engineering student at IIT (ISM) Dhanbad with an interest in creative writing, communication, and storytelling. As a member of the CSR Conclave Content Team, she believes in the power of collaboration and thoughtful communication to bring diverse perspectives together and create meaningful social impact.',
-          photo: '/Team%20members/Anchal-Bharti.webp',
         },
     ],
   },
@@ -188,14 +187,14 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Petroleum Engineering · Third Year',
         description:
           'A third-year Petroleum Engineering student at IIT (ISM) Dhanbad with a keen interest in leadership, teamwork, and event management. As a member of the Hospitality Team, he contributes to creating a warm, welcoming, and memorable experience for guests at CSR Conclave 2026.',
-        photo: '/Team%20members/hemant.webp',
+        photo: '/team/hemant.webp',
       },
       {
         name: 'Hemya Sri',
         branch: 'Mechanical Engineering · Third Year',
         description:
           'A Mechanical Engineering student at IIT (ISM) Dhanbad with an interest in teamwork, event management, and learning new skills. As a member of the CSR Conclave Hospitality Team, she contributes to guest coordination and hospitality while supporting the smooth execution of event operations.',
-        photo: '/Team%20members/hemya.webp',
+        photo: '/team/hemya.webp',
       },
     ],
   },
@@ -593,13 +592,13 @@ export default function TeamPage() {
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-5">
-                <OfficialCard index={0} member={{ name: 'Alok Kumar Das', role: 'Convener', photo: '/Team%20members/Alok%20Kumar%20Das.webp' }} />
-                <OfficialCard index={1} member={{ name: 'Rajeev Sir', role: 'Co-Convener', photo: '/Team%20members/Rajeev.webp' }} />
-                <OfficialCard index={2} member={{ name: 'Mrityunjay Sharma', role: 'Organisation Secretary', photo: '/Team%20members/Mrityunjay%20Sharma.webp' }} />
-                <OfficialCard index={3} member={{ name: 'Shrishti Shankar', role: 'Joint Organising Secretary', photo: '/Team%20members/Shrishti%20Shankar.webp' }} />
-                <OfficialCard index={4} member={{ name: 'Ashish Sir', role: 'Treasurer', photo: '/Team%20members/Ashish.webp' }} />
-                <OfficialCard index={5} member={{ name: 'Mukul', role: 'Assistant Treasurer', photo: '/Team%20members/Mukul.webp' }} />
-                <OfficialCard index={6} member={{ name: 'Ajit Jha', role: 'Executive Member', photo: '/Team%20members/Ajit%20Jha.webp' }} />
+                <OfficialCard index={0} member={{ name: 'Alok Kumar Das', role: 'Convener' }} />
+                <OfficialCard index={1} member={{ name: 'Rajeev Sir', role: 'Co-Convener' }} />
+                <OfficialCard index={2} member={{ name: 'Mrityunjay Sharma', role: 'Organisation Secretary' }} />
+                <OfficialCard index={3} member={{ name: 'Shrishti Shankar', role: 'Joint Organising Secretary' }} />
+                <OfficialCard index={4} member={{ name: 'Ashish Sir', role: 'Treasurer' }} />
+                <OfficialCard index={5} member={{ name: 'Mukul', role: 'Assistant Treasurer' }} />
+                <OfficialCard index={6} member={{ name: 'Ajit Jha', role: 'Executive Member' }} />
               </div>
             </div>
 
@@ -616,8 +615,10 @@ export default function TeamPage() {
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-5">
-                <OfficialCard index={0} member={{ name: 'Sahil Sharma', role: 'Head', photo: '/Team%20members/Sahil-Sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
-                <OfficialCard index={1} member={{ name: 'Sriya Pissapatti', role: 'Co-Head', photo: '/Team%20members/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+                <OfficialCard index={0} member={{ name: 'Sahil Sharma', role: 'Head', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
+                <OfficialCard index={1} member={{ name: 'Sriya Pissapatti', role: 'Co-Head', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+                <OfficialCard index={1} member={{ name: 'Ashmita Choudhary', role: 'Overall Coordinator', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
+              <OfficialCard index={1} member={{ name: 'Priyansh Murarka', role: 'Overall Coordinator', photo: '/team/Priyansh_Murarka.jpg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
               </div>
             </div>
           </section>
