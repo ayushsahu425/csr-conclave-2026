@@ -48,7 +48,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
        },
         {
          name: 'Ritik Kumar',
-         branch: 'Department Of Engineering Physics · B.Tech, Pre-Final Year',
+         branch: 'Department Of Physics · B.Tech, Pre-Final Year',
          description:
            'A third-year Mining Engineering student at IIT (ISM) Dhanbad and Design Co-Head at SAAC. Passionate about design, creativity, and visual storytelling, she brings fresh ideas and a collaborative approach to creating meaningful designs.',
         photo: '/team/ritik.webp',
@@ -146,7 +146,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
     members: [
       {
         name: 'Nehal Agarwal',
-        branch: 'Department Of Electronics and Communication · B.Tech, Pre-Final Year',
+        branch: 'Department Of Electronics Engineering · B.Tech, Pre-Final Year',
         description:
           'A passionate communicator with a keen interest in content creation, storytelling, and creative expression. As a member of the Content Team for Shatabdi Samriddhi 2026, she contributes to crafting engaging content that reflects the vision of the Conclave and communicates its purpose effectively.',
         photo: '/team/nehal.webp',
@@ -585,8 +585,8 @@ export default function TeamPage() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
-                <OfficialCard member={{ name: 'Prof. Alok Kumar Das',photo: '/speakers/alok-kumar-das.jpeg', role: 'Convener' }} />
-                <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay',photo: '/team/Rajeev.webp', role: 'Co-Convener' }} />
+                <OfficialCard member={{ name: 'Prof. Alok Kumar Das',photo: '/speakers/alok-kumar-das.jpeg', role: 'Convenor' }} />
+                <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay',photo: '/team/Rajeev.webp', role: 'Co-Convenor' }} />
                 <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary',photo: '/team/mrityunjay-sharma.webp' }} />
                 <OfficialCard member={{ name: 'Ms. Shrishti Shankar',photo: '/team/shrishti-shankar.webp', role: 'Joint Organising Secretary' }} />
                 <OfficialCard member={{ name: 'Mr. Ashish Kumar', role: 'Treasurer' }} />
@@ -608,10 +608,10 @@ export default function TeamPage() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
-                <OfficialCard member={{ name: 'Sahil Sharma', role: 'Overall Coordinator',branch: 'Department Of Electronics And Communication Engineering · B.Tech, Final Year', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
-                <OfficialCard member={{ name: 'Sriya Pissapatti', role: 'Overall Co-Coordinator',branch: 'Department Of Management Studies and Industrial Engineering · MBA, Final Year', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
-                <OfficialCard member={{ name: 'Ashmita Choudhary', role: 'Overall Co-Coordinator',branch: 'Department Of Petroleum Engineering · B.Tech, Final Year', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
-                <OfficialCard member={{ name: 'Priyansh Murarka', role: 'Overall Co-Coordinator',branch: 'Department Of Electronics And Communication Engineering · B.Tech, Final Year', photo: '/team/Priyansh_Murarka.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+                <OfficialCard member={{ name: 'Sahil Sharma', role: 'Overall Coordinator',branch: 'Department Of Electronics Engineering Engineering · B.Tech, Final Year', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
+                <OfficialCard member={{ name: 'Sriya Pissapatti', role: 'Co-Coordinator',branch: 'Department Of Management Studies and Industrial Engineering · MBA, Final Year', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+                <OfficialCard member={{ name: 'Ashmita Choudhary', role: 'Co-Coordinator',branch: 'Department Of Petroleum Engineering · B.Tech, Final Year', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
+                <OfficialCard member={{ name: 'Priyansh Murarka', role: 'Co-Coordinator',branch: 'Department Of Electronics Engineering Engineering · B.Tech, Final Year', photo: '/team/Priyansh_Murarka.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
               </div>
             </div>
           </section>
