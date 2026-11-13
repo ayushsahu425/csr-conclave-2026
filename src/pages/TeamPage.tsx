@@ -49,29 +49,6 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
     ],
   },
   {
-    id: 'sponsorship',
-    number: '02',
-    name: 'Sponsorship',
-    description:
-      'Building meaningful partnerships and supporting event collaborations.',
-    members: [
-      {
-        name: 'Anshu Mishra',
-        branch: 'MTECH IEM · First Year',
-        description:
-          'A first-year MBA student in Industrial Engineering and Management with an interest in corporate relations, strategic partnerships, and social impact. Brings strong communication, negotiation, and relationship-building skills to the team.',
-            photo: '/team/anshu.webp',
-        },
-      {
-        name: 'Radhe Shyam',
-        branch: 'Petroleum Engineering · Final Year',
-        description:
-          'A final-year Petroleum Engineering student with an interest in leadership and teamwork. Contributes to sponsorship initiatives and building meaningful partnerships for the CSR Conclave.',
-             photo: '/team/radhe%20shyam.webp',
-        },
-    ],
-  },
-  {
     id: 'outreach',
     number: '03',
     name: 'Outreach',
@@ -113,6 +90,13 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         description:
           'A first-year MBA student at IIT (ISM) Dhanbad with a keen interest in marketing, corporate partnerships, and social impact. As a member of the CSR Conclave Outreach Team, he focuses on connecting with corporate leaders, building strategic collaborations, and facilitating meaningful delegate engagement.',
         photo: '/team/abhinav.webp',
+      },
+       {
+        name: 'Anshu Mishra',
+        branch: 'MTECH IEM · First Year',
+        description:
+          'A first-year MBA student in Industrial Engineering and Management with an interest in corporate relations, strategic partnerships, and social impact. Brings strong communication, negotiation, and relationship-building skills to the team.',
+        photo: '/team/anshu.webp',
       },
     ],
   },
@@ -195,6 +179,13 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         description:
           'A Mechanical Engineering student at IIT (ISM) Dhanbad with an interest in teamwork, event management, and learning new skills. As a member of the CSR Conclave Hospitality Team, she contributes to guest coordination and hospitality while supporting the smooth execution of event operations.',
         photo: '/team/hemya.webp',
+      },
+      {
+        name: 'Radhe Shyam',
+        branch: 'Petroleum Engineering · Final Year',
+        description:
+          'A final-year Petroleum Engineering student with an interest in leadership and teamwork. As a member of the Hospitality Team, he contributes to guest coordination and helps create a warm and welcoming experience at the CSR Conclave.',
+        photo: '/team/radhe%20shyam.webp',
       },
     ],
   },
@@ -339,7 +330,9 @@ function MemberCard({
           <div className="my-2 h-px w-8 bg-maroon-300" />
 
           <p className="text-[11px] leading-4 text-ink-muted">
-            {member.branch}
+            {member.branch.split(' · ').map((line) => (
+        <span key={line} className="block">{line}</span>
+      ))}
           </p>
 
 
@@ -385,7 +378,9 @@ function MemberCard({
           <div className="my-2.5 h-px w-10 bg-maroon-300 transition-all duration-300 group-hover:w-16 group-hover:bg-maroon-600" />
 
           <p className="text-xs font-medium text-ink-muted">
-            {member.branch}
+                {member.branch.split(' · ').map((line) => (
+                  <span key={line} className="block">{line}</span>
+                ))}         
           </p>
 
 
@@ -565,7 +560,7 @@ export default function TeamPage() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
                 <OfficialCard member={{ name: 'Prof. Alok Kumar Das', role: 'Convener' }} />
                 <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay', role: 'Co-Convener' }} />
                 <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary' }} />
@@ -588,11 +583,11 @@ export default function TeamPage() {
                   </h3>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
-                <OfficialCard member={{ name: 'Sahil Sharma', role: 'Head', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
-                <OfficialCard member={{ name: 'Sriya Pissapatti', role: 'Co-Head', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
-                <OfficialCard member={{ name: 'Ashmita Choudhary', role: 'Overall Coordinator', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
-              <OfficialCard member={{ name: 'Priyansh Murarka', role: 'Overall Coordinator', photo: '/team/Priyansh_Murarka.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
+                <OfficialCard member={{ name: 'Sahil Sharma', role: 'Overall Coordinator', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
+                <OfficialCard member={{ name: 'Sriya Pissapatti', role: 'Overall Co-Coordinator', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+                <OfficialCard member={{ name: 'Ashmita Choudhary', role: 'Overall Co-Coordinator', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
+              <OfficialCard member={{ name: 'Priyansh Murarka', role: 'Overall Co-Coordinator', photo: '/team/Priyansh_Murarka.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
               </div>
             </div>
           </section>
@@ -626,7 +621,7 @@ export default function TeamPage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
                   {department.members.map((member) => (
                     <MemberCard
                       key={`${department.id}-${member.name}`}
