@@ -163,6 +163,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Department Of Chemical Engineering · B.Tech, Final Year',
         description:
           'A final-year Chemical Engineering student at IIT (ISM) Dhanbad with an interest in creative writing, communication, and storytelling. As a member of the CSR Conclave Content Team, she believes in the power of collaboration and thoughtful communication to bring diverse perspectives together and create meaningful social impact.',
+          photo: '/team/anchal.webp',
         },
     ],
   },
@@ -234,7 +235,7 @@ function OfficialCard({ member }: { member: OfficialMember }) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
       {/* MOBILE CARD — matches regular team member cards */}
-      <div className="flex items-center gap-4 p-3 sm:hidden">
+      <div className="hidden">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -268,7 +269,7 @@ function OfficialCard({ member }: { member: OfficialMember }) {
       </div>
 
       {/* DESKTOP CARD — same dimensions and spacing as MemberCard */}
-      <div className="hidden sm:block">
+      <div className="block">
         <div className="relative aspect-[4/3.5] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -324,7 +325,7 @@ function MemberCard({
   return (
     <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
       {/* MOBILE CARD */}
-      <div className="flex items-center gap-4 p-3 sm:hidden">
+      <div className="hidden">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -365,7 +366,7 @@ function MemberCard({
       </div>
 
       {/* DESKTOP CARD */}
-      <div className="hidden sm:block">
+      <div className="block">
         <div className="relative aspect-[4/3.5] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -563,8 +564,8 @@ export default function TeamPage() {
               </div>
               <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-3 xl:gap-5">
                 <OfficialCard member={{ name: 'Prof. Sukumar Mishra', role: 'Chief Patron', photo: '/speakers/sukumar-mishra.png', description: 'Institutional leadership and guidance.' }} />
-                <OfficialCard member={{ name: 'Prof. Sarat Kumar Das', role: 'Patron',  description: 'Guidance and support for the Conclave.' }} />
-                <OfficialCard member={{ name: 'Shri Prabodh Pandey', role: 'Advisor', description: 'Strategic direction and mentorship.' }} />
+                <OfficialCard member={{ name: 'Prof. Sarat Kumar Das', role: 'Patron',photo: '/team/sarat-kumar-das.webp',  description: 'Guidance and support for the Conclave.' }} />
+                <OfficialCard member={{ name: 'Shri Prabodh Pandey', role: 'Advisor',photo: '/team/prabodh-pandey.webp', description: 'Strategic direction and mentorship.' }} />
               </div>
             </div>
 
@@ -584,10 +585,10 @@ export default function TeamPage() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
-                <OfficialCard member={{ name: 'Prof. Alok Kumar Das', role: 'Convener' }} />
+                <OfficialCard member={{ name: 'Prof. Alok Kumar Das',photo: '/speakers/alok-kumar-das.jpeg', role: 'Convener' }} />
                 <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay',photo: '/team/Rajeev.webp', role: 'Co-Convener' }} />
-                <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary' }} />
-                <OfficialCard member={{ name: 'Ms. Shrishti Shankar', role: 'Joint Organising Secretary' }} />
+                <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary',photo: '/team/mrityunjay-sharma.webp' }} />
+                <OfficialCard member={{ name: 'Ms. Shrishti Shankar',photo: '/team/shrishti-shankar.webp', role: 'Joint Organising Secretary' }} />
                 <OfficialCard member={{ name: 'Mr. Ashish Kumar', role: 'Treasurer' }} />
                 <OfficialCard member={{ name: 'Mr. Mukul Kumar Keshari', role: 'Assistant Treasurer' }} />
                 <OfficialCard member={{ name: 'Mr. Ajit Jha', role: 'Executive Member' }} />
@@ -625,12 +626,12 @@ export default function TeamPage() {
               >
                 <div className="mb-5 flex flex-col gap-3 border-b border-sand-300 pb-4 sm:flex-row sm:items-end sm:justify-between">
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-maroon-500">
+                    {/* <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-maroon-500">
                       Department {department.number}
-                    </p>
+                    </p> */}
 
                     <h3 className="mt-1 font-display text-2xl font-semibold text-maroon-950 sm:text-3xl">
-                      {department.name}
+                      {department.name} Team
                     </h3>
 
                     <p className="mt-1 max-w-xl text-xs leading-6 text-ink-soft sm:text-sm">
