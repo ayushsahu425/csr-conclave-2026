@@ -133,7 +133,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
         branch: 'Department Of Mining Engineering · B.Tech, Pre-Final Year',
         description:
           'A dedicated and enthusiastic Mining Engineering student at IIT (ISM) Dhanbad with an interest in learning, teamwork, and creative problem-solving. He aims to contribute to CSR Conclave 2026 through his creativity, technical skills, and collaborative approach.',
-        photo: '/team/Shreshth%20Lohiya%20(1).webp',
+        photo: '/team/Shreshth%20Lohiya.webp',
       },
     ],
   },
