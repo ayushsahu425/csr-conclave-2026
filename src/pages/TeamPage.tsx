@@ -100,7 +100,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
       },
        {
         name: 'Anshu Mishra',
-        branch: 'MTECH IEM · M.Tech, First Year',
+        branch: 'M.Tech. in Industrial Engineering and Management (IE&M) · M.Tech, First Year',
         description:
           'A first-year MBA student in Industrial Engineering and Management with an interest in corporate relations, strategic partnerships, and social impact. Brings strong communication, negotiation, and relationship-building skills to the team.',
         photo: '/team/anshu.webp',
@@ -587,7 +587,7 @@ export default function TeamPage() {
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
                 <OfficialCard member={{ name: 'Prof. Alok Kumar Das',photo: '/speakers/alok-kumar-das.jpeg', role: 'Convenor' }} />
                 <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay',photo: '/team/Rajeev.webp', role: 'Co-Convenor' }} />
-                <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary',photo: '/team/mrityunjay-sharma.webp' }} />
+                <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organizing Secretary',photo: '/team/mrityunjay-sharma.webp' }} />
                 <OfficialCard member={{ name: 'Ms. Shrishti Shankar',photo: '/team/shrishti-shankar.webp', role: 'Joint Organising Secretary' }} />
                 <OfficialCard member={{ name: 'Mr. Ashish Kumar', role: 'Treasurer' }} />
                 <OfficialCard member={{ name: 'Mr. Mukul Kumar Keshari', role: 'Assistant Treasurer' }} />
