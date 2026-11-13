@@ -212,7 +212,7 @@ type OfficialMember = {
   description?: string;
 };
 
-function OfficialCard({ member, index }: { member: OfficialMember; index: number }) {
+function OfficialCard({ member }: { member: OfficialMember }) {
   const initials = member.name
     .split(' ')
     .filter(Boolean)
@@ -233,16 +233,13 @@ function OfficialCard({ member, index }: { member: OfficialMember; index: number
               decoding="async"
               alt={member.name}
               onError={(event) => { event.currentTarget.style.display = 'none'; }}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-[center_14%]"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center font-display text-3xl font-semibold text-maroon-700">
               {initials}
             </div>
           )}
-          <span className="absolute right-1 top-1 text-[9px] font-semibold text-maroon-700/70">
-            {String(index + 1).padStart(2, '0')}
-          </span>
         </div>
         <div className="min-w-0 flex-1 py-1">
           <h4 className="truncate font-display text-lg font-semibold leading-tight text-maroon-950">
@@ -252,15 +249,12 @@ function OfficialCard({ member, index }: { member: OfficialMember; index: number
             {member.role}
           </p>
           <div className="my-2 h-px w-8 bg-maroon-300" />
-          <p className="line-clamp-2 text-[11px] leading-4 text-ink-soft">
-            {member.description || 'Details to be updated.'}
-          </p>
         </div>
       </div>
 
       {/* DESKTOP CARD — same dimensions and spacing as MemberCard */}
       <div className="hidden sm:block">
-        <div className="relative aspect-[4/4.2] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
+        <div className="relative aspect-[4/3.5] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
               src={member.photo}
@@ -268,7 +262,7 @@ function OfficialCard({ member, index }: { member: OfficialMember; index: number
               decoding="async"
               alt={member.name}
               onError={(event) => { event.currentTarget.style.display = 'none'; }}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover object-[center_14%] transition-transform duration-700 group-hover:scale-[1.02]"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center font-display text-6xl font-semibold text-maroon-700 lg:text-7xl">
@@ -276,21 +270,15 @@ function OfficialCard({ member, index }: { member: OfficialMember; index: number
             </div>
           )}
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-maroon-950/35 to-transparent" />
-          <span className="absolute right-3 top-3 rounded-full border border-white/50 bg-sand-50/90 px-3 py-1 text-[10px] font-semibold text-maroon-700">
-            {String(index + 1).padStart(2, '0')}
-          </span>
         </div>
-        <div className="p-4 lg:p-5">
+        <div className="px-3.5 py-3 lg:px-4 lg:py-3.5">
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-maroon-500">
             {member.role}
           </p>
-          <h3 className="mt-1.5 break-words font-display text-xl font-semibold leading-tight text-maroon-950 sm:text-2xl">
+          <h3 className="mt-1.5 break-words font-display text-lg font-semibold leading-tight text-maroon-950 xl:text-xl">
             {member.name}
           </h3>
-          <div className="my-3 h-px w-10 bg-maroon-300 transition-all duration-300 group-hover:w-16 group-hover:bg-maroon-600" />
-          <p className="line-clamp-4 text-xs leading-5 text-ink-soft">
-            {member.description || 'Details to be updated.'}
-          </p>
+          <div className="my-2.5 h-px w-10 bg-maroon-300 transition-all duration-300 group-hover:w-16 group-hover:bg-maroon-600" />
         </div>
       </div>
     </article>
@@ -303,10 +291,8 @@ function OfficialCard({ member, index }: { member: OfficialMember; index: number
 
 function MemberCard({
   member,
-  index,
 }: {
   member: TeamMember;
-  index: number;
 }) {
   const initials = member.name
     .split(' ')
@@ -326,7 +312,7 @@ function MemberCard({
               loading="lazy"
               decoding="async"
               alt={member.name}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-[center_14%]"
             />
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center text-maroon-700">
@@ -339,10 +325,6 @@ function MemberCard({
               </span>
             </div>
           )}
-
-          <span className="absolute right-1 top-1 text-[9px] font-semibold text-maroon-700/70">
-            {String(index + 1).padStart(2, '0')}
-          </span>
         </div>
 
         <div className="min-w-0 flex-1 py-1">
@@ -360,22 +342,20 @@ function MemberCard({
             {member.branch}
           </p>
 
-          <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-ink-soft">
-            {member.description}
-          </p>
+
         </div>
       </div>
 
       {/* DESKTOP CARD */}
       <div className="hidden sm:block">
-        <div className="relative aspect-[4/4.2] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
+        <div className="relative aspect-[4/3.5] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
               src={member.photo}
               loading="lazy"
               decoding="async"
               alt={member.name}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover object-[center_14%] transition-transform duration-700 group-hover:scale-[1.02]"
             />
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center text-maroon-700">
@@ -391,30 +371,24 @@ function MemberCard({
           )}
 
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-maroon-950/35 to-transparent" />
-
-          <span className="absolute right-3 top-3 rounded-full border border-white/50 bg-sand-50/90 px-3 py-1 text-[10px] font-semibold text-maroon-700">
-            {String(index + 1).padStart(2, '0')}
-          </span>
         </div>
 
-        <div className="p-4 lg:p-5">
+        <div className="px-3.5 py-3 lg:px-4 lg:py-3.5">
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-maroon-500">
             Team Member
           </p>
 
-          <h4 className="mt-1.5 font-display text-xl font-semibold leading-tight text-maroon-950 lg:text-2xl">
+          <h4 className="mt-1.5 font-display text-lg font-semibold leading-tight text-maroon-950 xl:text-xl">
             {member.name}
           </h4>
 
-          <div className="my-3 h-px w-10 bg-maroon-300 transition-all duration-300 group-hover:w-16 group-hover:bg-maroon-600" />
+          <div className="my-2.5 h-px w-10 bg-maroon-300 transition-all duration-300 group-hover:w-16 group-hover:bg-maroon-600" />
 
           <p className="text-xs font-medium text-ink-muted">
             {member.branch}
           </p>
 
-          <p className="mt-2 min-h-[2.5rem] text-xs leading-5 text-ink-soft">
-            {member.description}
-          </p>
+
         </div>
       </div>
     </article>
@@ -569,10 +543,10 @@ export default function TeamPage() {
                   Patronage &amp; <em className="font-light text-maroon-600">Advisory</em>
                 </h3>
               </div>
-              <div className="mx-auto grid max-w-[1020px] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:gap-5">
-                <OfficialCard index={0} member={{ name: 'Direct. Su Kumar Mishra', role: 'Chief Patron', photo: '/speakers/sukumar-mishra.png', description: 'Institutional leadership and guidance.' }} />
-                <OfficialCard index={1} member={{ name: 'Prof. Sarat Kumar Das', role: 'Patron',  description: 'Guidance and support for the Conclave.' }} />
-                <OfficialCard index={2} member={{ name: 'Shri Prabodh Pandey', role: 'Advisor', description: 'Strategic direction and mentorship.' }} />
+              <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-3 xl:gap-5">
+                <OfficialCard member={{ name: 'Prof. Sukumar Mishra', role: 'Chief Patron', photo: '/speakers/sukumar-mishra.png', description: 'Institutional leadership and guidance.' }} />
+                <OfficialCard member={{ name: 'Prof. Sarat Kumar Das', role: 'Patron',  description: 'Guidance and support for the Conclave.' }} />
+                <OfficialCard member={{ name: 'Shri Prabodh Pandey', role: 'Advisor', description: 'Strategic direction and mentorship.' }} />
               </div>
             </div>
 
@@ -591,14 +565,14 @@ export default function TeamPage() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-5">
-                <OfficialCard index={0} member={{ name: 'Alok Kumar Das', role: 'Convener' }} />
-                <OfficialCard index={1} member={{ name: 'Rajeev Sir', role: 'Co-Convener' }} />
-                <OfficialCard index={2} member={{ name: 'Mrityunjay Sharma', role: 'Organisation Secretary' }} />
-                <OfficialCard index={3} member={{ name: 'Shrishti Shankar', role: 'Joint Organising Secretary' }} />
-                <OfficialCard index={4} member={{ name: 'Ashish Sir', role: 'Treasurer' }} />
-                <OfficialCard index={5} member={{ name: 'Mukul', role: 'Assistant Treasurer' }} />
-                <OfficialCard index={6} member={{ name: 'Ajit Jha', role: 'Executive Member' }} />
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
+                <OfficialCard member={{ name: 'Prof. Alok Kumar Das', role: 'Convener' }} />
+                <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay', role: 'Co-Convener' }} />
+                <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary' }} />
+                <OfficialCard member={{ name: 'Ms. Shrishti Shankar', role: 'Joint Organising Secretary' }} />
+                <OfficialCard member={{ name: 'Mr. Ashish Kumar', role: 'Treasurer' }} />
+                <OfficialCard member={{ name: 'Mr. Mukul Kumar Keshari', role: 'Assistant Treasurer' }} />
+                <OfficialCard member={{ name: 'Mr. Ajit Jha', role: 'Executive Member' }} />
               </div>
             </div>
 
@@ -614,11 +588,11 @@ export default function TeamPage() {
                   </h3>
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-5">
-                <OfficialCard index={0} member={{ name: 'Sahil Sharma', role: 'Head', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
-                <OfficialCard index={1} member={{ name: 'Sriya Pissapatti', role: 'Co-Head', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
-                <OfficialCard index={1} member={{ name: 'Ashmita Choudhary', role: 'Overall Coordinator', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
-              <OfficialCard index={1} member={{ name: 'Priyansh Murarka', role: 'Overall Coordinator', photo: '/team/Priyansh_Murarka.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
+                <OfficialCard member={{ name: 'Sahil Sharma', role: 'Head', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
+                <OfficialCard member={{ name: 'Sriya Pissapatti', role: 'Co-Head', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+                <OfficialCard member={{ name: 'Ashmita Choudhary', role: 'Overall Coordinator', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
+              <OfficialCard member={{ name: 'Priyansh Murarka', role: 'Overall Coordinator', photo: '/team/Priyansh_Murarka.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
               </div>
             </div>
           </section>
@@ -652,12 +626,11 @@ export default function TeamPage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-5">
-                  {department.members.map((member, index) => (
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
+                  {department.members.map((member) => (
                     <MemberCard
                       key={`${department.id}-${member.name}`}
                       member={member}
-                      index={index}
                     />
                   ))}
                 </div>

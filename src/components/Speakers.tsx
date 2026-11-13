@@ -33,11 +33,11 @@ export default function Speakers({ onSelectSpeaker }: { onSelectSpeaker: (s: Spe
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <span className="chip self-start !px-2.5 !py-0.5 text-[10px] uppercase tracking-wider">{sp.category}</span>
+                  {/* <span className="chip self-start !px-2.5 !py-0.5 text-[10px] uppercase tracking-wider">{sp.category}</span> */}
                   <h3 className="mt-3 text-lg font-semibold leading-snug">{sp.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-maroon-600">{sp.title}</p>
+                  
                   <p className="mt-1 text-sm text-ink-muted">{sp.org}</p>
-                  <p className="mt-auto border-t border-sand-200 pt-4 text-xs font-medium text-ink-soft">{sp.sessionTitle}</p>
+                  
                 </div>
               </button>
             </Reveal>
