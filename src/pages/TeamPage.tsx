@@ -48,7 +48,7 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
        },
         {
          name: 'Ritik Kumar',
-         branch: 'Engineering Physics · Third Year',
+         branch: 'Department Of Engineering Physics · B.Tech, Pre-Final Year',
          description:
            'A third-year Mining Engineering student at IIT (ISM) Dhanbad and Design Co-Head at SAAC. Passionate about design, creativity, and visual storytelling, she brings fresh ideas and a collaborative approach to creating meaningful designs.',
         photo: '/team/ritik.webp',
