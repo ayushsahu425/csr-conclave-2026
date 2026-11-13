@@ -270,33 +270,9 @@ export const SPEAKERS_DATA: Speaker[] = [
     bio: 'Shatabdi Samriddhi 2026 – CSR Conclave provides a platform to strengthen industry–academia partnerships and translate innovative ideas into impactful solutions. By connecting corporate expertise with institutional research, technological innovation and entrepreneurial talent, we aim to address pressing societal challenges and promote sustainable development.',
     sessionTitle: 'Industry–Academia Connect',
   },
-  {
-    id: 'sp4',
-    name: 'CMD [TBC]',
-    title: 'Chairman-cum-Managing Director',
-    org: 'Bharat Coking Coal Limited (BCCL)',
-    category: 'PSU',
-    bio: 'Details will be shared once confirmed.',
-    sessionTitle: 'Addresses by Guest Speakers & Industry Leaders',
-  },
-  {
-    id: 'sp5',
-    name: 'Speaker [TBC]',
-    title: 'Senior Leadership',
-    org: 'Oil India Limited',
-    category: 'PSU',
-    bio: 'Details will be shared once confirmed.',
-    sessionTitle: 'Addresses by Guest Speakers & Industry Leaders',
-  },
-  {
-    id: 'sp6',
-    name: 'Speaker [TBC]',
-    title: 'Senior Leadership',
-    org: 'NTPC Limited',
-    category: 'PSU',
-    bio: 'Details will be shared once confirmed.',
-    sessionTitle: 'Addresses by Guest Speakers & Industry Leaders',
-  },
+  
+  
+  
 ];
 
 export const LEADERSHIP_MESSAGES = [

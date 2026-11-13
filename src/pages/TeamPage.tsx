@@ -570,9 +570,9 @@ export default function TeamPage() {
                 </h3>
               </div>
               <div className="mx-auto grid max-w-[1020px] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:gap-5">
-                <OfficialCard index={0} member={{ name: 'Chief Patron', role: 'Chief Patron', description: 'Institutional leadership and guidance.' }} />
-                <OfficialCard index={1} member={{ name: 'Patron', role: 'Patron', description: 'Guidance and support for the Conclave.' }} />
-                <OfficialCard index={2} member={{ name: 'Advisor', role: 'Advisor', description: 'Strategic direction and mentorship.' }} />
+                <OfficialCard index={0} member={{ name: 'Direct. Su Kumar Mishra', role: 'Chief Patron', photo: '/speakers/sukumar-mishra.png', description: 'Institutional leadership and guidance.' }} />
+                <OfficialCard index={1} member={{ name: 'Prof. Sarat Kumar Das', role: 'Patron',  description: 'Guidance and support for the Conclave.' }} />
+                <OfficialCard index={2} member={{ name: 'Shri Prabodh Pandey', role: 'Advisor', description: 'Strategic direction and mentorship.' }} />
               </div>
             </div>
 
@@ -618,7 +618,7 @@ export default function TeamPage() {
                 <OfficialCard index={0} member={{ name: 'Sahil Sharma', role: 'Head', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
                 <OfficialCard index={1} member={{ name: 'Sriya Pissapatti', role: 'Co-Head', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
                 <OfficialCard index={1} member={{ name: 'Ashmita Choudhary', role: 'Overall Coordinator', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
-              <OfficialCard index={1} member={{ name: 'Priyansh Murarka', role: 'Overall Coordinator', photo: '/team/Priyansh_Murarka.jpg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
+              <OfficialCard index={1} member={{ name: 'Priyansh Murarka', role: 'Overall Coordinator', photo: '/team/Priyansh_Murarka.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
               </div>
             </div>
           </section>
