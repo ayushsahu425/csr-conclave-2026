@@ -256,7 +256,7 @@ export const SPEAKERS_DATA: Speaker[] = [
     title: 'Dean, Alumni Affairs',
     org: 'IIT (ISM) Dhanbad',
     category: 'Academia',
-    photo: '/speakers/rajeev-upadhyay.jpg',
+    photo: '/team/Rajeev.webp',
     bio: 'Shatabdi Samriddhi 2026 – CSR Conclave seeks to transform corporate commitment into meaningful social impact through collaboration between industry and academia. By promoting clean energy, sustainable infrastructure, research, scholarships and student welfare, the Conclave aims to create lasting value for society.',
     sessionTitle: 'Welcome Address & Institutional Overview',
   },

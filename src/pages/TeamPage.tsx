@@ -46,6 +46,13 @@ const TEAM_DEPARTMENTS: TeamDepartment[] = [
            'A third-year Mining Engineering student at IIT (ISM) Dhanbad and Design Co-Head at SAAC. Passionate about design, creativity, and visual storytelling, she brings fresh ideas and a collaborative approach to creating meaningful designs.',
         photo: '/team/siddhi.webp',
        },
+        {
+         name: 'Ritik Kumar',
+         branch: 'Engineering Physics · Third Year',
+         description:
+           'A third-year Mining Engineering student at IIT (ISM) Dhanbad and Design Co-Head at SAAC. Passionate about design, creativity, and visual storytelling, she brings fresh ideas and a collaborative approach to creating meaningful designs.',
+        photo: '/team/ritik.webp',
+       },
     ],
   },
   {
@@ -567,7 +574,7 @@ export default function TeamPage() {
               </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-4">
                 <OfficialCard member={{ name: 'Prof. Alok Kumar Das', role: 'Convener' }} />
-                <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay', role: 'Co-Convener' }} />
+                <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay',photo: '/team/Rajeev.webp', role: 'Co-Convener' }} />
                 <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary' }} />
                 <OfficialCard member={{ name: 'Ms. Shrishti Shankar', role: 'Joint Organising Secretary' }} />
                 <OfficialCard member={{ name: 'Mr. Ashish Kumar', role: 'Treasurer' }} />
