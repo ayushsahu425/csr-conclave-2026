@@ -24,7 +24,7 @@ const CONFIG = {
     EVENT_DATE_LABEL: 'Saturday, 5 December 2026 · 10:00 AM – 5:00 PM IST',
   EVENT_START_UTC: '20261205T043000Z', // 10:00 IST
   EVENT_END_UTC: '20261205T113000Z', //   17:00 IST
-  EVENT_VENUE: 'GJLT Auditorium, IIT (ISM) Dhanbad, Jharkhand 826004',
+  EVENT_VENUE: 'GJLT, IIT (ISM) Dhanbad, Jharkhand 826004',
   WEBSITE_URL: 'https://csrconclave.netlify.app',
   // Optional: route project-interest leads to the PI as well. Key = project id on the website.
   PROJECT_PI_EMAILS: {

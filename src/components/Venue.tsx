@@ -34,7 +34,7 @@ export default function Venue() {
           <Reveal className="card h-full overflow-hidden">
             <div className="relative h-full min-h-[460px] overflow-hidden bg-sand-200">
               <iframe
-                title="Map – GJLT Auditorium, IIT (ISM) Dhanbad"
+                title="Map – GJLT, IIT (ISM) Dhanbad"
                 src={`https://maps.google.com/maps?q=${encodeURIComponent(
                   mapQuery
                 )}&z=16&output=embed`}
@@ -51,7 +51,7 @@ export default function Venue() {
 
                   <span className="text-sm leading-tight">
                     <span className="block font-semibold text-maroon-900">
-                      GJLT Auditorium
+                      GJLT
                     </span>
                     <span className="text-ink-muted">
                       IIT (ISM) Dhanbad, Jharkhand 826004

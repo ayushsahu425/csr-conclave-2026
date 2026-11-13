@@ -20,8 +20,8 @@ export const EVENT = {
   shortDate: '05 · 12 · 2026',
   start: '2026-12-05T10:00:00+05:30',
   end: '2026-12-05T17:00:00+05:30',
-  venueName: 'GJLT Auditorium',
-  venue: 'GJLT Auditorium, IIT (ISM) Dhanbad',
+  venueName: 'GJLT',
+  venue: 'GJLT, IIT (ISM) Dhanbad',
   city: 'Dhanbad, Jharkhand 826004',
   presenter: 'Office of Alumni Affairs Cell / Public Relations Cell, IIT(ISM)',
   address: 'Administrative Block, 1st Floor,Office of Alumni Affairs Cell / Public Relations Cell, IIT (ISM) Dhanbad, Jharkhand 826004',
@@ -503,7 +503,7 @@ export const FAQS = [
   },
   {
     q: 'Where is the venue?',
-    a: 'The Conclave is planned for GJLT Auditorium, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',
+    a: 'The Conclave is planned for GJLT, IIT (ISM) Dhanbad. Dhanbad Junction is about 3 km away. Please see the Venue, Travel and Stay section for information about airports and accommodation.',
   },
 ];
 
