@@ -235,7 +235,7 @@ function OfficialCard({ member }: { member: OfficialMember }) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
       {/* MOBILE CARD — matches regular team member cards */}
-      <div className="hidden">
+      <div className="flex items-center gap-4 p-3 sm:hidden">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -269,7 +269,7 @@ function OfficialCard({ member }: { member: OfficialMember }) {
       </div>
 
       {/* DESKTOP CARD — same dimensions and spacing as MemberCard */}
-      <div className="block">
+      <div className="hidden sm:block">
         <div className="relative aspect-[4/3.5] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -325,7 +325,7 @@ function MemberCard({
   return (
     <article className="group overflow-hidden rounded-2xl border border-sand-300/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-maroon-300 hover:shadow-lift">
       {/* MOBILE CARD */}
-      <div className="hidden">
+      <div className="flex items-center gap-4 p-3 sm:hidden">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -366,7 +366,7 @@ function MemberCard({
       </div>
 
       {/* DESKTOP CARD */}
-      <div className="block">
+      <div className="hidden sm:block">
         <div className="relative aspect-[4/3.5] overflow-hidden bg-gradient-to-br from-sand-100 via-sand-200 to-sand-300">
           {member.photo ? (
             <img
@@ -584,7 +584,7 @@ export default function TeamPage() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
                 <OfficialCard member={{ name: 'Prof. Alok Kumar Das',photo: '/speakers/alok-kumar-das.jpeg', role: 'Convenor' }} />
                 <OfficialCard member={{ name: 'Prof. Rajeev Upadhyay',photo: '/team/Rajeev.webp', role: 'Co-Convenor' }} />
                 <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organisation Secretary',photo: '/team/mrityunjay-sharma.webp' }} />
@@ -607,7 +607,7 @@ export default function TeamPage() {
                   </h3>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
                 <OfficialCard member={{ name: 'Sahil Sharma', role: 'Overall Coordinator',branch: 'Department Of Electronics Engineering · B.Tech, Final Year', photo: '/team/sahil%20sharma.webp', description: 'Leading the organising team and overseeing the planning and execution of Shatabdi Samriddhi 2026. Coordinating across departments, guiding key initiatives and ensuring that every team works towards a shared vision.' }} />
                 <OfficialCard member={{ name: 'Sriya Pissapatti', role: 'Co-Coordinator',branch: 'Department Of Management Studies and Industrial Engineering · MBA, Final Year', photo: '/team/sriya.webp', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />
                 <OfficialCard member={{ name: 'Ashmita Choudhary', role: 'Co-Coordinator',branch: 'Department Of Petroleum Engineering · B.Tech, Final Year', photo: '/team/ASHMITA.jpeg', description: 'Supporting the overall leadership and coordination of the Conclave. Working closely with departmental teams, facilitating collaboration and helping ensure the smooth execution of activities and event initiatives.' }} />              
@@ -645,7 +645,7 @@ export default function TeamPage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 xl:gap-4">
                   {department.members.map((member) => (
                     <MemberCard
                       key={`${department.id}-${member.name}`}
