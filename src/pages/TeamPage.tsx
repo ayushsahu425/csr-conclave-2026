@@ -430,10 +430,14 @@ export default function TeamPage() {
     };
   }, []);
 
-  const totalMembers = TEAM_DEPARTMENTS.reduce(
-    (total, department) => total + department.members.length,
-    0
-  );
+  // The displayed organising-team total includes department members
+  // plus the four student coordinators shown in the section below.
+  const STUDENT_COORDINATOR_COUNT = 4;
+  const totalMembers =
+    TEAM_DEPARTMENTS.reduce(
+      (total, department) => total + department.members.length,
+      0
+    ) + STUDENT_COORDINATOR_COUNT;
 
   return (
     <>
