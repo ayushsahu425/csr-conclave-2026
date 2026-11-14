@@ -7,6 +7,8 @@ import SectionHeading from './ui/SectionHeading';
 /* Each card is split into 5 rows. With CSS subgrid the same row lines up
    across all cards in a line, so the cards look even. */
 const ROWS = 'grid grid-rows-subgrid row-span-5';
+// Set to true to show "CSR Supported Projects @ IIT (ISM) Dhanbad" again
+const SHOW_SUPPORTED_PROJECTS = false;
 
 export default function Projects({ onSelectProject }: { onSelectProject: (p: CSRProject) => void }) {
   return (
@@ -105,8 +107,8 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
             to request the full proposal.
           </span>
         </Reveal>
-
-        {/* ============ CSR supported projects @ IIT (ISM) Dhanbad ============ */}
+{/* ============ CSR supported projects @ IIT (ISM) Dhanbad ============ */}
+        {SHOW_SUPPORTED_PROJECTS && (
         <div id="csr-supported" className="mt-24 scroll-mt-28">
           <SectionHeading
             eyebrow="Impact So Far"
@@ -149,6 +151,7 @@ export default function Projects({ onSelectProject }: { onSelectProject: (p: CSR
             </div>
           )}
         </div>
+        )}
       </div>
     </section>
   );
