@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CalendarPlus, ChevronDown, MapPin,FileDown} from 'lucide-react';
-import { downloadICS, slotToISO } from '../lib/calendar';
+import {googleCalendarUrl, slotToISO } from '../lib/calendar';
 import type { AgendaItem } from '../types';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
@@ -160,8 +160,8 @@ export default function Agenda() {
           </div>
 
           <div className="no-print flex gap-2">
-            <button
-              onClick={() => downloadICS()}
+                        <button
+              onClick={() => window.open(googleCalendarUrl(), '_blank', 'noopener')}
               className="btn-outline !px-4 !py-2"
             >
               <CalendarPlus className="h-4 w-4" />
@@ -297,13 +297,17 @@ export default function Agenda() {
                                 <span />
                               )}
 
-                              <button
+                                                            <button
                                 onClick={() =>
-                                  downloadICS({
-                                    title: item.title,
-                                    description: item.description,
-                                    ...slotToISO(item.time),
-                                  })
+                                  window.open(
+                                    googleCalendarUrl({
+                                      title: item.title,
+                                      description: item.description,
+                                      ...slotToISO(item.time),
+                                    }),
+                                    '_blank',
+                                    'noopener'
+                                  )
                                 }
                                 className="no-print inline-flex items-center gap-1.5 font-semibold text-maroon-600 hover:text-maroon-800"
                               >

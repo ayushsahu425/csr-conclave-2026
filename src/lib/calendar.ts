@@ -48,3 +48,15 @@ export function slotToISO(slot: string) {
   const end = parts[1] ? conv(parts[1]) : new Date(new Date(start).getTime() + 3_600_000).toISOString();
   return { start, end };
 }
+/** Opens Google Calendar with the event pre-filled (no file download). */
+export function googleCalendarUrl(opts?: { title?: string; start?: string; end?: string; description?: string }) {
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: opts?.title ?? `${EVENT.name} – ${EVENT.subtitle}`,
+    dates: `${toICSDate(opts?.start ?? EVENT.start)}/${toICSDate(opts?.end ?? EVENT.end)}`,
+    details: opts?.description ?? EVENT.tagline,
+    location: EVENT.venue,
+    ctz: 'Asia/Kolkata',
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
