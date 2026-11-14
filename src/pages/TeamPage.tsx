@@ -472,9 +472,9 @@ export default function TeamPage() {
                   <ArrowDown className="h-4 w-4" />
                 </a>
 
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-700">
+                {/* <span className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-700">
                   1926 — 2026
-                </span>
+                </span> */}
               </div>
             </div>
 
