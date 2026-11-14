@@ -594,8 +594,8 @@ export default function TeamPage() {
                 <OfficialCard member={{ name: 'Mr. Mrityunjay Sharma', role: 'Organizing Secretary',photo: '/team/mrityunjay-sharma.webp' }} />
                 <OfficialCard member={{ name: 'Ms. Shrishti Shankar',photo: '/team/shrishti-shankar.webp', role: 'Joint Organising Secretary' }} />
                 <OfficialCard member={{ name: 'Mr. Ashish Kumar', role: 'Treasurer' }} />
-                <OfficialCard member={{ name: 'Mr. Mukul Kumar Keshari', role: 'Assistant Treasurer' }} />
-                <OfficialCard member={{ name: 'Mr. Ajit Jha', role: 'Executive Member' }} />
+                <OfficialCard member={{ name: 'Mr. Mukul Kumar Keshari', photo: '/team/mukulsir.webp', role: 'Assistant Treasurer' }} />
+                <OfficialCard member={{ name: 'Mr. Ajit Jha',photo: '/team/ajitsir.webp', role: 'Executive Member' }} />
               </div>
             </div>
 
